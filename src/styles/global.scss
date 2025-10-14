@@ -1,0 +1,14 @@
+@use './variables' as *;
+
+:root {
+  --brand-cyan: #{$brand-cyan};
+  --brand-purple: #{$brand-purple};
+  --brand-dark: #{$brand-dark};
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+

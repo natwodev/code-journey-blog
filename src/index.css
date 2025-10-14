@@ -1,0 +1,79 @@
+@import "tailwindcss";
+@reference "tailwindcss";
+
+@theme {
+  --color-brand-cyan: #00C9A7;
+  --color-brand-purple: #C084FC;
+  --color-brand-dark: #0E1016;
+  --font-poppins: "Poppins", ui-sans-serif, system-ui;
+  --font-inter: "Inter", ui-sans-serif, system-ui;
+  --font-mono: "Roboto Mono", ui-monospace, SFMono-Regular;
+}
+
+html, body, #root {
+  height: 100%;
+}
+
+/* prevent horizontal scroll */
+html, body {
+  overflow-x: hidden;
+}
+
+body {
+  background-color: var(--color-brand-dark);
+  background-image: radial-gradient(1200px 800px at 50% 10%, rgba(0,201,167,0.10), transparent 60%),
+                    radial-gradient(900px 600px at 80% 20%, rgba(192,132,252,0.10), transparent 65%);
+  color: #ffffff;
+  font-family: var(--font-inter);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  scrollbar-color: var(--color-brand-cyan) transparent; /* Firefox */
+  scrollbar-width: thin; /* Firefox */
+}
+
+/* WebKit scrollbar styling */
+*::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+*::-webkit-scrollbar:horizontal {
+  height: 0px; /* hide horizontal bar */
+}
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+*::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, var(--color-brand-cyan), var(--color-brand-purple));
+  border-radius: 9999px;
+  border: 2px solid rgba(0,0,0,0);
+}
+*::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #11d8ba, #c79afb);
+}
+
+.neon-border {
+  @apply border border-brand-cyan/70 shadow-[0_0_28px_rgba(0,201,167,0.45)];
+}
+
+.animated-gradient {
+  background: radial-gradient(closest-side, color(display-p3 0 0.79 0.65 / 0.75), transparent 60%),
+              conic-gradient(from 0deg, var(--color-brand-cyan), var(--color-brand-purple), var(--color-brand-cyan));
+  filter: blur(60px);
+  animation: spin-slow 26s linear infinite;
+}
+
+.animation-delay-7000 {
+  animation-delay: 7s;
+}
+
+.glow-dot {
+  width: 280px;
+  height: 280px;
+  border-radius: 9999px;
+  background: radial-gradient(circle, rgba(192,132,252,0.55), transparent 70%);
+  filter: blur(20px);
+}
+
+@keyframes spin-slow {
+  to { transform: rotate(360deg); }
+}
