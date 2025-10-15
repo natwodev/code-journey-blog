@@ -11,7 +11,7 @@ export default function Navbar() {
   return (
     <header className="sticky top-0 z-40 backdrop-blur bg-black/30 border-b border-white/10">
       <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
-        <Link to="/" className="font-poppins text-lg">CodeJourney.dev</Link>
+        <Link to="/" className="font-poppins text-lg">natwodev</Link>
         <nav className="flex items-center gap-2">
           <NavLink to="/" className={navClass} end>{t('Trang chủ', 'Home')}</NavLink>
           <NavLink to="/blog" className={navClass}>{t('Blog', 'Blog')}</NavLink>

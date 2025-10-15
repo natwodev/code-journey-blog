@@ -5,14 +5,14 @@ import { useTypingEffect } from '../hooks/useTypingEffect'
 export default function About() {
   const info = {
     name: 'Nguyễn Huỳnh Nam',
-    role: 'Developer – Java & JavaScript',
+    role: 'Developer',
     location: 'TP. Hồ Chí Minh, Việt Nam',
   }
 
   const highlights = [
-    { label: 'Năm kinh nghiệm', value: '3+' },
-    { label: 'Dự án', value: '12+' },
-    { label: 'Bài viết', value: '24+' },
+    { label: 'Năm kinh nghiệm', value: '1+' },
+    { label: 'Dự án', value: '4+' },
+    { label: 'Bài viết', value: '4+' },
   ]
 
   const media = [
@@ -43,13 +43,10 @@ export default function About() {
         <motion.div initial={{ opacity: 0, y: 14 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="relative overflow-hidden rounded-3xl border border-white/10 bg-white/5">
           <div className="absolute inset-x-0 -top-20 h-40 blur-2xl bg-gradient-to-r from-brand-cyan/20 to-brand-purple/20" />
           <div className="relative p-6 md:p-8 grid grid-cols-1 md:grid-cols-[auto,1fr] gap-6 items-start">
-            <img src="https://i.pravatar.cc/240?img=12" alt="Avatar" className="w-24 h-24 md:w-28 md:h-28 rounded-2xl object-cover border border-white/10" />
+            <img src="/src/assets/avata.jpg" alt="Avatar" className="w-24 h-24 md:w-28 md:h-28 rounded-2xl object-cover border border-white/10" />
             <div>
               <div className="text-2xl md:text-3xl font-semibold">{info.name}</div>
               <div className="text-brand-cyan/90">{info.role}</div>
-              <p className="mt-3 text-white/80 max-w-2xl">
-                Tập trung Java Networking, React/Three.js, trải nghiệm mượt mà và kể chuyện bằng hình ảnh.
-              </p>
               <div className="mt-5 grid grid-cols-3 gap-3 max-w-md">
                 {highlights.map(h => (
                   <div key={h.label} className="rounded-2xl bg-white/5 border border-white/10 p-4 text-center">
@@ -59,7 +56,6 @@ export default function About() {
                 ))}
               </div>
               <div className="mt-5 flex items-center gap-3 flex-wrap">
-                <a href="#" className="px-4 py-2 rounded-xl neon-border bg-white/5 hover:bg-white/10 transition">Tải CV</a>
                 <SocialLinks />
               </div>
             </div>
@@ -139,7 +135,7 @@ export default function About() {
   )
 }
 
-function MediaTimeline({ media }: { media: { id: string; src: string; alt: string; title: string; desc: string }[] }) {
+function MediaTimeline({ media }: { readonly media: readonly { id: string; src: string; alt: string; title: string; desc: string }[] }) {
   return (
     <section className="max-w-6xl mx-auto px-6 py-12">
       <motion.h2 initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5 }} className="text-2xl font-poppins font-semibold">Khoảnh khắc & không gian làm việc</motion.h2>
@@ -185,7 +181,7 @@ function MediaTimeline({ media }: { media: { id: string; src: string; alt: strin
   )
 }
 
-function MediaTimelineCard({ side, m }: { side: 'left' | 'right'; m: { src: string; alt: string; title: string; desc: string } }) {
+function MediaTimelineCard({ side, m }: { readonly side: 'left' | 'right'; readonly m: { src: string; alt: string; title: string; desc: string } }) {
   const align = side === 'left' ? 'ml-auto' : 'mr-auto'
   const dotSideClass = side === 'left' ? 'right' : 'left'
   const dotColor = side === 'left' ? 'bg-brand-cyan' : 'bg-brand-purple'
@@ -205,11 +201,12 @@ function MediaTimelineCard({ side, m }: { side: 'left' | 'right'; m: { src: stri
   )
 }
 
-function JourneyBlock({ side, title, mood, text, themeClass, typewriter, parallax, focusIn, glowSweep, zoomIn, slideUp, emojis, imageSrc, imageAlt }: { side: 'left' | 'right'; title: string; mood: string; text: string; themeClass: string; typewriter?: boolean; parallax?: boolean; focusIn?: boolean; glowSweep?: boolean; zoomIn?: boolean; slideUp?: boolean; emojis?: string[]; imageSrc?: string; imageAlt?: string }) {
+function JourneyBlock({ side, title, mood, text, themeClass, typewriter, parallax, focusIn, glowSweep, zoomIn, slideUp, emojis, imageSrc, imageAlt }: { readonly side: 'left' | 'right'; readonly title: string; readonly mood: string; readonly text: string; readonly themeClass: string; readonly typewriter?: boolean; readonly parallax?: boolean; readonly focusIn?: boolean; readonly glowSweep?: boolean; readonly zoomIn?: boolean; readonly slideUp?: boolean; readonly emojis?: readonly string[]; readonly imageSrc?: string; readonly imageAlt?: string }) {
   const align = side === 'left' ? 'md:justify-start' : 'md:justify-end'
   const slideX = slideUp ? 0 : side === 'left' ? -40 : 40
   const slideY = slideUp ? 24 : 0
-  const typed = typewriter ? useTypingEffect(text, 18) : text
+  const typedText = useTypingEffect(typewriter ? text : '', 18)
+  const displayedText = typewriter ? typedText : text
   const cardInitial = focusIn ? { opacity: 0.6, filter: 'blur(6px)', scale: 0.98 } : zoomIn ? { scale: 0.96, opacity: 0.9 } : {}
   const cardWhile = focusIn ? { opacity: 1, filter: 'blur(0px)', scale: 1 } : zoomIn ? { scale: 1.02, opacity: 1 } : {}
 
@@ -219,7 +216,7 @@ function JourneyBlock({ side, title, mood, text, themeClass, typewriter, paralla
         <div className="order-1">
           <h4 className="text-xl md:text-2xl font-semibold">{title}</h4>
           <div className="text-white/70 text-sm mt-1">{mood}</div>
-          <p className="text-white/80 mt-2 max-w-xl">{typed}</p>
+          <p className="text-white/80 mt-2 max-w-xl">{displayedText}</p>
           {emojis && (
             <div className="relative h-6 mt-2">
               {emojis.map((e, i) => (
@@ -239,7 +236,7 @@ function JourneyBlock({ side, title, mood, text, themeClass, typewriter, paralla
             <div className="mb-3">
               <h4 className="text-xl md:text-2xl font-semibold">{title}</h4>
               <div className="text-white/70 text-sm mt-1">{mood}</div>
-              <motion.p className="text-white/80 max-w-xl" animate={parallax ? { y: [0, -6, 0] } : {}} transition={parallax ? { duration: 3.2, repeat: Infinity } : {}}>{typed}</motion.p>
+              <motion.p className="text-white/80 max-w-xl" animate={parallax ? { y: [0, -6, 0] } : {}} transition={parallax ? { duration: 3.2, repeat: Infinity } : {}}>{displayedText}</motion.p>
             </div>
           )}
           {glowSweep && (
