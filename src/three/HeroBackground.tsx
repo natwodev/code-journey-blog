@@ -3,12 +3,11 @@ import { Suspense } from 'react'
 import Lighting from './Lighting'
 import StarsBackdrop from './StarsBackdrop'
 import Particles from './Particles'
-import Astronaut from './Astronaut'
 import { OrbitControls } from '@react-three/drei'
 
 type Mode = 'hero' | 'footer'
 
-export default function HeroBackground({ mode = 'hero' }: { mode?: Mode }) {
+export default function HeroBackground({ mode = 'hero' }: { readonly mode?: Mode }) {
   const mask = mode === 'hero'
     ? 'linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 78%, rgba(0,0,0,0.2) 95%, rgba(0,0,0,0) 100%)'
     : 'linear-gradient(to top, rgba(0,0,0,1) 0%, rgba(0,0,0,0.3) 82%, rgba(0,0,0,0) 100%)'
@@ -28,14 +27,13 @@ export default function HeroBackground({ mode = 'hero' }: { mode?: Mode }) {
           <Suspense fallback={null}>
             <Lighting />
             <StarsBackdrop />
-            <Astronaut />
             <Particles />
             <OrbitControls enableZoom={false} autoRotate autoRotateSpeed={0.35} enablePan={false} />
           </Suspense>
         </Canvas>
       </div>
       <div className={`absolute inset-0 ${overlay}`} />
-      <div style={edgeFadeStyle as any} />
+      <div style={edgeFadeStyle as React.CSSProperties} />
     </div>
   )
 }
