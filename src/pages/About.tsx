@@ -2,6 +2,8 @@ import { motion } from 'framer-motion'
 import SocialLinks from '../components/contact/SocialLinks'
 import { useTypingEffect } from '../hooks/useTypingEffect'
 import avatarImg from '../assets/avata.jpg'
+import { projects } from '../data/projects'
+import { certifications } from '../data/skills'
 
 export default function About() {
   const info = {
@@ -39,6 +41,9 @@ export default function About() {
         </div>
       </section>
 
+      {/* Skills derived from projects + Certifications */}
+      {/* removed per request: folded into promo card */}
+
       {/* Personal promo card */}
       <section className="max-w-6xl mx-auto px-6">
         <motion.div initial={{ opacity: 0, y: 14 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="relative overflow-hidden rounded-3xl border border-white/10 bg-white/5">
@@ -58,6 +63,24 @@ export default function About() {
               </div>
               <div className="mt-5 flex items-center gap-3 flex-wrap">
                 <SocialLinks />
+              </div>
+              {/* Inline skills & certifications */}
+              <div className="mt-6">
+                <div className="text-white/80 font-semibold">Kỹ năng</div>
+                <div className="mt-2 flex flex-wrap gap-2">
+                  {Array.from(new Set(projects.flatMap(p => p.tech))).map(tech => (
+                    <span key={tech} className="px-3 py-1 rounded-full bg-white/5 border border-white/10 text-sm">{tech}</span>
+                  ))}
+                </div>
+                <div className="mt-4 text-white/80 font-semibold">Chứng chỉ</div>
+                <div className="mt-2 grid sm:grid-cols-2 gap-2">
+                  {certifications.map(c => (
+                    <div key={c.name} className="rounded-xl bg-white/5 border border-white/10 px-4 py-3 flex items-center justify-between">
+                      <span>{c.name}</span>
+                      <span className="text-brand-cyan/90 text-sm">{c.issuer}</span>
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
           </div>

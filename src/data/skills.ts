@@ -15,8 +15,24 @@ export const timeline: TimelineItem[] = [
 export const skills = [
   { name: 'Java' },
   { name: 'JavaScript' },
+  { name: 'TypeScript' },
   { name: 'React' },
+  { name: 'Tailwind CSS' },
+  { name: 'C#' },
+  { name: '.NET' },
+  { name: 'Blazor' },
+  { name: 'SQL Server' },
+  { name: 'Flutter' },
+  { name: 'Dart' },
+  { name: 'Redis' },
+  { name: 'RabbitMQ' },
   { name: 'Networking' },
   { name: 'Three.js' },
+]
+
+export const certifications = [
+  { issuer: 'Cisco', name: 'CCNA: Introduction to Networks' },
+  { issuer: 'Cisco', name: 'CCNA: Switching, Routing, and Wireless Essentials' },
+  { issuer: 'Cisco', name: 'CCNA: Enterprise Networking, Security, and Automation' },
 ]
 
