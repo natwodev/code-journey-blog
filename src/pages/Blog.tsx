@@ -2,9 +2,11 @@ import { posts } from '../data/posts'
 import BlogPromoCard from '../components/blog/BlogPromoCard'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useMemo, useState } from 'react'
+import { useTranslation } from 'react-i18next'
 import BlogFilter from '../components/blog/BlogFilter'
 
 export default function Blog() {
+  const { t } = useTranslation()
   const tags = useMemo(() => Array.from(new Set(posts.flatMap(p => p.tags))), [])
   const [active, setActive] = useState('All')
   const [query, setQuery] = useState('')
@@ -28,10 +30,10 @@ export default function Blog() {
         <div className="absolute inset-x-0 -top-16 h-40 blur-2xl bg-gradient-to-r from-brand-cyan/20 to-brand-purple/20" />
         <div className="max-w-6xl mx-auto px-6 py-16 relative">
           <motion.h1 initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} className="text-3xl md:text-5xl font-poppins font-semibold">
-            <span className="bg-gradient-to-r from-brand-cyan to-brand-purple bg-clip-text text-transparent">Blog</span> — Truyền cảm hứng lập trình
+            <span className="bg-gradient-to-r from-brand-cyan to-brand-purple bg-clip-text text-transparent">{t('blog.title')}</span> — {t('blog.subtitle')}
           </motion.h1>
           <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.6, delay: 0.1 }} className="mt-3 text-white/75 max-w-3xl">
-            Khám phá những bài viết chọn lọc về Java, JavaScript và thực hành dự án. Hình ảnh truyền thông giúp bạn định hình nội dung nhanh hơn.
+            {t('blog.description')}
           </motion.p>
           <div className="mt-6 flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
             <BlogFilter tags={tags} active={active} onChange={setActive} />
@@ -39,7 +41,7 @@ export default function Blog() {
               <input
                 value={query}
                 onChange={e => setQuery(e.target.value)}
-                placeholder="Tìm theo tiêu đề, mô tả, tag..."
+                placeholder={t('blog.searchPlaceholder')}
                 className="w-full rounded-xl bg-white/5 border border-white/10 px-4 py-2.5 outline-none focus:border-brand-cyan/50"
               />
               {query && (
@@ -47,7 +49,7 @@ export default function Blog() {
               )}
             </div>
           </div>
-          <div className="mt-3 text-white/60 text-sm">{visible.length} bài viết</div>
+          <div className="mt-3 text-white/60 text-sm">{visible.length} {t('blog.postsCount')}</div>
         </div>
       </section>
 
@@ -62,7 +64,7 @@ export default function Blog() {
             ))}
           </AnimatePresence>
           {visible.length === 0 && (
-            <div className="col-span-full text-center text-white/70 py-16">Không có bài viết phù hợp.</div>
+            <div className="col-span-full text-center text-white/70 py-16">{t('blog.noPosts')}</div>
           )}
         </div>
       </section>

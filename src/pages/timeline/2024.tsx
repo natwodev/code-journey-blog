@@ -1,9 +1,12 @@
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import { useEffect } from 'react'
+import { useTranslation } from 'react-i18next'
 import FullPageGradient from '../../components/home/FullPageGradient'
 
 export default function Timeline2024() {
+  const { t } = useTranslation()
+  
   useEffect(() => {
     // Ensure page starts at top
     window.scrollTo(0, 0)
@@ -30,7 +33,7 @@ export default function Timeline2024() {
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M19 12H5M12 19L5 12L12 5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
             </svg>
-            Quay lại trang chủ
+            {t('common.backToHome')}
           </Link>
 
           {/* Header */}
@@ -40,12 +43,12 @@ export default function Timeline2024() {
             transition={{ duration: 0.6, delay: 0.1 }}
             className="mb-12"
           >
-            <div className="text-brand-cyan/90 text-sm font-medium mb-2">Mốc: 2024</div>
+            <div className="text-brand-cyan/90 text-sm font-medium mb-2">{t('timeline.2024.milestone')}</div>
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-poppins font-bold mb-4">
-              Chuyên sâu & Dự án thực tế
+              {t('timeline.2024.title')}
             </h1>
             <p className="text-white/80 text-lg leading-relaxed">
-              Bảo mật thông tin, AI, lập trình Web, công nghệ phần mềm và đồ án cơ sở.
+              {t('timeline.2024.description')}
             </p>
           </motion.div>
 
@@ -65,31 +68,31 @@ export default function Timeline2024() {
                     <path d="M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
                   </svg>
                 </div>
-                Môn học chuyên sâu
+                {t('timeline.2024.advancedSubjects.title')}
               </h2>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div className="bg-white/5 border border-white/10 rounded-xl p-4">
-                  <h3 className="font-semibold text-brand-cyan mb-2">Bảo mật thông tin</h3>
+                  <h3 className="font-semibold text-brand-cyan mb-2">{t('timeline.2024.advancedSubjects.infoSecurity.title')}</h3>
                   <p className="text-white/70 text-sm">
-                    Học về cryptography, network security, ethical hacking và các kỹ thuật bảo mật.
+                    {t('timeline.2024.advancedSubjects.infoSecurity.description')}
                   </p>
                 </div>
                 <div className="bg-white/5 border border-white/10 rounded-xl p-4">
-                  <h3 className="font-semibold text-brand-cyan mb-2">Trí tuệ nhân tạo</h3>
+                  <h3 className="font-semibold text-brand-cyan mb-2">{t('timeline.2024.advancedSubjects.ai.title')}</h3>
                   <p className="text-white/70 text-sm">
-                    Machine Learning, Neural Networks, Deep Learning và các thuật toán AI cơ bản.
+                    {t('timeline.2024.advancedSubjects.ai.description')}
                   </p>
                 </div>
                 <div className="bg-white/5 border border-white/10 rounded-xl p-4">
-                  <h3 className="font-semibold text-brand-cyan mb-2">Công nghệ phần mềm</h3>
+                  <h3 className="font-semibold text-brand-cyan mb-2">{t('timeline.2024.advancedSubjects.softwareEngineering.title')}</h3>
                   <p className="text-white/70 text-sm">
-                    Software development lifecycle, Agile, DevOps và quản lý dự án phần mềm.
+                    {t('timeline.2024.advancedSubjects.softwareEngineering.description')}
                   </p>
                 </div>
                 <div className="bg-white/5 border border-white/10 rounded-xl p-4">
-                  <h3 className="font-semibold text-brand-cyan mb-2">Lập trình Web</h3>
+                  <h3 className="font-semibold text-brand-cyan mb-2">{t('timeline.2024.advancedSubjects.webProgramming.title')}</h3>
                   <p className="text-white/70 text-sm">
-                    HTML, CSS, JavaScript, React, Node.js và full-stack web development.
+                    {t('timeline.2024.advancedSubjects.webProgramming.description')}
                   </p>
                 </div>
               </div>
@@ -103,13 +106,12 @@ export default function Timeline2024() {
                     <path d="M12 2L13.09 8.26L22 9L13.09 9.74L12 16L10.91 9.74L2 9L10.91 8.26L12 2Z" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
                   </svg>
                 </div>
-                Đồ án cơ sở công nghệ thông tin
+                {t('timeline.2024.capstoneProject.title')}
               </h2>
               <div className="bg-white/5 border border-white/10 rounded-xl p-4">
-                <h3 className="font-semibold text-brand-cyan mb-2">Portfolio 3D & Blog</h3>
+                <h3 className="font-semibold text-brand-cyan mb-2">{t('timeline.2024.capstoneProject.projectTitle')}</h3>
                 <p className="text-white/80 leading-relaxed mb-4">
-                  Xây dựng portfolio cá nhân với giao diện 3D sử dụng Three.js và blog chia sẻ kiến thức. 
-                  Dự án kết hợp frontend development, 3D graphics và content management.
+                  {t('timeline.2024.capstoneProject.description')}
                 </p>
                 <div className="flex flex-wrap gap-2">
                   {['React', 'Three.js', 'JavaScript', 'CSS3', 'HTML5', 'Responsive Design'].map((tech) => (
@@ -130,31 +132,31 @@ export default function Timeline2024() {
                     <path d="M21 3H12L8 7H21V3Z" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
                   </svg>
                 </div>
-                Kết quả thực hành xuất sắc
+                {t('timeline.2024.practicalResults.title')}
               </h2>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div className="bg-white/5 border border-white/10 rounded-xl p-4">
-                  <h3 className="font-semibold text-brand-cyan mb-2">Thực hành bảo mật thông tin</h3>
+                  <h3 className="font-semibold text-brand-cyan mb-2">{t('timeline.2024.practicalResults.infoSecurity.title')}</h3>
                   <p className="text-white/70 text-sm">
-                    Thực hành các kỹ thuật penetration testing và security analysis.
+                    {t('timeline.2024.practicalResults.infoSecurity.description')}
                   </p>
                 </div>
                 <div className="bg-white/5 border border-white/10 rounded-xl p-4">
-                  <h3 className="font-semibold text-brand-cyan mb-2">Thực hành lập trình Web</h3>
+                  <h3 className="font-semibold text-brand-cyan mb-2">{t('timeline.2024.practicalResults.webProgramming.title')}</h3>
                   <p className="text-white/70 text-sm">
-                    Xây dựng các ứng dụng web full-stack với modern frameworks.
+                    {t('timeline.2024.practicalResults.webProgramming.description')}
                   </p>
                 </div>
                 <div className="bg-white/5 border border-white/10 rounded-xl p-4">
-                  <h3 className="font-semibold text-brand-cyan mb-2">Thực hành phát triển phần mềm mã nguồn mở</h3>
+                  <h3 className="font-semibold text-brand-cyan mb-2">{t('timeline.2024.practicalResults.openSource.title')}</h3>
                   <p className="text-white/70 text-sm">
-                    Làm việc với Git, GitHub và các công cụ open source.
+                    {t('timeline.2024.practicalResults.openSource.description')}
                   </p>
                 </div>
                 <div className="bg-white/5 border border-white/10 rounded-xl p-4">
-                  <h3 className="font-semibold text-brand-cyan mb-2">Thực hành phân tích thiết kế theo hướng đối tượng</h3>
+                  <h3 className="font-semibold text-brand-cyan mb-2">{t('timeline.2024.practicalResults.objectOriented.title')}</h3>
                   <p className="text-white/70 text-sm">
-                    UML modeling, design patterns và system architecture.
+                    {t('timeline.2024.practicalResults.objectOriented.description')}
                   </p>
                 </div>
               </div>
@@ -168,24 +170,24 @@ export default function Timeline2024() {
                     <path d="M12 2L13.09 8.26L22 9L13.09 9.74L12 16L10.91 9.74L2 9L10.91 8.26L12 2Z" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
                   </svg>
                 </div>
-                Thành tựu nổi bật
+                {t('timeline.2024.achievements.title')}
               </h2>
               <ul className="space-y-3">
                 <li className="flex items-start gap-3">
                   <div className="w-2 h-2 rounded-full bg-brand-cyan mt-2 shrink-0"></div>
-                  <span className="text-white/80">Đạt điểm A trong môn Thực hành bảo mật thông tin</span>
+                  <span className="text-white/80">{t('timeline.2024.achievements.infoSecurity')}</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <div className="w-2 h-2 rounded-full bg-brand-cyan mt-2 shrink-0"></div>
-                  <span className="text-white/80">Đạt điểm A trong môn Công nghệ phần mềm</span>
+                  <span className="text-white/80">{t('timeline.2024.achievements.softwareEngineering')}</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <div className="w-2 h-2 rounded-full bg-brand-cyan mt-2 shrink-0"></div>
-                  <span className="text-white/80">Hoàn thành đồ án cơ sở với điểm A</span>
+                  <span className="text-white/80">{t('timeline.2024.achievements.capstoneProject')}</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <div className="w-2 h-2 rounded-full bg-brand-cyan mt-2 shrink-0"></div>
-                  <span className="text-white/80">Phát triển kỹ năng full-stack web development</span>
+                  <span className="text-white/80">{t('timeline.2024.achievements.fullStack')}</span>
                 </li>
               </ul>
             </div>
@@ -200,7 +202,7 @@ export default function Timeline2024() {
                     <path d="M2 12L12 17L22 12" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
                   </svg>
                 </div>
-                Kỹ năng phát triển
+                {t('timeline.2024.skills.title')}
               </h2>
               <div className="flex flex-wrap gap-2">
                 {['Information Security', 'Artificial Intelligence', 'Software Engineering', 'Web Programming', 'System Analysis & Design', 'Windows Programming', 'Advanced Database', 'React', 'Three.js', 'JavaScript', 'TypeScript'].map((skill) => (

@@ -1,0 +1,234 @@
+{
+  "about": {
+    "title": "Về tôi",
+    "role": "Developer",
+    "location": "TP. Hồ Chí Minh, Việt Nam",
+    "description": "Tập trung vào xây dựng sản phẩm chất lượng, tối ưu hiệu năng và trải nghiệm người dùng. Hướng tới quy trình làm việc hiệu quả và kết quả có thể đo lường.",
+    "availability": "Sẵn sàng cho Freelance/Intern/Full-time",
+    "highlights": {
+      "experience": "Năm kinh nghiệm",
+      "projects": "Dự án",
+      "posts": "Bài viết"
+    },
+    "skills": "Kỹ năng",
+    "certifications": "Chứng chỉ"
+  },
+  "common": {
+    "backToHome": "Quay lại trang chủ",
+    "milestone": "Mốc",
+    "goals": "Mục tiêu",
+    "skills": "Kỹ năng",
+    "achievements": "Thành tựu nổi bật",
+    "keyLearnings": "Những gì đã học được",
+    "challenges": "Thách thức và trải nghiệm",
+    "skillsDeveloped": "Kỹ năng phát triển",
+    "skillsInDevelopment": "Kỹ năng đang phát triển",
+    "learningFocus": "Trọng tâm học tập",
+    "futureGoals": "Mục tiêu năm",
+    "viewDetails": "Xem chi tiết"
+  },
+  "home": {
+    "timeline": "Hành trình học tập"
+  },
+  "projects": {
+    "title": "Dự án",
+    "description": "Các dự án cá nhân & học thuật."
+  },
+  "blog": {
+    "title": "Blog",
+    "subtitle": "Truyền cảm hứng lập trình",
+    "description": "Khám phá những bài viết chọn lọc về Java, JavaScript và thực hành dự án. Hình ảnh truyền thông giúp bạn định hình nội dung nhanh hơn.",
+    "searchPlaceholder": "Tìm theo tiêu đề, mô tả, tag...",
+    "postsCount": "bài viết",
+    "noPosts": "Không có bài viết phù hợp."
+  },
+  "timeline": {
+    "2022": {
+      "title": "Bắt đầu học lập trình",
+      "description": "Học tại Hutech University, làm quen với C/C++ cơ bản.",
+      "university": {
+        "title": "Hutech University",
+        "description": "Bắt đầu hành trình học lập trình tại Hutech University - một trong những trường đại học hàng đầu về công nghệ thông tin tại Việt Nam. Đây là năm đầu tiên làm quen với thế giới lập trình và công nghệ."
+      },
+      "programmingLanguages": {
+        "title": "Ngôn ngữ lập trình đầu tiên",
+        "c": {
+          "title": "C Programming",
+          "description": "Học ngôn ngữ C cơ bản - nền tảng của mọi ngôn ngữ lập trình hiện đại."
+        },
+        "cpp": {
+          "title": "C++ Programming", 
+          "description": "Làm quen với lập trình hướng đối tượng thông qua C++."
+        }
+      },
+      "learnings": {
+        "title": "Những gì đã học được",
+        "items": [
+          "Hiểu được cấu trúc cơ bản của chương trình máy tính",
+          "Làm quen với biến, hàm, vòng lặp và điều kiện",
+          "Hiểu khái niệm con trỏ và quản lý bộ nhớ",
+          "Lập trình hướng đối tượng với C++"
+        ]
+      },
+      "challenges": {
+        "title": "Thách thức và trải nghiệm",
+        "description": "Năm 2022 là năm khởi đầu đầy thử thách khi lần đầu tiên tiếp xúc với lập trình. Từ việc không biết gì về code đến việc có thể viết được những chương trình đơn giản, đây là bước ngoặt quan trọng trong hành trình học tập của tôi."
+      }
+    },
+    "2023": {
+      "title": "Nền tảng lập trình & Mạng máy tính",
+      "description": "Cấu trúc dữ liệu, giải thuật, OOP, hệ điều hành, mạng máy tính và cơ sở dữ liệu.",
+      "coreSubjects": {
+        "title": "Môn học cốt lõi",
+        "dataStructures": {
+          "title": "Cấu trúc dữ liệu & Giải thuật",
+          "description": "Học các cấu trúc dữ liệu cơ bản như array, linked list, stack, queue và các thuật toán sắp xếp, tìm kiếm."
+        },
+        "oop": {
+          "title": "Lập trình hướng đối tượng",
+          "description": "Nắm vững các khái niệm OOP: class, object, inheritance, polymorphism, encapsulation."
+        },
+        "networks": {
+          "title": "Mạng máy tính",
+          "description": "Hiểu về TCP/IP, HTTP, socket programming và các giao thức mạng cơ bản."
+        },
+        "database": {
+          "title": "Cơ sở dữ liệu",
+          "description": "Học SQL, thiết kế database, normalization và quản lý dữ liệu."
+        }
+      },
+      "practicalSubjects": {
+        "title": "Môn thực hành xuất sắc",
+        "graphTheory": {
+          "title": "Thực hành lý thuyết đồ thị",
+          "description": "Thực hiện các thuật toán đồ thị như DFS, BFS, Dijkstra, Kruskal."
+        },
+        "operatingSystem": {
+          "title": "Thực hành hệ điều hành",
+          "description": "Làm việc với Linux, shell scripting, process management."
+        },
+        "oopPractice": {
+          "title": "Thực hành lập trình hướng đối tượng",
+          "description": "Xây dựng các ứng dụng Java với OOP principles."
+        },
+        "networkPractice": {
+          "title": "Thực hành mạng máy tính",
+          "description": "Lập trình socket, xây dựng ứng dụng client-server."
+        }
+      },
+      "achievements": {
+        "items": [
+          "Đạt điểm A trong môn Thực hành lý thuyết đồ thị",
+          "Đạt điểm A trong môn Thực hành lập trình hướng đối tượng",
+          "Nắm vững kiến thức nền tảng về cấu trúc dữ liệu và giải thuật",
+          "Hiểu sâu về lập trình mạng và socket programming"
+        ]
+      }
+    },
+    "2024": {
+      "title": "Chuyên sâu & Dự án thực tế",
+      "description": "Bảo mật thông tin, AI, lập trình Web, công nghệ phần mềm và đồ án cơ sở.",
+      "advancedSubjects": {
+        "title": "Môn học chuyên sâu",
+        "security": {
+          "title": "Bảo mật thông tin",
+          "description": "Học về cryptography, network security, ethical hacking và các kỹ thuật bảo mật."
+        },
+        "ai": {
+          "title": "Trí tuệ nhân tạo",
+          "description": "Machine Learning, Neural Networks, Deep Learning và các thuật toán AI cơ bản."
+        },
+        "softwareEngineering": {
+          "title": "Công nghệ phần mềm",
+          "description": "Software development lifecycle, Agile, DevOps và quản lý dự án phần mềm."
+        },
+        "webProgramming": {
+          "title": "Lập trình Web",
+          "description": "HTML, CSS, JavaScript, React, Node.js và full-stack web development."
+        }
+      },
+      "capstoneProject": {
+        "title": "Đồ án cơ sở công nghệ thông tin",
+        "project": {
+          "title": "Portfolio 3D & Blog",
+          "description": "Xây dựng portfolio cá nhân với giao diện 3D sử dụng Three.js và blog chia sẻ kiến thức. Dự án kết hợp frontend development, 3D graphics và content management.",
+          "technologies": ["React", "Three.js", "JavaScript", "CSS3", "HTML5", "Responsive Design"]
+        }
+      },
+      "practicalResults": {
+        "title": "Kết quả thực hành xuất sắc",
+        "securityPractice": {
+          "title": "Thực hành bảo mật thông tin",
+          "description": "Thực hành các kỹ thuật penetration testing và security analysis."
+        },
+        "webPractice": {
+          "title": "Thực hành lập trình Web",
+          "description": "Xây dựng các ứng dụng web full-stack với modern frameworks."
+        },
+        "openSourcePractice": {
+          "title": "Thực hành phát triển phần mềm mã nguồn mở",
+          "description": "Làm việc với Git, GitHub và các công cụ open source."
+        },
+        "oopDesignPractice": {
+          "title": "Thực hành phân tích thiết kế theo hướng đối tượng",
+          "description": "UML modeling, design patterns và system architecture."
+        }
+      },
+      "achievements": {
+        "items": [
+          "Đạt điểm A trong môn Thực hành bảo mật thông tin",
+          "Đạt điểm A trong môn Công nghệ phần mềm",
+          "Hoàn thành đồ án cơ sở với điểm A",
+          "Phát triển kỹ năng full-stack web development"
+        ]
+      }
+    },
+    "2025": {
+      "milestone": "Mốc: 2025",
+      "title": "Chuyên ngành & Thực tập",
+      "description": "Lập trình mạng máy tính, quản lý dự án IT, lập trình mobile và thực tập Web.",
+      "specializedSubjects": {
+        "title": "Môn học chuyên ngành",
+        "networkProgramming": {
+          "title": "Lập trình mạng máy tính",
+          "description": "Chuyên sâu về network programming, socket programming, và xây dựng ứng dụng mạng."
+        },
+        "networkProgrammingPractice": {
+          "title": "Thực hành lập trình mạng máy tính",
+          "description": "Thực hành các kỹ thuật lập trình mạng, xây dựng client-server applications."
+        },
+        "projectManagement": {
+          "title": "Quản lý dự án công nghệ thông tin",
+          "description": "Project management methodologies, Agile, Scrum và quản lý team phát triển."
+        },
+        "mobileProgramming": {
+          "title": "Lập trình trên thiết bị di động",
+          "description": "Mobile app development, React Native, Flutter và cross-platform development."
+        }
+      },
+      "internship": {
+        "title": "Thực tập Web Development",
+        "position": "Frontend Developer Intern",
+        "description": "Thực tập tại công ty công nghệ, tham gia team Frontend Development. Tập trung vào việc tối ưu hóa hiệu năng React applications và học hỏi các best practices trong phát triển web hiện đại.",
+        "technologies": ["React", "JavaScript", "TypeScript", "Performance Optimization", "Team Collaboration", "Agile Development"]
+      },
+      "learningFocus": {
+        "title": "Trọng tâm học tập",
+        "networkProgramming": "Chuyên sâu về Network Programming và Socket Programming",
+        "projectManagement": "Kỹ năng quản lý dự án IT và team leadership",
+        "mobileDevelopment": "Phát triển ứng dụng mobile cross-platform",
+        "professionalExperience": "Kinh nghiệm thực tế trong môi trường làm việc chuyên nghiệp"
+      },
+      "goals": {
+        "title": "Mục tiêu năm 2025",
+        "graduation": "Hoàn thành tốt nghiệp với điểm số cao",
+        "internship": "Tích lũy kinh nghiệm thực tế qua thực tập",
+        "fullStack": "Phát triển kỹ năng full-stack development",
+        "professionalCareer": "Chuẩn bị cho sự nghiệp developer chuyên nghiệp"
+      },
+      "skills": {
+        "title": "Kỹ năng đang phát triển"
+      }
+    }
+  }
+}

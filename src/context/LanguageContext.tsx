@@ -1,5 +1,6 @@
-import { createContext, useContext, useMemo, useState } from 'react';
+import { createContext, useContext, useMemo, useState, useEffect } from 'react';
 import type { ReactNode } from 'react'
+import { useTranslation } from 'react-i18next'
 
 export type Lang = 'vi' | 'en'
 

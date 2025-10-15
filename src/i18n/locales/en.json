@@ -1,0 +1,234 @@
+{
+  "about": {
+    "title": "About me",
+    "role": "Developer",
+    "location": "Ho Chi Minh City, Vietnam",
+    "description": "Focus on building quality products, optimizing performance and user experience. Towards efficient workflows and measurable results.",
+    "availability": "Available for Freelance/Intern/Full-time",
+    "highlights": {
+      "experience": "Years of experience",
+      "projects": "Projects",
+      "posts": "Posts"
+    },
+    "skills": "Skills",
+    "certifications": "Certifications"
+  },
+  "common": {
+    "backToHome": "Back to Home",
+    "milestone": "Milestone",
+    "goals": "Goals",
+    "skills": "Skills",
+    "achievements": "Key Achievements",
+    "keyLearnings": "What I Learned",
+    "challenges": "Challenges & Experiences",
+    "skillsDeveloped": "Skills Developed",
+    "skillsInDevelopment": "Skills in Development",
+    "learningFocus": "Learning Focus",
+    "futureGoals": "Goals for",
+    "viewDetails": "View Details"
+  },
+  "home": {
+    "timeline": "Learning Journey"
+  },
+  "projects": {
+    "title": "Projects",
+    "description": "Personal & academic projects."
+  },
+  "blog": {
+    "title": "Blog",
+    "subtitle": "Inspiring Programming",
+    "description": "Discover curated articles about Java, JavaScript, and project practice. Media images help you understand content faster.",
+    "searchPlaceholder": "Search by title, description, tag...",
+    "postsCount": "posts",
+    "noPosts": "No matching posts found."
+  },
+  "timeline": {
+    "2022": {
+      "title": "Starting Programming Journey",
+      "description": "Studying at Hutech University, learning C/C++ basics.",
+      "university": {
+        "title": "Hutech University",
+        "description": "Started my programming journey at Hutech University - one of Vietnam's leading universities in information technology. This was my first year getting familiar with the world of programming and technology."
+      },
+      "programmingLanguages": {
+        "title": "First Programming Languages",
+        "c": {
+          "title": "C Programming",
+          "description": "Learning basic C programming - the foundation of all modern programming languages."
+        },
+        "cpp": {
+          "title": "C++ Programming",
+          "description": "Getting familiar with object-oriented programming through C++."
+        }
+      },
+      "learnings": {
+        "title": "What I Learned",
+        "items": [
+          "Understanding the basic structure of computer programs",
+          "Getting familiar with variables, functions, loops, and conditions",
+          "Understanding pointers and memory management concepts",
+          "Object-oriented programming with C++"
+        ]
+      },
+      "challenges": {
+        "title": "Challenges & Experiences",
+        "description": "2022 was a challenging starting year when I first encountered programming. From knowing nothing about code to being able to write simple programs, this was an important turning point in my learning journey."
+      }
+    },
+    "2023": {
+      "title": "Programming Foundations & Computer Networks",
+      "description": "Data structures, algorithms, OOP, operating systems, computer networks, and databases.",
+      "coreSubjects": {
+        "title": "Core Subjects",
+        "dataStructures": {
+          "title": "Data Structures & Algorithms",
+          "description": "Learning basic data structures like arrays, linked lists, stacks, queues, and sorting and searching algorithms."
+        },
+        "oop": {
+          "title": "Object-Oriented Programming",
+          "description": "Mastering OOP concepts: classes, objects, inheritance, polymorphism, encapsulation."
+        },
+        "networks": {
+          "title": "Computer Networks",
+          "description": "Understanding TCP/IP, HTTP, socket programming, and basic network protocols."
+        },
+        "database": {
+          "title": "Database Systems",
+          "description": "Learning SQL, database design, normalization, and data management."
+        }
+      },
+      "practicalSubjects": {
+        "title": "Excellent Practical Results",
+        "graphTheory": {
+          "title": "Graph Theory Practice",
+          "description": "Implementing graph algorithms like DFS, BFS, Dijkstra, Kruskal."
+        },
+        "operatingSystem": {
+          "title": "Operating System Practice",
+          "description": "Working with Linux, shell scripting, process management."
+        },
+        "oopPractice": {
+          "title": "Object-Oriented Programming Practice",
+          "description": "Building Java applications with OOP principles."
+        },
+        "networkPractice": {
+          "title": "Computer Network Practice",
+          "description": "Socket programming, building client-server applications."
+        }
+      },
+      "achievements": {
+        "items": [
+          "Achieved grade A in Graph Theory Practice",
+          "Achieved grade A in Object-Oriented Programming Practice",
+          "Mastered foundational knowledge of data structures and algorithms",
+          "Deep understanding of network programming and socket programming"
+        ]
+      }
+    },
+    "2024": {
+      "title": "Advanced & Real Projects",
+      "description": "Information security, AI, web programming, software engineering, and capstone project.",
+      "advancedSubjects": {
+        "title": "Advanced Subjects",
+        "security": {
+          "title": "Information Security",
+          "description": "Learning cryptography, network security, ethical hacking, and security techniques."
+        },
+        "ai": {
+          "title": "Artificial Intelligence",
+          "description": "Machine Learning, Neural Networks, Deep Learning, and basic AI algorithms."
+        },
+        "softwareEngineering": {
+          "title": "Software Engineering",
+          "description": "Software development lifecycle, Agile, DevOps, and software project management."
+        },
+        "webProgramming": {
+          "title": "Web Programming",
+          "description": "HTML, CSS, JavaScript, React, Node.js, and full-stack web development."
+        }
+      },
+      "capstoneProject": {
+        "title": "IT Capstone Project",
+        "project": {
+          "title": "3D Portfolio & Blog",
+          "description": "Building a personal portfolio with 3D interface using Three.js and knowledge-sharing blog. The project combines frontend development, 3D graphics, and content management.",
+          "technologies": ["React", "Three.js", "JavaScript", "CSS3", "HTML5", "Responsive Design"]
+        }
+      },
+      "practicalResults": {
+        "title": "Excellent Practical Results",
+        "securityPractice": {
+          "title": "Information Security Practice",
+          "description": "Practicing penetration testing techniques and security analysis."
+        },
+        "webPractice": {
+          "title": "Web Programming Practice",
+          "description": "Building full-stack web applications with modern frameworks."
+        },
+        "openSourcePractice": {
+          "title": "Open Source Software Development Practice",
+          "description": "Working with Git, GitHub, and open source tools."
+        },
+        "oopDesignPractice": {
+          "title": "Object-Oriented Analysis and Design Practice",
+          "description": "UML modeling, design patterns, and system architecture."
+        }
+      },
+      "achievements": {
+        "items": [
+          "Achieved grade A in Information Security Practice",
+          "Achieved grade A in Software Engineering",
+          "Completed capstone project with grade A",
+          "Developed full-stack web development skills"
+        ]
+      }
+    },
+    "2025": {
+      "milestone": "Milestone: 2025",
+      "title": "Specialization & Internship",
+      "description": "Computer network programming, IT project management, mobile programming, and web internship.",
+      "specializedSubjects": {
+        "title": "Specialized Subjects",
+        "networkProgramming": {
+          "title": "Computer Network Programming",
+          "description": "Advanced network programming, socket programming, and building network applications."
+        },
+        "networkProgrammingPractice": {
+          "title": "Computer Network Programming Practice",
+          "description": "Practicing network programming techniques, building client-server applications."
+        },
+        "projectManagement": {
+          "title": "IT Project Management",
+          "description": "Project management methodologies, Agile, Scrum, and development team management."
+        },
+        "mobileProgramming": {
+          "title": "Mobile Device Programming",
+          "description": "Mobile app development, React Native, Flutter, and cross-platform development."
+        }
+      },
+      "internship": {
+        "title": "Web Development Internship",
+        "position": "Frontend Developer Intern",
+        "description": "Internship at a technology company, joining the Frontend Development team. Focus on optimizing React application performance and learning best practices in modern web development.",
+        "technologies": ["React", "JavaScript", "TypeScript", "Performance Optimization", "Team Collaboration", "Agile Development"]
+      },
+      "learningFocus": {
+        "title": "Learning Focus",
+        "networkProgramming": "Specializing in Network Programming and Socket Programming",
+        "projectManagement": "IT project management skills and team leadership",
+        "mobileDevelopment": "Cross-platform mobile application development",
+        "professionalExperience": "Real-world experience in professional work environment"
+      },
+      "goals": {
+        "title": "Goals for 2025",
+        "graduation": "Graduate with high scores",
+        "internship": "Gain practical experience through internship",
+        "fullStack": "Develop full-stack development skills",
+        "professionalCareer": "Prepare for professional developer career"
+      },
+      "skills": {
+        "title": "Skills in Development"
+      }
+    }
+  }
+}

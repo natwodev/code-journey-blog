@@ -1,20 +1,23 @@
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 import avatarImg from '../assets/avata.jpg'
 import { projects } from '../data/projects'
 import { certifications } from '../data/skills'
 
 export default function About() {
+  const { t } = useTranslation()
+  
   const info = {
     name: 'Nguyen Huynh Nam',
-    role: 'Developer',
-    location: 'TP. Hồ Chí Minh, Việt Nam',
+    role: t('about.role'),
+    location: t('about.location'),
   }
 
   const highlights = [
-    { label: 'Năm kinh nghiệm', value: '1+' },
-    { label: 'Dự án', value: '4+' },
-    { label: 'Bài viết', value: '4+' },
+    { label: t('about.highlights.experience'), value: '1+' },
+    { label: t('about.highlights.projects'), value: '4+' },
+    { label: t('about.highlights.posts'), value: '4+' },
   ]
 
   
@@ -28,7 +31,7 @@ export default function About() {
         <div className="absolute inset-x-0 -top-16 h-40 blur-2xl bg-gradient-to-r from-brand-cyan/20 to-brand-purple/20" />
         <div className="max-w-6xl mx-auto px-6 pt-14 pb-10 relative">
           <motion.h1 initial={{ opacity: 0, y: 14 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} className="text-3xl md:text-5xl font-poppins font-semibold">
-            <span className="bg-gradient-to-r from-brand-cyan to-brand-purple bg-clip-text text-transparent">About me</span>
+            <span className="bg-gradient-to-r from-brand-cyan to-brand-purple bg-clip-text text-transparent">{t('about.title')}</span>
           </motion.h1>
           <motion.div aria-hidden initial={{ x: '-120%' }} animate={{ x: '120%' }} transition={{ duration: 3, repeat: Infinity, repeatDelay: 4 }} className="pointer-events-none absolute inset-y-0 left-0 w-1/3 bg-gradient-to-r from-white/5 to-transparent" />
         </div>
@@ -71,11 +74,10 @@ export default function About() {
                 </a>
               </div>
               <p className="mt-4 text-white/80 max-w-lg">
-                Tập trung vào xây dựng sản phẩm chất lượng, tối ưu hiệu năng và trải nghiệm người dùng.
-                Hướng tới quy trình làm việc hiệu quả và kết quả có thể đo lường.
+                {t('about.description')}
               </p>
               <div className="mt-2 text-sm text-white/60">
-                {info.location} • Available for Freelance/Intern/Full-time
+                {info.location} • {t('about.availability')}
               </div>
               
               
@@ -101,13 +103,13 @@ export default function About() {
               
               {/* Inline skills & certifications */}
               <div className="mt-6">
-                <div className="text-white/80 font-semibold">Kỹ năng</div>
+                <div className="text-white/80 font-semibold">{t('about.skills')}</div>
                 <div className="mt-2 flex flex-wrap gap-2">
                   {Array.from(new Set(projects.flatMap(p => p.tech))).map(tech => (
                     <span key={tech} className="px-3 py-1 rounded-full bg-white/5 border border-white/10 text-sm">{tech}</span>
                   ))}
                 </div>
-                <div className="mt-4 text-white/80 font-semibold">Chứng chỉ</div>
+                <div className="mt-4 text-white/80 font-semibold">{t('about.certifications')}</div>
                 <div className="mt-2 grid sm:grid-cols-2 gap-2">
                   {certifications.map(c => (
                     <div key={c.name} className="rounded-xl bg-white/5 border border-white/10 px-4 py-3 flex items-center justify-between">
