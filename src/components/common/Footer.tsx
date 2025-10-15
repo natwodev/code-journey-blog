@@ -1,4 +1,4 @@
-import { useLanguage } from '../../context/LanguageContext'
+import { useLanguage } from '../../hooks/useLanguage'
 import { usePageViewCounter } from '../../hooks/usePageViewCounter'
 
 export default function Footer() {

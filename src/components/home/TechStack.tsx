@@ -1,9 +1,7 @@
 import { motion } from 'framer-motion'
 import { skills } from '../../data/skills'
-import { useTranslation } from 'react-i18next'
 
 export default function TechStack() {
-  const { t } = useTranslation()
   
   return (
     <section className="max-w-5xl mx-auto px-4 sm:px-6 py-16">

@@ -2,7 +2,7 @@ import { motion } from 'framer-motion'
 import { useRef } from 'react'
 import { Link } from 'react-router-dom'
 import HeroBackground from '../../three/HeroBackground'
-import { useLanguage } from '../../context/LanguageContext'
+import { useLanguage } from '../../hooks/useLanguage'
 import AudioToggle from '../common/AudioToggle'
 
 export default function HeroSection() {

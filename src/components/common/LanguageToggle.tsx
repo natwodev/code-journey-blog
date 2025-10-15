@@ -1,4 +1,4 @@
-import { useLanguage } from '../../context/LanguageContext'
+import { useLanguage } from '../../hooks/useLanguage'
 import { useTranslation } from 'react-i18next'
 
 export default function LanguageToggle() {
