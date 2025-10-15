@@ -7,18 +7,18 @@ import { LanguageProvider } from './context/LanguageContext'
 import Navbar from './components/common/Navbar'
 import FooterSwitch from './components/common/FooterSwitch'
 import ScrollToTop from './components/common/ScrollToTop'
-import { HashRouter } from 'react-router-dom'
+import { BrowserRouter } from 'react-router-dom'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <ThemeProvider>
       <LanguageProvider>
-        <HashRouter>
+        <BrowserRouter basename={import.meta.env.BASE_URL.replace(/\/$/, '')}>
           <Navbar />
           <ScrollToTop />
           <App />
           <FooterSwitch />
-        </HashRouter>
+        </BrowserRouter>
       </LanguageProvider>
     </ThemeProvider>
   </StrictMode>,
