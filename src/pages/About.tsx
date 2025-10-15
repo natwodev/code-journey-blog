@@ -41,9 +41,9 @@ export default function About() {
       <section className="max-w-6xl mx-auto px-6">
         <motion.div initial={{ opacity: 0, y: 14 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="relative overflow-hidden rounded-3xl border border-white/10 bg-white/5">
           <div className="absolute inset-x-0 -top-20 h-40 blur-2xl bg-gradient-to-r from-brand-cyan/20 to-brand-purple/20" />
-          <div className="relative p-6 md:p-8 grid grid-cols-[auto,1fr] grid-rows-[auto,1fr] gap-6 items-start">
+          <div className="relative p-6 md:p-8 grid grid-cols-1 md:grid-cols-[auto,1fr] md:grid-rows-[auto,1fr] gap-6 items-start">
             {/* Row 1, Col 1: Avatar */}
-            <img src={avatarImg} alt="Avatar" className="w-[262px] h-[262px] md:w-[307px] md:h-[307px] rounded-2xl object-cover border border-white/10" />
+            <img src={avatarImg} alt="Avatar" className="mx-auto w-[200px] h-[200px] md:w-[307px] md:h-[307px] rounded-2xl object-cover border border-white/10" />
 
             {/* Row 1, Col 2: Name + Role */}
             <div>
@@ -82,7 +82,7 @@ export default function About() {
             </div>
 
             {/* Row 2 (spans both columns): Rest of info */}
-            <div className="col-span-2">
+            <div className="md:col-span-2">
               <div className="mt-5 grid grid-cols-3 gap-3 max-w-md mx-auto justify-items-center items-stretch">
                 {highlights.map(h => {
                   const card = (
