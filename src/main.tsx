@@ -13,7 +13,7 @@ createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <ThemeProvider>
       <LanguageProvider>
-        <BrowserRouter basename={import.meta.env.BASE_URL.replace(/\/$/, '')}>
+        <BrowserRouter>
           <Navbar />
           <ScrollToTop />
           <App />
