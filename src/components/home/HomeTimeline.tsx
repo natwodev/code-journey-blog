@@ -65,7 +65,7 @@ export default function HomeTimeline() {
                   year={item.year}
                   title={item.title}
                   desc={item.desc}
-                  ctaHref={idx % 2 === 0 ? '/about' : '/projects'}
+                  ctaHref={`/timeline/${item.year}`}
                 />
               </motion.div>
             )
