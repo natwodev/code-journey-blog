@@ -44,12 +44,14 @@ export default function About() {
       <section className="max-w-6xl mx-auto px-6">
         <motion.div initial={{ opacity: 0, y: 14 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="relative overflow-hidden rounded-3xl border border-white/10 bg-white/5">
           <div className="absolute inset-x-0 -top-20 h-40 blur-2xl bg-gradient-to-r from-brand-cyan/20 to-brand-purple/20" />
-          <div className="relative p-6 md:p-8 grid grid-cols-1 md:grid-cols-[auto,1fr] md:grid-rows-[auto,1fr] gap-3 md:gap-4 items-start">
+          <div className="relative p-6 md:p-8 grid grid-cols-1 md:grid-cols-[auto,1fr] md:grid-rows-[auto,1fr] gap-4 md:gap-4 items-start">
             {/* Row 1, Col 1: Avatar */}
-            <img src={avatarImg} alt="Avatar" className="ml-0 w-[220px] h-[220px] md:w-[338px] md:h-[338px] rounded-2xl object-cover border border-white/10" />
+            <div className="flex justify-center md:justify-start">
+              <img src={avatarImg} alt="Avatar" className="w-[180px] h-[180px] md:w-[338px] md:h-[338px] rounded-2xl object-cover border border-white/10" />
+            </div>
 
             {/* Row 1, Col 2: Name + Role */}
-            <div className="ml-2 md:ml-4">
+            <div className="md:ml-4">
               <div className="text-3xl md:text-4xl font-semibold">{info.name}</div>
               <div className="text-lg md:text-xl text-brand-cyan/90 mt-1">{info.role}</div>
               {/* Liên hệ: Zalo, Facebook, Email */}
