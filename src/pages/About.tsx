@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion'
+import { Link } from 'react-router-dom'
 import SocialLinks from '../components/contact/SocialLinks'
 import { useTypingEffect } from '../hooks/useTypingEffect'
 import avatarImg from '../assets/avata.jpg'
@@ -54,12 +55,19 @@ export default function About() {
               <div className="text-2xl md:text-3xl font-semibold">{info.name}</div>
               <div className="text-brand-cyan/90">{info.role}</div>
               <div className="mt-5 grid grid-cols-3 gap-3 max-w-md">
-                {highlights.map(h => (
-                  <div key={h.label} className="rounded-2xl bg-white/5 border border-white/10 p-4 text-center">
-                    <div className="text-2xl font-semibold text-brand-cyan">{h.value}</div>
-                    <div className="text-xs text-white/70">{h.label}</div>
-                  </div>
-                ))}
+                {highlights.map(h => {
+                  const card = (
+                    <div className="rounded-2xl bg-white/5 border border-white/10 p-4 text-center transition hover:bg-white/10 hover:border-brand-cyan/40">
+                      <div className="text-2xl font-semibold text-brand-cyan">{h.value}</div>
+                      <div className="text-xs text-white/70">{h.label}</div>
+                    </div>
+                  )
+                  return h.label === 'Dự án' ? (
+                    <Link to="/projects" key={h.label} aria-label="Đi tới trang Dự án">{card}</Link>
+                  ) : (
+                    <div key={h.label}>{card}</div>
+                  )
+                })}
               </div>
               <div className="mt-5 flex items-center gap-3 flex-wrap">
                 <SocialLinks />
