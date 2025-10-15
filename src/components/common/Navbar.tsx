@@ -22,7 +22,6 @@ export default function Navbar() {
           <NavLink to="/blog" className={navClass}>{t('Blog', 'Blog')}</NavLink>
           <NavLink to="/projects" className={navClass}>{t('Dự án', 'Projects')}</NavLink>
           <NavLink to="/about" className={navClass}>{t('Giới thiệu', 'About')}</NavLink>
-          <NavLink to="/contact" className={navClass}>{t('Liên hệ', 'Contact')}</NavLink>
         </nav>
 
         <div className="flex items-center gap-2">
@@ -49,7 +48,6 @@ export default function Navbar() {
             <NavLink onClick={() => setIsOpen(false)} to="/blog" className={navClass}>{t('Blog', 'Blog')}</NavLink>
             <NavLink onClick={() => setIsOpen(false)} to="/projects" className={navClass}>{t('Dự án', 'Projects')}</NavLink>
             <NavLink onClick={() => setIsOpen(false)} to="/about" className={navClass}>{t('Giới thiệu', 'About')}</NavLink>
-            <NavLink onClick={() => setIsOpen(false)} to="/contact" className={navClass}>{t('Liên hệ', 'Contact')}</NavLink>
           </div>
         </div>
       )}
