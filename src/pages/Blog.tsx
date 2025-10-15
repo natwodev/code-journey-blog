@@ -7,7 +7,19 @@ import BlogFilter from '../components/blog/BlogFilter'
 export default function Blog() {
   const tags = useMemo(() => Array.from(new Set(posts.flatMap(p => p.tags))), [])
   const [active, setActive] = useState('All')
-  const visible = useMemo(() => active === 'All' ? posts : posts.filter(p => p.tags.includes(active)), [active])
+  const [query, setQuery] = useState('')
+  const visible = useMemo(() => {
+    const base = active === 'All' ? posts : posts.filter(p => p.tags.includes(active))
+    const filtered = query.trim()
+      ? base.filter(p =>
+          [p.title, p.excerpt, ...(p.tags || [])]
+            .join(' ') // simple search in fields
+            .toLowerCase()
+            .includes(query.toLowerCase())
+        )
+      : base
+    return [...filtered].sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
+  }, [active, query])
 
   return (
     <div className="min-h-screen">
@@ -21,9 +33,21 @@ export default function Blog() {
           <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.6, delay: 0.1 }} className="mt-3 text-white/75 max-w-3xl">
             Khám phá những bài viết chọn lọc về Java, JavaScript và thực hành dự án. Hình ảnh truyền thông giúp bạn định hình nội dung nhanh hơn.
           </motion.p>
-          <div className="mt-6">
+          <div className="mt-6 flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
             <BlogFilter tags={tags} active={active} onChange={setActive} />
+            <div className="relative w-full md:w-80">
+              <input
+                value={query}
+                onChange={e => setQuery(e.target.value)}
+                placeholder="Tìm theo tiêu đề, mô tả, tag..."
+                className="w-full rounded-xl bg-white/5 border border-white/10 px-4 py-2.5 outline-none focus:border-brand-cyan/50"
+              />
+              {query && (
+                <button onClick={() => setQuery('')} className="absolute right-2 top-1/2 -translate-y-1/2 text-white/60 hover:text-white">✕</button>
+              )}
+            </div>
           </div>
+          <div className="mt-3 text-white/60 text-sm">{visible.length} bài viết</div>
         </div>
       </section>
 
@@ -37,6 +61,9 @@ export default function Blog() {
               </motion.div>
             ))}
           </AnimatePresence>
+          {visible.length === 0 && (
+            <div className="col-span-full text-center text-white/70 py-16">Không có bài viết phù hợp.</div>
+          )}
         </div>
       </section>
     </div>
