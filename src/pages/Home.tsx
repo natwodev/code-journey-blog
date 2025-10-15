@@ -1,11 +1,21 @@
 import HeroSection from '../components/home/HeroSection'
 import FullPageGradient from '../components/home/FullPageGradient'
+import FeaturedPosts from '../components/home/FeaturedPosts'
+import TechStack from '../components/home/TechStack'
+import HomeTimeline from '../components/home/HomeTimeline'
+import ResourceLinks from '../components/home/ResourceLinks'
 
 export default function Home() {
   return (
     <div className="min-h-screen relative">
       <FullPageGradient />
       <HeroSection />
+      <div className="mt-8 space-y-6">
+        <FeaturedPosts />
+        <TechStack />
+        <HomeTimeline />
+        <ResourceLinks />
+      </div>
     </div>
   )
 }
