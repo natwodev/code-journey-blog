@@ -1,5 +1,4 @@
 import { motion } from 'framer-motion'
-import { useTypingEffect } from '../../hooks/useTypingEffect'
 import { useRef } from 'react'
 import HeroBackground from '../../three/HeroBackground'
 import { useLanguage } from '../../context/LanguageContext'
@@ -7,7 +6,6 @@ import { useLanguage } from '../../context/LanguageContext'
 export default function HeroSection() {
   const { lang } = useLanguage()
   const t = (vi: string, en: string) => (lang === 'vi' ? vi : en)
-  const typed = useTypingEffect(t('Mình là Developer yêu Java & JS.', "I’m a Developer who loves Java & JS."), 25)
   const ref = useRef<HTMLDivElement | null>(null)
   const onMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     const el = ref.current
@@ -28,11 +26,8 @@ export default function HeroSection() {
     <section ref={ref} onMouseMove={onMouseMove} onMouseLeave={onMouseLeave} className="relative flex flex-col items-center justify-center min-h-screen pt-16 text-center px-6 [transform:translate3d(calc(var(--parx,0)*6px),calc(var(--pary,0)*6px),0)] transition-transform">
       <HeroBackground />
       <motion.h1 initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} className="text-4xl md:text-6xl font-poppins font-semibold tracking-tight">
-        <span className="bg-gradient-to-r from-brand-cyan to-brand-purple bg-clip-text text-transparent">Code Journey</span> — {t('Hành trình lập trình mạng', 'The networking coding journey')}
+        {/* <span className="bg-gradient-to-r from-brand-cyan to-brand-purple bg-clip-text text-transparent">Code Journey</span> — {t('Hành trình lập trình mạng', 'The networking coding journey')} */}
       </motion.h1>
-      <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.8, delay: 0.2 }} className="mt-4 text-lg text-white/80 max-w-2xl">
-        {typed}
-      </motion.p>
       <div className="mt-8 flex items-center gap-3">
         <motion.a initial={{ opacity: 0, y: 6 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.3 }} href="/blog" className="px-6 py-3 rounded-xl neon-border bg-white/5 hover:bg-white/10 transition">
           {t('Khám phá Blog', 'Explore Blog')}

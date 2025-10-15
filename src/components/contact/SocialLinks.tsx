@@ -6,7 +6,7 @@ export default function SocialLinks() {
     { name: 'LinkedIn', url: 'https://www.linkedin.com/in/nguy%E1%BB%85n-hu%E1%BB%B3nh-nam-b8b87938a/', icon: (
       <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M6.94 6.5A2.44 2.44 0 1 1 4.5 4.06 2.44 2.44 0 0 1 6.94 6.5ZM5 8.75h3.88V20H5Zm6.25 0h3.72v1.53h.05a4.08 4.08 0 0 1 3.67-2.02c3.93 0 4.65 2.59 4.65 5.96V20h-3.88v-4.7c0-1.12 0-2.55-1.56-2.55s-1.8 1.22-1.8 2.47V20H11.2Z"/></svg>
     ) },
-    { name: 'Email', url: 'mailto:your@email.com', icon: (
+    { name: 'Email', url: 'mailto:nhuynhnamht2023@gmail.com', icon: (
       <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2Zm0 4-8 5L4 8V6l8 5 8-5Z"/></svg>
     ) },
   ]
