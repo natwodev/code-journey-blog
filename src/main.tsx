@@ -8,6 +8,7 @@ import Navbar from './components/common/Navbar'
 import FooterSwitch from './components/common/FooterSwitch'
 import ScrollToTop from './components/common/ScrollToTop'
 import { BrowserRouter } from 'react-router-dom'
+import DisableContextMenu from './components/common/DisableContextMenu'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
@@ -16,6 +17,7 @@ createRoot(document.getElementById('root')!).render(
         <BrowserRouter>
           <Navbar />
           <ScrollToTop />
+          <DisableContextMenu />
           <App />
           <FooterSwitch />
         </BrowserRouter>
