@@ -89,7 +89,7 @@ export default function MusicPlayer({ src, title, autoPlay = true }: { src: stri
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M8 5v14l11-7z"/></svg>
               )}
             </button>
-            <div className="flex-1 flex items-center gap-2 min-w-0">
+            <div className="flex-1 flex items-center gap-2 min-w-0 hidden">
               <span className="text-xs text-white/60 tabular-nums">{fmt(current)}</span>
               <input
                 type="range"
