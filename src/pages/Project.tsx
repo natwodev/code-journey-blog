@@ -26,6 +26,26 @@ export default function Project() {
 
       <p className="mt-6 text-white/80 leading-relaxed text-[15px] md:text-base">{project.summary}</p>
 
+      {project.details && (
+        <div className="prose prose-invert max-w-none mt-6 whitespace-pre-wrap text-white/85 leading-relaxed text-[15px] md:text-base">
+          {project.details}
+        </div>
+      )}
+
+      {project.sections && project.sections.length > 0 && (
+        <div className="mt-8 space-y-6">
+          {project.sections.map(s => (
+            <section key={s.id} className="bg-white/5 rounded-xl p-4 border border-white/10">
+              <h3 className="text-lg font-semibold mb-3">{s.title}</h3>
+              {s.image && (
+                <img src={s.image} alt={s.title} className="w-full rounded-lg border border-white/10 mb-3" onError={(e) => { (e.currentTarget as HTMLImageElement).style.display = 'none' }} />
+              )}
+              <div className="whitespace-pre-wrap text-white/85 text-[15px] md:text-base leading-relaxed">{s.content}</div>
+            </section>
+          ))}
+        </div>
+      )}
+
       {project.link && (
         <a href={project.link} target="_blank" rel="noreferrer" className="inline-block mt-6 px-4 py-2 rounded-lg bg-brand-cyan/10 border border-brand-cyan/30 text-brand-cyan/90 hover:bg-brand-cyan/20 transition">
           Xem demo
