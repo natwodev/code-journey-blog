@@ -1,5 +1,6 @@
 import { useParams, Link, Navigate } from 'react-router-dom'
 import { useState } from 'react'
+import { FiShare2 } from 'react-icons/fi'
 import { posts } from '../data/posts'
 import type { Post as PostType } from '../data/posts'
 
@@ -17,12 +18,34 @@ export default function Post() {
 
   const handleShare = async () => {
     const url = window.location.href
+
+    // Clipboard API
+    if (navigator.clipboard?.writeText) {
+      try {
+        await navigator.clipboard.writeText(url)
+        setCopiedToast(true)
+        window.setTimeout(() => setCopiedToast(false), 2200)
+        return
+      } catch {
+        // fallback below
+      }
+    }
+
+    // Legacy fallback for older Safari/iOS
     try {
-      await navigator.clipboard.writeText(url)
+      const textarea = document.createElement('textarea')
+      textarea.value = url
+      textarea.setAttribute('readonly', '')
+      textarea.style.position = 'fixed'
+      textarea.style.top = '-9999px'
+      document.body.appendChild(textarea)
+      textarea.select()
+      document.execCommand('copy')
+      document.body.removeChild(textarea)
       setCopiedToast(true)
       window.setTimeout(() => setCopiedToast(false), 2200)
     } catch {
-      // silently ignore if copy fails
+      // ignore
     }
   }
 
@@ -41,7 +64,9 @@ export default function Post() {
       {/* Meta row */}
       <div className="mt-4 flex flex-wrap items-center gap-3 text-sm text-white/75">
         <span className="px-2 py-0.5 rounded bg-white/8 border border-white/10">{readingTimeMinutes} phút đọc</span>
-        <button onClick={handleShare} className="ml-auto text-brand-cyan/90 hover:underline">Chia sẻ</button>
+        <button onClick={handleShare} aria-label="Chia sẻ bài viết" className="ml-auto inline-flex items-center justify-center w-9 h-9 rounded-lg border border-white/15 bg-white/8 text-brand-cyan/90 hover:bg-white/10">
+          <FiShare2 />
+        </button>
       </div>
 
       {post.image && (
