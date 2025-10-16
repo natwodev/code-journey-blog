@@ -148,12 +148,12 @@ export default function FullscreenImageModal({
       {/* Thumbnail Navigation */}
       {images.length > 1 && (
         <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-2 sm:p-4">
-          <div className="flex justify-center gap-1 sm:gap-2 overflow-x-auto pb-2">
+          <div className="flex justify-center gap-0.5 sm:gap-1 overflow-x-auto pb-2">
             {images.map((image, index) => (
               <button
                 key={image.id}
                 onClick={() => goToSlide(index)}
-                className={`flex-shrink-0 w-12 h-12 sm:w-16 sm:h-16 rounded-lg overflow-hidden border-2 transition-all ${
+                className={`flex-shrink-0 w-8 h-8 sm:w-10 sm:h-10 rounded-lg overflow-hidden border-2 transition-all ${
                   index === activeIndex
                     ? 'border-brand-cyan/50 ring-2 ring-brand-cyan/20'
                     : 'border-white/30 hover:border-white/50'
