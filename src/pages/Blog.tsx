@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { useMemo, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import BlogFilter from '../components/blog/BlogFilter'
+import { useTypingEffect } from '../hooks/useTypingEffect'
 
 export default function Blog() {
   const { t } = useTranslation()
@@ -23,14 +24,16 @@ export default function Blog() {
     return [...filtered].sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
   }, [active, query])
 
+  const typedTitle = useTypingEffect(t('blog.title'), 40)
+
   return (
     <div className="min-h-screen">
       {/* Hero banner */}
       <section className="relative overflow-hidden">
         <div className="absolute inset-x-0 -top-16 h-40 blur-2xl bg-gradient-to-r from-brand-cyan/20 to-brand-purple/20" />
         <div className="max-w-6xl mx-auto px-6 py-16 relative">
-          <motion.h1 initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} className="text-3xl md:text-5xl font-poppins font-semibold">
-            <span className="bg-gradient-to-r from-brand-cyan to-brand-purple bg-clip-text text-transparent">{t('blog.title')}</span> — {t('blog.subtitle')}
+          <motion.h1 initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} className="text-5xl md:text-7xl font-poppins font-semibold">
+            <span className="bg-gradient-to-r from-brand-cyan to-brand-purple bg-clip-text text-transparent">{typedTitle || ' '}</span> — {t('blog.subtitle')}
           </motion.h1>
           <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.6, delay: 0.1 }} className="mt-3 text-white/75 max-w-3xl">
             {t('blog.description')}

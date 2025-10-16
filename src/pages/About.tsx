@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next'
 import avatarImg from '../assets/avata.jpg'
 import { projects } from '../data/projects'
 import { certifications } from '../data/skills'
+import { useTypingEffect } from '../hooks/useTypingEffect'
 
 export default function About() {
   const { t } = useTranslation()
@@ -20,9 +21,7 @@ export default function About() {
     { label: t('about.highlights.posts'), value: '4+' },
   ]
 
-  
-
-  
+  const typedTitle = useTypingEffect(t('about.title'), 40)
 
   return (
     <div className="min-h-screen">
@@ -30,8 +29,8 @@ export default function About() {
       <section className="relative overflow-hidden">
         <div className="absolute inset-x-0 -top-16 h-40 blur-2xl bg-gradient-to-r from-brand-cyan/20 to-brand-purple/20" />
         <div className="max-w-6xl mx-auto px-6 pt-14 pb-10 relative">
-          <motion.h1 initial={{ opacity: 0, y: 14 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} className="text-3xl md:text-5xl font-poppins font-semibold">
-            <span className="bg-gradient-to-r from-brand-cyan to-brand-purple bg-clip-text text-transparent">{t('about.title')}</span>
+          <motion.h1 initial={{ opacity: 0, y: 14 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} className="text-5xl md:text-7xl font-poppins font-semibold">
+            <span className="bg-gradient-to-r from-brand-cyan to-brand-purple bg-clip-text text-transparent">{typedTitle || ' '}</span>
           </motion.h1>
           <motion.div aria-hidden initial={{ x: '-120%' }} animate={{ x: '120%' }} transition={{ duration: 3, repeat: Infinity, repeatDelay: 4 }} className="pointer-events-none absolute inset-y-0 left-0 w-1/3 bg-gradient-to-r from-white/5 to-transparent" />
         </div>
@@ -54,8 +53,7 @@ export default function About() {
             <div className="md:ml-4">
               <div className="text-3xl md:text-4xl font-semibold">{info.name}</div>
               <div className="text-lg md:text-xl text-brand-cyan/90 mt-1">{info.role}</div>
-              {/* Liên hệ: Zalo, Facebook, Email */}
-              
+              {/* Contact buttons removed as requested */}
               <p className="mt-5 text-white/80 max-w-2xl text-base md:text-lg leading-relaxed">
                 {t('about.description')}
               </p>
