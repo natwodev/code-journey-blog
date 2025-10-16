@@ -6,7 +6,7 @@ import { useTranslation } from 'react-i18next'
 export default function Contact() {
   const { t } = useTranslation()
   const contactEmail = import.meta.env?.VITE_CONTACT_EMAIL ?? 'nhuynhnamht2023@gmail.com'
-  const phone = '+84 169 8214 199'
+  const phone = '+84 972160259'
   const title = useTypingEffect(t('contact.title'), 60)
 
   return (
@@ -30,7 +30,7 @@ export default function Contact() {
               <span className="text-brand-cyan">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M6.62 10.79a15.05 15.05 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.01-.24c1.1.36 2.28.55 3.5.55a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1C11.85 21 3 12.15 3 1a1 1 0 0 1 1-1h2.5a1 1 0 0 1 1 1c0 1.22.19 2.4.55 3.5a1 1 0 0 1-.24 1.01l-2.2 2.2Z"/></svg>
               </span>
-              <span>{phone}</span>
+              <a href={`tel:${phone}`} className="hover:underline">{phone}</a>
             </div>
 
             <SocialLinks set="about" />
