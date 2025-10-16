@@ -11,8 +11,8 @@ export type Project = {
 import hackingImg1 from '../assets/hacking/hacking1.jpg'
 import hackingImg2 from '../assets/hacking/hacking2.png'
 import hackingImg3 from '../assets/hacking/hacking3.jpg'
-import phuckhao1 from '../assets/dự án /phuckhao/phuckhao1.png'
-import phuckhao2 from '../assets/dự án /phuckhao/phuckhao2.png'
+import phuckhao1 from '../assets/phuckhao/phuckhao1.png'
+import phuckhao2 from '../assets/phuckhao/phuckhao2.png'
 
 export const projects: Project[] = [
   {
