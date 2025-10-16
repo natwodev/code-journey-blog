@@ -2,15 +2,11 @@ import type { Post } from '../../data/posts'
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 
-export default function BlogCard({ post }: { post: Post }) {
-  const Wrapper: any = post.externalUrl ? 'a' : Link
-  const wrapperProps = post.externalUrl
-    ? { href: post.externalUrl, target: '_blank', rel: 'noreferrer' }
-    : { to: `/blog/${post.id}` }
+export default function BlogCard({ post }: { readonly post: Post }) {
 
   return (
     <motion.div initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5 }}>
-      <Wrapper {...wrapperProps} className="group block">
+      <Link to={`/blog/${post.id}`} className="group block">
         <div className="relative rounded-2xl bg-white/5 transition duration-300 neon-border hover:-translate-y-1 hover:bg-white/8 shadow-[0_0_0_rgba(0,201,167,0)] hover:shadow-[0_0_28px_rgba(0,201,167,0.22)] overflow-hidden">
           {post.image && (
             <div className="h-40 w-full overflow-hidden">
@@ -20,9 +16,6 @@ export default function BlogCard({ post }: { post: Post }) {
           <div className="p-5">
             <div className="flex items-center gap-2 text-xs text-white/70">
               <span className="px-2 py-0.5 rounded bg-white/10 border border-white/15">{new Date(post.date).toLocaleDateString()}</span>
-              {post.externalUrl && (
-                <span className="px-2 py-0.5 rounded bg-brand-cyan/10 border border-brand-cyan/30 text-brand-cyan/90">External</span>
-              )}
             </div>
             <h3 className="mt-3 text-xl font-semibold inline-block bg-gradient-to-r from-white to-white/80 bg-clip-text text-transparent">
               <span className="relative">
@@ -38,7 +31,7 @@ export default function BlogCard({ post }: { post: Post }) {
             </div>
           </div>
         </div>
-      </Wrapper>
+      </Link>
     </motion.div>
   )
 }

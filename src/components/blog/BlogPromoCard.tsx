@@ -3,10 +3,8 @@ import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 
 export default function BlogPromoCard({ post, index }: { readonly post: Post; readonly index: number }) {
-  const Wrapper: React.ElementType = post.externalUrl ? 'a' : Link
-  const wrapperProps = post.externalUrl
-    ? { href: post.externalUrl, target: '_blank', rel: 'noreferrer' }
-    : { to: `/blog/${post.id}` }
+  const Wrapper: React.ElementType = Link
+  const wrapperProps = { to: `/blog/${post.id}` }
 
   return (
     <motion.div
@@ -29,9 +27,6 @@ export default function BlogPromoCard({ post, index }: { readonly post: Post; re
         <div className="p-4 md:p-5 flex flex-col h-full">
           <div className="flex flex-wrap items-center gap-2 text-[11px] md:text-xs text-white/80">
             <span className="px-2 py-0.5 rounded bg-white/8 border border-white/15">{new Date(post.date).toLocaleDateString()}</span>
-            {post.externalUrl && (
-              <span className="px-2 py-0.5 rounded bg-brand-cyan/10 border border-brand-cyan/30 text-brand-cyan/90">External</span>
-            )}
             {post.tags.map(t => (
               <span key={t} className="px-2 py-0.5 rounded-full bg-white/8 border border-white/15">{t}</span>
             ))}
