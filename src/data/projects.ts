@@ -11,6 +11,8 @@ export type Project = {
 import hackingImg1 from '../assets/hacking/hacking1.jpg'
 import hackingImg2 from '../assets/hacking/hacking2.png'
 import hackingImg3 from '../assets/hacking/hacking3.jpg'
+import phuckhao1 from '../assets/dự án /phuckhao/phuckhao1.png'
+import phuckhao2 from '../assets/dự án /phuckhao/phuckhao2.png'
 
 export const projects: Project[] = [
   {
@@ -37,6 +39,11 @@ export const projects: Project[] = [
     name: 'Hệ thống hỗ trợ phúc khảo',
     summary: 'Nền tảng phúc khảo bài thi: portal web .NET cho quản trị, ứng dụng Flutter cho sinh viên đăng ký và theo dõi.',
     tech: ['C#', '.NET', 'Flutter', 'Dart'],
+    details: `Mục tiêu: số hóa quy trình phúc khảo để nhanh, minh bạch, dễ theo dõi.\n\nChức năng chính:\n- Sinh viên: đăng nhập, nộp đơn phúc khảo, theo dõi trạng thái, nhận thông báo.\n- Nhân viên: duyệt đơn, phân công giảng viên, thống kê, xác nhận điểm sau phúc khảo.\n- Giảng viên: xem đơn được phân công, chấm lại, gửi nhận xét/điểm.\n- Admin: quản lý người dùng, phân quyền, đợt phúc khảo, nhật ký hệ thống.\n\nPhạm vi: phúc khảo bài thi lý thuyết; triển khai web; chưa tích hợp LMS.\n\nLợi ích: giảm thủ tục giấy tờ, tăng minh bạch, quản trị tập trung, dễ báo cáo.\n\nĐịnh hướng mở rộng: tích hợp LMS, chữ ký số, đa kênh thông báo, tăng cường bảo mật.`,
+    sections: [
+      { id: 'phuckhao-home', title: 'Trang chủ', content: 'Giao diện trang chủ hệ thống phúc khảo.', image: phuckhao1 },
+      { id: 'phuckhao-login', title: 'Trang đăng nhập', content: 'Giao diện đăng nhập người dùng.', image: phuckhao2 },
+    ],
   },
   {
     id: 'react-portfolio',
