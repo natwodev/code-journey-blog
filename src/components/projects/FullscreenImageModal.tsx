@@ -173,8 +173,8 @@ export default function FullscreenImageModal({
         </div>
       )}
 
-      {/* Click to close hint */}
-      <div className="absolute bottom-4 right-4 text-white/50 text-sm">
+      {/* Click to close hint - Hidden on mobile */}
+      <div className="absolute bottom-4 right-4 text-white/50 text-sm hidden sm:block">
         <div className="flex items-center gap-2">
           <kbd className="px-2 py-1 bg-white/10 rounded text-xs">ESC</kbd>
           <span>để đóng</span>

@@ -39,8 +39,13 @@ export default function Project() {
 
       {/* Two Column Layout */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        {/* Right Column - Image Slider (First on mobile) */}
+        <div className="lg:order-2 lg:sticky lg:top-8 lg:h-fit">
+          <ProjectImageSlider images={projectImages} onImageClick={handleImageClick} />
+        </div>
+
         {/* Left Column - Project Information */}
-        <div className="space-y-6">
+        <div className="lg:order-1 space-y-6">
           {/* Project Header */}
           <div>
             <h1 className="text-3xl md:text-4xl font-semibold bg-gradient-to-r from-white to-white/85 bg-clip-text text-transparent">
@@ -103,11 +108,6 @@ export default function Project() {
               </a>
             </div>
           )}
-        </div>
-
-        {/* Right Column - Image Slider */}
-        <div className="lg:sticky lg:top-8 lg:h-fit">
-          <ProjectImageSlider images={projectImages} onImageClick={handleImageClick} />
         </div>
       </div>
 
