@@ -8,6 +8,7 @@ import { LanguageProvider } from './context/LanguageContext'
 import Navbar from './components/common/Navbar'
 import FooterSwitch from './components/common/FooterSwitch'
 import ScrollToTop from './components/common/ScrollToTop'
+import TitleUpdater from './components/common/TitleUpdater'
 import { BrowserRouter } from 'react-router-dom'
 import DisableContextMenu from './components/common/DisableContextMenu'
 import AutoplayAudio from './components/common/AutoplayAudio'
@@ -20,6 +21,7 @@ createRoot(document.getElementById('root')!).render(
         <BrowserRouter>
           <Navbar />
           <ScrollToTop />
+          <TitleUpdater />
           <DisableContextMenu />
           <AutoplayAudio src={songUrl} />
           <App />
