@@ -74,8 +74,8 @@ export default function About() {
                       <div className="text-xs text-white/70">{h.label}</div>
                     </div>
                   )
-                  return h.label === 'Dự án' ? (
-                    <Link to="/projects" key={h.label} aria-label="Đi tới trang Dự án" className="h-full w-full">{card}</Link>
+                  return h.label === t('about.highlights.projects') ? (
+                    <Link to="/projects" key={h.label} aria-label={t('about.gotoProjects', { defaultValue: 'Go to Projects' })} className="h-full w-full">{card}</Link>
                   ) : (
                     <div key={h.label} className="h-full w-full">{card}</div>
                   )
