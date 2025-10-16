@@ -42,6 +42,15 @@
     "postsCount": "posts",
     "noPosts": "No matching posts found."
   },
+  "contact": {
+    "title": "CONTACT",
+    "ownerName": "HUYNH NAM",
+    "yourNamePlaceholder": "Name *",
+    "yourEmailPlaceholder": "Email *",
+    "yourSubjectPlaceholder": "Subject",
+    "yourMessagePlaceholder": "Message",
+    "send": "Send"
+  },
   "timeline": {
     "2022": {
       "title": "Starting Programming Journey",

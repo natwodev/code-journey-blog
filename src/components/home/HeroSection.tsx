@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 import HeroBackground from '../../three/HeroBackground'
 import { useLanguage } from '../../hooks/useLanguage'
 import AudioToggle from '../common/AudioToggle'
+import { useTypingEffect } from '../../hooks/useTypingEffect'
 
 export default function HeroSection() {
   const { lang } = useLanguage()
@@ -53,7 +54,7 @@ export default function HeroSection() {
         transition={{ duration: 0.6 }}
         className="text-4xl md:text-6xl font-poppins font-semibold tracking-tight"
       >
-        {t('Kiến thức lập trình & dự án cá nhân', 'Programming knowledge & personal projects')}
+        {useTypingEffect(t('Kiến thức lập trình & dự án cá nhân', 'Programming knowledge & personal projects'), 40) || ' '}
       </motion.h1>
 
       {/* Dòng mô tả nhỏ bên dưới tiêu đề */}

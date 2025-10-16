@@ -1,11 +1,13 @@
 import SocialLinks from '../components/contact/SocialLinks'
 import FullPageGradient from '../components/home/FullPageGradient'
 import { useTypingEffect } from '../hooks/useTypingEffect'
+import { useTranslation } from 'react-i18next'
 
 export default function Contact() {
+  const { t } = useTranslation()
   const contactEmail = import.meta.env?.VITE_CONTACT_EMAIL ?? 'nhuynhnamht2023@gmail.com'
   const phone = '+84 169 8214 199'
-  const title = useTypingEffect('CONTACT', 60)
+  const title = useTypingEffect(t('contact.title'), 60)
 
   return (
     <div className="min-h-screen relative">
@@ -15,7 +17,7 @@ export default function Contact() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
           {/* Left: Name, email, phone, social icons */}
           <div className="flex flex-col items-center text-center md:items-start md:text-left">
-            <div className="text-2xl text-brand-cyan mb-4">HUYNH NAM</div>
+            <div className="text-2xl text-brand-cyan mb-4">{t('contact.ownerName')}</div>
 
             <div className="flex items-center gap-3 mb-3 text-lg">
               <span className="text-brand-cyan">
@@ -36,11 +38,11 @@ export default function Contact() {
 
           {/* Right: Form */}
           <form className="rounded-2xl border border-white/10 bg-white/5 p-6 space-y-4" onSubmit={(e) => e.preventDefault()}>
-            <input className="w-full rounded-lg bg-black/30 border border-white/15 px-4 py-3 focus:outline-none focus:border-brand-cyan/60" placeholder="Name *" required />
-            <input type="email" className="w-full rounded-lg bg-black/30 border border-white/15 px-4 py-3 focus:outline-none focus:border-brand-cyan/60" placeholder="Email *" required />
-            <input className="w-full rounded-lg bg-black/30 border border-white/15 px-4 py-3 focus:outline-none focus:border-brand-cyan/60" placeholder="Subject" />
-            <textarea rows={6} className="w-full rounded-lg bg-black/30 border border-white/15 px-4 py-3 focus:outline-none focus:border-brand-cyan/60" placeholder="Message" />
-            <button className="px-5 py-3 rounded-xl bg-brand-cyan/20 text-brand-cyan border border-brand-cyan/40 hover:bg-brand-cyan/30 transition">Send</button>
+            <input className="w-full rounded-lg bg-black/30 border border-white/15 px-4 py-3 focus:outline-none focus:border-brand-cyan/60" placeholder={t('contact.yourNamePlaceholder')} required />
+            <input type="email" className="w-full rounded-lg bg-black/30 border border-white/15 px-4 py-3 focus:outline-none focus:border-brand-cyan/60" placeholder={t('contact.yourEmailPlaceholder')} required />
+            <input className="w-full rounded-lg bg-black/30 border border-white/15 px-4 py-3 focus:outline-none focus:border-brand-cyan/60" placeholder={t('contact.yourSubjectPlaceholder')} />
+            <textarea rows={6} className="w-full rounded-lg bg-black/30 border border-white/15 px-4 py-3 focus:outline-none focus:border-brand-cyan/60" placeholder={t('contact.yourMessagePlaceholder')} />
+            <button className="px-5 py-3 rounded-xl bg-brand-cyan/20 text-brand-cyan border border-brand-cyan/40 hover:bg-brand-cyan/30 transition">{t('contact.send')}</button>
           </form>
         </div>
       </section>

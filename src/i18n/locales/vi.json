@@ -42,6 +42,15 @@
     "postsCount": "bài viết",
     "noPosts": "Không có bài viết phù hợp."
   },
+  "contact": {
+    "title": "LIÊN HỆ",
+    "ownerName": "HUỲNH NAM",
+    "yourNamePlaceholder": "Họ tên *",
+    "yourEmailPlaceholder": "Email *",
+    "yourSubjectPlaceholder": "Chủ đề",
+    "yourMessagePlaceholder": "Nội dung",
+    "send": "Gửi"
+  },
   "timeline": {
     "2022": {
       "title": "Bắt đầu học lập trình",
