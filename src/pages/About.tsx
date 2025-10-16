@@ -10,7 +10,7 @@ export default function About() {
   const { t } = useTranslation()
   
   const info = {
-    name: 'Nguyen Huynh Nam',
+    name: 'Huynh Nam Nguyen ',
     role: t('about.role'),
     location: t('about.location'),
   }

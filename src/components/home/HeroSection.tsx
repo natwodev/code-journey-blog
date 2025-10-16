@@ -64,7 +64,7 @@ export default function HeroSection() {
         transition={{ duration: 0.6, delay: 0.2 }}
         className="mt-[4px] text-lg text-white/70 font-light"
       >
-        {t('Mình là Nguyễn Huỳnh Nam — .Net Developer.', "I'm Nguyen Huynh Nam — .Net Developer.")}
+        {t('Mình là Nguyễn Huỳnh Nam — .Net Developer.', "I'm Huynh Nam Nguyen— .Net Developer.")}
       </motion.p>
 
       {/* Nút liên kết */}
