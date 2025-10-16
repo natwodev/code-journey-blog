@@ -11,6 +11,7 @@ import Timeline2024 from './pages/timeline/2024'
 import Timeline2025 from './pages/timeline/2025'
 import Contact from './pages/Contact'
 import Post from './pages/Post'
+import Project from './pages/Project'
 
 export default function App() {
   return (
@@ -19,6 +20,7 @@ export default function App() {
       <Route path="/blog" element={<Blog />} />
       <Route path="/blog/:id" element={<Post />} />
       <Route path="/projects" element={<Projects />} />
+      <Route path="/projects/:id" element={<Project />} />
       <Route path="/about" element={<About />} />
       <Route path="/contact" element={<Contact />} />
       <Route path="/timeline/2022" element={<Timeline2022 />} />

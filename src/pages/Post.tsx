@@ -1,9 +1,11 @@
 import { useParams, Link, Navigate } from 'react-router-dom'
+import { useState } from 'react'
 import { posts } from '../data/posts'
 import type { Post as PostType } from '../data/posts'
 
 export default function Post() {
   const { id } = useParams()
+  const [copiedToast, setCopiedToast] = useState(false)
   const post: PostType | undefined = posts.find(p => p.id === id)
 
   if (!post) return <Navigate to="/blog" replace />
@@ -15,16 +17,12 @@ export default function Post() {
 
   const handleShare = async () => {
     const url = window.location.href
-    const title = post.title
     try {
-      if (navigator.share) {
-        await navigator.share({ title, url })
-        return
-      }
       await navigator.clipboard.writeText(url)
-      alert('Đã sao chép liên kết bài viết!')
+      setCopiedToast(true)
+      window.setTimeout(() => setCopiedToast(false), 2200)
     } catch {
-      window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(title)}&url=${encodeURIComponent(url)}`, '_blank')
+      // silently ignore if copy fails
     }
   }
 
@@ -64,6 +62,15 @@ export default function Post() {
           <p key={para}>{para}</p>
         ))}
       </div>
+
+      {/* Toast */}
+      {copiedToast && (
+        <div className="fixed top-4 right-4 z-50">
+          <div className="rounded-lg bg-white/10 border border-white/15 backdrop-blur px-4 py-2 text-sm text-white shadow-lg animate-fade-in">
+            Đã sao chép liên kết bài viết
+          </div>
+        </div>
+      )}
     </article>
   )
 }
