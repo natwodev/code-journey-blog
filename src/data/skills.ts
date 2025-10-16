@@ -38,6 +38,9 @@ export const skills = [
   { name: 'React' },
   { name: 'Tailwind CSS' },
   { name: 'Three.js' },
+  { name: 'GitHub' },
+  { name: 'Git' },
+  { name: 'GitLab' },
 ]
 
 export const certifications = [

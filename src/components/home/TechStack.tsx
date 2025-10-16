@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion'
 import { skills } from '../../data/skills'
+import SkillBadge from '../common/SkillBadge'
 
 export default function TechStack() {
   
@@ -18,22 +19,12 @@ export default function TechStack() {
         {skills.map((skill, index) => (
           <motion.span 
             key={skill.name}
-            initial={{ opacity: 0, scale: 0.8 }}
+            initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
-            transition={{ 
-              duration: 0.4, 
-              delay: index * 0.05,
-              type: 'spring',
-              stiffness: 200
-            }}
-            whileHover={{ 
-              scale: 1.05,
-              backgroundColor: 'rgba(255, 255, 255, 0.1)'
-            }}
-            className="px-3 py-1.5 sm:px-4 sm:py-2 rounded-full bg-white/5 border border-white/10 hover:bg-white/10 transition-all duration-200 text-sm sm:text-base cursor-default"
+            transition={{ duration: 0.35, delay: index * 0.04, type: 'spring', stiffness: 220 }}
           >
-            {skill.name}
+            <SkillBadge name={skill.name} />
           </motion.span>
         ))}
       </div>

@@ -5,6 +5,7 @@ import avatarImg from '../assets/avata.jpg'
 import { projects } from '../data/projects'
 import { certifications } from '../data/skills'
 import { useTypingEffect } from '../hooks/useTypingEffect'
+import SkillBadge from '../components/common/SkillBadge'
 
 export default function About() {
   const { t } = useTranslation()
@@ -87,7 +88,7 @@ export default function About() {
                 <div className="text-white/80 font-semibold">{t('about.skills')}</div>
                 <div className="mt-2 flex flex-wrap gap-2">
                   {Array.from(new Set(projects.flatMap(p => p.tech))).map(tech => (
-                    <span key={tech} className="px-3 py-1 rounded-full bg-white/5 border border-white/10 text-sm">{tech}</span>
+                    <SkillBadge key={tech} name={tech} />
                   ))}
                 </div>
                 <div className="mt-4 text-white/80 font-semibold">{t('about.certifications')}</div>

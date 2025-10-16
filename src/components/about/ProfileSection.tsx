@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion'
 import { skills } from '../../data/skills'
+import SkillBadge from '../common/SkillBadge'
 
 export default function ProfileSection() {
   return (
@@ -10,8 +11,8 @@ export default function ProfileSection() {
       </motion.p>
       <div className="mt-6 flex flex-wrap gap-3">
         {skills.map(s => (
-          <motion.span key={s.name} initial={{ opacity: 0, y: 6 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.4 }} className="px-3 py-1 rounded-full bg-white/5 border border-white/10">
-            {s.name}
+          <motion.span key={s.name} initial={{ opacity: 0, y: 6 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.4 }}>
+            <SkillBadge name={s.name} />
           </motion.span>
         ))}
       </div>
