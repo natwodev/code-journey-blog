@@ -14,6 +14,9 @@ export default function Timeline2024() {
     document.body.scrollTop = 0
   }, [])
 
+  // Read achievements array from locales
+  const achievementsItems = t('timeline.2024.achievements.items', { returnObjects: true }) as string[]
+
   return (
     <div className="min-h-screen relative">
       <FullPageGradient />
@@ -43,7 +46,7 @@ export default function Timeline2024() {
             transition={{ duration: 0.6, delay: 0.1 }}
             className="mb-12"
           >
-            <div className="text-brand-cyan/90 text-sm font-medium mb-2">{t('timeline.2024.milestone')}</div>
+            <div className="text-brand-cyan/90 text-sm font-medium mb-2">{t('common.milestone')}: 2024</div>
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-poppins font-bold mb-4">
               {t('timeline.2024.title')}
             </h1>
@@ -72,9 +75,9 @@ export default function Timeline2024() {
               </h2>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div className="bg-white/5 border border-white/10 rounded-xl p-4">
-                  <h3 className="font-semibold text-brand-cyan mb-2">{t('timeline.2024.advancedSubjects.infoSecurity.title')}</h3>
+                  <h3 className="font-semibold text-brand-cyan mb-2">{t('timeline.2024.advancedSubjects.security.title')}</h3>
                   <p className="text-white/70 text-sm">
-                    {t('timeline.2024.advancedSubjects.infoSecurity.description')}
+                    {t('timeline.2024.advancedSubjects.security.description')}
                   </p>
                 </div>
                 <div className="bg-white/5 border border-white/10 rounded-xl p-4">
@@ -109,9 +112,9 @@ export default function Timeline2024() {
                 {t('timeline.2024.capstoneProject.title')}
               </h2>
               <div className="bg-white/5 border border-white/10 rounded-xl p-4">
-                <h3 className="font-semibold text-brand-cyan mb-2">{t('timeline.2024.capstoneProject.projectTitle')}</h3>
+                <h3 className="font-semibold text-brand-cyan mb-2">{t('timeline.2024.capstoneProject.project.title')}</h3>
                 <p className="text-white/80 leading-relaxed mb-4">
-                  {t('timeline.2024.capstoneProject.description')}
+                  {t('timeline.2024.capstoneProject.project.description')}
                 </p>
                 <div className="flex flex-wrap gap-2">
                   {['React', 'Three.js', 'JavaScript', 'CSS3', 'HTML5', 'Responsive Design'].map((tech) => (
@@ -136,27 +139,27 @@ export default function Timeline2024() {
               </h2>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div className="bg-white/5 border border-white/10 rounded-xl p-4">
-                  <h3 className="font-semibold text-brand-cyan mb-2">{t('timeline.2024.practicalResults.infoSecurity.title')}</h3>
+                  <h3 className="font-semibold text-brand-cyan mb-2">{t('timeline.2024.practicalResults.securityPractice.title')}</h3>
                   <p className="text-white/70 text-sm">
-                    {t('timeline.2024.practicalResults.infoSecurity.description')}
+                    {t('timeline.2024.practicalResults.securityPractice.description')}
                   </p>
                 </div>
                 <div className="bg-white/5 border border-white/10 rounded-xl p-4">
-                  <h3 className="font-semibold text-brand-cyan mb-2">{t('timeline.2024.practicalResults.webProgramming.title')}</h3>
+                  <h3 className="font-semibold text-brand-cyan mb-2">{t('timeline.2024.practicalResults.webPractice.title')}</h3>
                   <p className="text-white/70 text-sm">
-                    {t('timeline.2024.practicalResults.webProgramming.description')}
+                    {t('timeline.2024.practicalResults.webPractice.description')}
                   </p>
                 </div>
                 <div className="bg-white/5 border border-white/10 rounded-xl p-4">
-                  <h3 className="font-semibold text-brand-cyan mb-2">{t('timeline.2024.practicalResults.openSource.title')}</h3>
+                  <h3 className="font-semibold text-brand-cyan mb-2">{t('timeline.2024.practicalResults.openSourcePractice.title')}</h3>
                   <p className="text-white/70 text-sm">
-                    {t('timeline.2024.practicalResults.openSource.description')}
+                    {t('timeline.2024.practicalResults.openSourcePractice.description')}
                   </p>
                 </div>
                 <div className="bg-white/5 border border-white/10 rounded-xl p-4">
-                  <h3 className="font-semibold text-brand-cyan mb-2">{t('timeline.2024.practicalResults.objectOriented.title')}</h3>
+                  <h3 className="font-semibold text-brand-cyan mb-2">{t('timeline.2024.practicalResults.oopDesignPractice.title')}</h3>
                   <p className="text-white/70 text-sm">
-                    {t('timeline.2024.practicalResults.objectOriented.description')}
+                    {t('timeline.2024.practicalResults.oopDesignPractice.description')}
                   </p>
                 </div>
               </div>
@@ -170,25 +173,15 @@ export default function Timeline2024() {
                     <path d="M12 2L13.09 8.26L22 9L13.09 9.74L12 16L10.91 9.74L2 9L10.91 8.26L12 2Z" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
                   </svg>
                 </div>
-                {t('timeline.2024.achievements.title')}
+                {t('common.achievements')}
               </h2>
               <ul className="space-y-3">
-                <li className="flex items-start gap-3">
-                  <div className="w-2 h-2 rounded-full bg-brand-cyan mt-2 shrink-0"></div>
-                  <span className="text-white/80">{t('timeline.2024.achievements.infoSecurity')}</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <div className="w-2 h-2 rounded-full bg-brand-cyan mt-2 shrink-0"></div>
-                  <span className="text-white/80">{t('timeline.2024.achievements.softwareEngineering')}</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <div className="w-2 h-2 rounded-full bg-brand-cyan mt-2 shrink-0"></div>
-                  <span className="text-white/80">{t('timeline.2024.achievements.capstoneProject')}</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <div className="w-2 h-2 rounded-full bg-brand-cyan mt-2 shrink-0"></div>
-                  <span className="text-white/80">{t('timeline.2024.achievements.fullStack')}</span>
-                </li>
+                {achievementsItems.map((item) => (
+                  <li key={item} className="flex items-start gap-3">
+                    <div className="w-2 h-2 rounded-full bg-brand-cyan mt-2 shrink-0"></div>
+                    <span className="text-white/80">{item}</span>
+                  </li>
+                ))}
               </ul>
             </div>
 
@@ -202,7 +195,7 @@ export default function Timeline2024() {
                     <path d="M2 12L12 17L22 12" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
                   </svg>
                 </div>
-                {t('timeline.2024.skills.title')}
+                {t('common.skillsDeveloped')}
               </h2>
               <div className="flex flex-wrap gap-2">
                 {['Information Security', 'Artificial Intelligence', 'Software Engineering', 'Web Programming', 'System Analysis & Design', 'Windows Programming', 'Advanced Database', 'React', 'Three.js', 'JavaScript', 'TypeScript'].map((skill) => (
