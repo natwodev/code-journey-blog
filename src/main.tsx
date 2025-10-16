@@ -12,7 +12,7 @@ import TitleUpdater from './components/common/TitleUpdater'
 import { BrowserRouter } from 'react-router-dom'
 import DisableContextMenu from './components/common/DisableContextMenu'
 import AutoplayAudio from './components/common/AutoplayAudio'
-const songUrl = new URL('./audio/thienlyoi.mp3', import.meta.url).href
+const songUrl = new URL('./audio/hocxuongca.mp3', import.meta.url).href
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
