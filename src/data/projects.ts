@@ -14,6 +14,20 @@ import hackingImg3 from '../assets/hacking/hacking3.jpg'
 import phuckhao1 from '../assets/phuckhao/phuckhao1.png'
 import phuckhao2 from '../assets/phuckhao/phuckhao2.png'
 
+// Mobile quiz app images
+import mobileLoginScreen from '../assets/mobile/login-screen.png'
+import mobileHomeDashboard from '../assets/mobile/home-dashboard.png'
+import mobileEnterRoomCode from '../assets/mobile/enter-room-code.png'
+import mobileEnterExamRoom from '../assets/mobile/enter-exam-room.png'
+import mobileStartExam from '../assets/mobile/start-exam.png'
+import mobileQuestionList from '../assets/mobile/question-list.png'
+import mobileSubmitProgress from '../assets/mobile/submit-progress.png'
+import mobileExamResults from '../assets/mobile/exam-results.png'
+import mobileReviewAfterSubmit from '../assets/mobile/review-after-submit.png'
+import mobileExamHistory from '../assets/mobile/exam-history.png'
+import mobileProfileFeatures from '../assets/mobile/profile-features.png'
+import mobileSettingsFeatures from '../assets/mobile/settings-features.png'
+
 export const projects: Project[] = [
   {
     id: 'hacking-windows-trojan-horse',
@@ -55,8 +69,107 @@ export const projects: Project[] = [
     id: 'flutter-quiz-app',
     name: 'Ứng dụng thi trắc nghiệm (Mobile - Flutter/Dart)',
     summary: 'Ứng dụng thi trắc nghiệm di động xây dựng bằng Flutter/Dart: đăng nhập, làm bài, chấm điểm và xem kết quả.',
-    tech: ['Flutter', 'Dart']
-    },
+    tech: ['Flutter', 'Dart'],
+    details: `Ứng dụng thi trắc nghiệm di động được phát triển bằng Flutter/Dart với các tính năng chính:
+
+Tính năng chính:
+- Đăng nhập và xác thực người dùng
+- Nhập mã phòng thi để tham gia bài thi
+- Làm bài thi với giao diện thân thiện
+- Hiển thị tiến độ làm bài và thời gian còn lại
+- Nộp bài và xem kết quả ngay lập tức
+- Xem lại câu hỏi sau khi nộp bài
+- Xem lịch sử các lần làm bài
+- Quản lý hồ sơ cá nhân với nhiều chức năng
+- Cài đặt ứng dụng với các tùy chọn đa dạng
+
+Công nghệ sử dụng:
+- Flutter: Framework phát triển ứng dụng di động đa nền tảng
+- Dart: Ngôn ngữ lập trình chính của Flutter
+- State Management: Quản lý trạng thái ứng dụng
+- Local Storage: Lưu trữ dữ liệu cục bộ
+- HTTP Client: Giao tiếp với API backend
+
+Giao diện người dùng:
+- Thiết kế Material Design hiện đại
+- Responsive layout phù hợp với nhiều kích thước màn hình
+- Animation mượt mà và trải nghiệm người dùng tốt
+- Dark/Light theme support`,
+    sections: [
+      { 
+        id: 'mobile-login', 
+        title: 'Màn hình đăng nhập', 
+        content: 'Giao diện đăng nhập với thiết kế Material Design hiện đại, hỗ trợ đăng nhập bằng tài khoản và mật khẩu.', 
+        image: mobileLoginScreen 
+      },
+      { 
+        id: 'mobile-dashboard', 
+        title: 'Trang chủ Dashboard', 
+        content: 'Màn hình chính hiển thị thông tin tổng quan, các bài thi có sẵn và thông báo quan trọng.', 
+        image: mobileHomeDashboard 
+      },
+      { 
+        id: 'mobile-room-code', 
+        title: 'Nhập mã phòng thi', 
+        content: 'Giao diện nhập mã phòng thi để tham gia vào bài thi được tổ chức.', 
+        image: mobileEnterRoomCode 
+      },
+      { 
+        id: 'mobile-exam-room', 
+        title: 'Vào phòng thi', 
+        content: 'Màn hình xác nhận thông tin phòng thi và chuẩn bị bắt đầu làm bài.', 
+        image: mobileEnterExamRoom 
+      },
+      { 
+        id: 'mobile-start-exam', 
+        title: 'Bắt đầu thi', 
+        content: 'Giao diện hiển thị thông tin bài thi và nút bắt đầu làm bài.', 
+        image: mobileStartExam 
+      },
+      { 
+        id: 'mobile-question-list', 
+        title: 'Danh sách câu hỏi', 
+        content: 'Hiển thị danh sách các câu hỏi trong bài thi với trạng thái đã làm/chưa làm.', 
+        image: mobileQuestionList 
+      },
+      { 
+        id: 'mobile-submit-progress', 
+        title: 'Tiến độ nộp bài', 
+        content: 'Hiển thị tiến độ khi người dùng nhấn nộp bài với animation loading.', 
+        image: mobileSubmitProgress 
+      },
+      { 
+        id: 'mobile-exam-results', 
+        title: 'Kết quả bài thi', 
+        content: 'Màn hình hiển thị kết quả chi tiết sau khi nộp bài với điểm số và đáp án.', 
+        image: mobileExamResults 
+      },
+      { 
+        id: 'mobile-review-after-submit', 
+        title: 'Xem lại sau nộp bài', 
+        content: 'Chức năng cho phép xem lại các câu hỏi và đáp án sau khi đã nộp bài.', 
+        image: mobileReviewAfterSubmit 
+      },
+      { 
+        id: 'mobile-exam-history', 
+        title: 'Lịch sử làm bài', 
+        content: 'Xem lịch sử các lần làm bài trước đó với điểm số và thời gian.', 
+        image: mobileExamHistory 
+      },
+      { 
+        id: 'mobile-profile-features', 
+        title: 'Hồ sơ cá nhân', 
+        content: 'Quản lý hồ sơ cá nhân với nhiều chức năng như thay đổi thông tin, xem thống kê.', 
+        image: mobileProfileFeatures 
+      },
+      { 
+        id: 'mobile-settings-features', 
+        title: 'Cài đặt ứng dụng', 
+        content: 'Cài đặt ứng dụng với nhiều tùy chọn như theme, thông báo, ngôn ngữ.', 
+        image: mobileSettingsFeatures 
+      }
+    ]
+  },
   
 ]
 
