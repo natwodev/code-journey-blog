@@ -4,6 +4,7 @@ import FeaturedPosts from '../components/home/FeaturedPosts'
 import TechStack from '../components/home/TechStack'
 import HomeTimeline from '../components/home/HomeTimeline'
 import ResourceLinks from '../components/home/ResourceLinks'
+import Footer from '../components/common/Footer'
 
 export default function Home() {
   return (
@@ -16,6 +17,7 @@ export default function Home() {
         <HomeTimeline />
         <ResourceLinks />
       </div>
+      <Footer />
     </div>
   )
 }
