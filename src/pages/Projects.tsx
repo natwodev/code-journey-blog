@@ -57,7 +57,36 @@ export default function Projects() {
       </div>
 
       {/* Filters */}
-      <div className="mt-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+      {/* Mobile: compact selects */}
+      <div className="mt-6 grid grid-cols-1 gap-3 sm:hidden">
+        <label className="text-left">
+          <span className="block text-white/70 text-xs mb-1">Category</span>
+          <select
+            value={category}
+            onChange={(e) => setCategory(e.target.value as 'All' | Category)}
+            className="w-full rounded-lg border border-white/10 bg-white/5 text-white/90 px-3 py-2"
+          >
+            {categories.map(c => (
+              <option key={c} value={c}>{c}</option>
+            ))}
+          </select>
+        </label>
+        <label className="text-left">
+          <span className="block text-white/70 text-xs mb-1">Status</span>
+          <select
+            value={status}
+            onChange={(e) => setStatus(e.target.value as 'All' | Status)}
+            className="w-full rounded-lg border border-white/10 bg-white/5 text-white/90 px-3 py-2"
+          >
+            {statuses.map(s => (
+              <option key={s} value={s}>{s}</option>
+            ))}
+          </select>
+        </label>
+      </div>
+
+      {/* Desktop/Tablet: chip controls */}
+      <div className="mt-6 hidden sm:flex sm:flex-row sm:items-center sm:justify-between gap-3">
         <div className="flex items-center gap-2">
           <span className="text-white/70 text-sm">Category:</span>
           <div className="flex flex-wrap gap-2">
