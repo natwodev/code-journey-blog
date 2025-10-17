@@ -3,7 +3,6 @@ import FullPageGradient from '../components/home/FullPageGradient'
 import FeaturedPosts from '../components/home/FeaturedPosts'
 import TechStack from '../components/home/TechStack'
 import FeaturedProjects from '../components/home/FeaturedProjects'
-import HomeTimeline from '../components/home/HomeTimeline'
 import ResourceLinks from '../components/home/ResourceLinks'
 import Footer from '../components/common/Footer'
 
@@ -16,7 +15,6 @@ export default function Home() {
         <FeaturedPosts />
         <FeaturedProjects />
         <TechStack />
-        <HomeTimeline />
         <ResourceLinks />
       </div>
       <Footer />

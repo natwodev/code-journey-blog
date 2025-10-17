@@ -6,6 +6,7 @@ import { projects } from '../data/projects'
 import { certifications } from '../data/skills'
 import { useTypingEffect } from '../hooks/useTypingEffect'
 import SkillBadge from '../components/common/SkillBadge'
+import HomeTimeline from '../components/home/HomeTimeline'
 
 export default function About() {
   const { t } = useTranslation()
@@ -106,7 +107,8 @@ export default function About() {
         </motion.div>
       </section>
 
-      {/* Four-year journey removed as requested */}
+      {/* Learning journey moved from Home */}
+      <HomeTimeline />
 
       {/* Media timeline (zig-zag with center dots) */}
       {/* removed per request */}
