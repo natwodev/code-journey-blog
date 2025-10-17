@@ -45,12 +45,21 @@ export default function AudioToggle({ src, size = 'md', showLabel = true }: { re
       aria-label={isPlaying ? 'Tắt nhạc' : 'Bật nhạc'}
     >
       {isPlaying ? (
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M7 6h4v12H7zM13 6h4v12h-4z"/></svg>
+        // Speaker with sound waves (on)
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <path d="M3 10v4a1 1 0 001 1h3l4.243 3.182A1 1 0 0013 17.382V6.618a1 1 0 00-1.757-.8L7 9H4a1 1 0 00-1 1z"/>
+          <path d="M16.5 8.5a1 1 0 011.414 0A5 5 0 0119 12a5 5 0 01-1.086 3.5 1 1 0 11-1.528-1.28c.4-.477.614-1.317.614-2.22 0-.903-.214-1.743-.614-2.22a1 1 0 010-1.28z"/>
+          <path d="M19.5 6.5a1 1 0 011.414 0A8 8 0 0122 12a8 8 0 01-1.086 5.5 1 1 0 11-1.528-1.28C19.86 15.47 20 13.83 20 12c0-1.83-.14-3.47-.614-4.22a1 1 0 010-1.28z"/>
+        </svg>
       ) : (
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M8 5v14l11-7z"/></svg>
+        // Muted speaker (off)
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <path d="M3 10v4a1 1 0 001 1h3l4.243 3.182A1 1 0 0013 17.382V6.618a1 1 0 00-1.757-.8L7 9H4a1 1 0 00-1 1z"/>
+          <path d="M21 9.414l-1.414-1.414L17.586 10l-2-2L14.172 9.414l2 2-2 2L13.586 14l2-2 2 2L19.414 12l-2-2 2-2z"/>
+        </svg>
       )}
       {showLabel && (
-        <span className="text-sm md:text-base">{isPlaying ? 'Tắt nhạc' : 'Phát nhạc'}</span>
+        <span className="text-sm md:text-base">{isPlaying ? 'Tắt nhạc' : 'Mở nhạc'}</span>
       )}
     </button>
   )
