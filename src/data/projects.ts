@@ -30,6 +30,11 @@ import mobileExamHistory from '../assets/mobile/exam-history.png'
 import mobileProfileFeatures from '../assets/mobile/profile-features.png'
 import mobileSettingsFeatures from '../assets/mobile/settings-features.png'
 import quizLoginStudent from '../assets/tracnghiem/login-student.jpg'
+import quizExamSessionList from '../assets/tracnghiem/exam-session-list.jpg'
+import quizRabbitmq from '../assets/tracnghiem/rabbitmq-queue.jpg'
+import quizRedisCache from '../assets/tracnghiem/redis-cache.jpg'
+import quizExamResult from '../assets/tracnghiem/exam-result.jpg'
+import quizExamQuestions from '../assets/tracnghiem/exam-questions.jpg'
 
 export const projects: Project[] = [
   {
@@ -75,8 +80,15 @@ export const projects: Project[] = [
     tech: ['C#', '.NET', 'Blazor', 'Redis', 'RabbitMQ'],
     categories: ['Web', 'Api'],
     status: 'Planned',
+    details: `Mục tiêu: xây dựng hệ thống thi trắc nghiệm cho phép tạo kỳ thi, quản lý ca thi, thí sinh đăng nhập, làm bài theo thời gian, tự động chấm điểm và trả kết quả tức thì.\n\nKiến trúc: front-end Blazor Server; API .NET tách lớp; Redis dùng làm cache phiên/đề thi để giảm truy vấn DB; RabbitMQ xử lý hàng đợi sự kiện như nộp bài, chấm điểm nền, ghi log.\n\nRealtime: trang Monitor cho giám thị theo dõi trạng thái thí sinh theo thời gian thực (đang làm, mất kết nối, nộp bài), thời lượng còn lại, số lần rời tab, sự kiện bất thường.\n\nBảo mật & ổn định: chống refresh mất tiến độ, chống gian lận cơ bản (random đề, trộn câu hỏi), autosave theo chu kỳ, theo dõi hoạt động.`,
     sections: [
-      { id: 'quiz-login', title: 'Đăng nhập sinh viên', image: quizLoginStudent }
+      { id: 'quiz-login', title: 'Đăng nhập sinh viên', image: quizLoginStudent, content: 'Sinh viên đăng nhập bằng tài khoản trường; phiên đăng nhập được lưu trong Redis để đảm bảo ổn định và nhanh.' },
+      { id: 'quiz-sessions', title: 'Danh sách ca thi', image: quizExamSessionList, content: 'Hiển thị các ca thi khả dụng theo thời gian; kiểm tra điều kiện tham gia và trạng thái chỗ.' },
+      { id: 'quiz-questions', title: 'Danh sách câu hỏi', image: quizExamQuestions, content: 'Bài thi trộn câu hỏi/đáp án; autosave đáp án định kỳ; đồng hồ đếm ngược theo thời gian ca thi.' },
+      { id: 'quiz-result', title: 'Kết quả bài thi', image: quizExamResult, content: 'Sau khi nộp bài, hệ thống chấm điểm tự động và trả kết quả tức thì kèm phân tích.' },
+      { id: 'quiz-redis', title: 'Redis cache', image: quizRedisCache, content: 'Lưu session và đề thi vào Redis giúp giảm tải DB, tránh mất tiến độ khi reload.' },
+      { id: 'quiz-rabbitmq', title: 'RabbitMQ queue', image: quizRabbitmq, content: 'Các sự kiện nặng (ghi log, thống kê) push vào queue để xử lý nền, giữ UI mượt.' },
+      { id: 'quiz-monitor', title: 'Monitor realtime', content: 'Trang giám sát realtime hiển thị danh sách thí sinh theo ca thi, trạng thái kết nối, tiến độ % làm bài và cảnh báo rời tab — cập nhật tức thì qua WebSocket/SignalR.' }
     ]
   },
   {
