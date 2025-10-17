@@ -26,11 +26,10 @@ export default function Navbar() {
         </nav>
 
         <div className="flex items-center gap-2">
-          {/* Hide language toggle on mobile */}
-          <div className="hidden md:block"><LanguageToggle /></div>
-          {/* Hide hamburger on mobile as requested (show from md up only) */}
+          <LanguageToggle />
+          {/* Mobile menu button */}
           <button
-            className="hidden md:inline-flex p-2 rounded-lg hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-brand-cyan/60"
+            className="md:hidden p-2 rounded-lg hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-brand-cyan/60"
             aria-label="Toggle navigation"
             aria-expanded={isOpen}
             onClick={() => setIsOpen((v) => !v)}
@@ -44,7 +43,7 @@ export default function Navbar() {
 
       {/* Mobile nav panel */}
       {isOpen && (
-        <div className="hidden md:block border-t border-white/10 bg-black/70 backdrop-blur supports-[backdrop-filter]:bg-black/40">
+        <div className="md:hidden border-t border-white/10 bg-black/70 backdrop-blur supports-[backdrop-filter]:bg-black/40">
           <div className="max-w-6xl mx-auto px-6 py-4 flex flex-col gap-1">
             <NavLink onClick={() => setIsOpen(false)} to="/" className={navClass} end>{t('Trang chủ', 'Home')}</NavLink>
             <NavLink onClick={() => setIsOpen(false)} to="/blog" className={navClass}>{t('Blog', 'Blog')}</NavLink>
