@@ -84,27 +84,31 @@ export default function FullscreenImageModal({
             <p className="text-sm text-white/70">{activeIndex + 1} / {images.length}</p>
           </div>
           
-          <button
-            onClick={onClose}
-            className="w-10 h-10 bg-white/10 hover:bg-white/20 rounded-full flex items-center justify-center text-white transition-colors"
-          >
-            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-            </svg>
-          </button>
+          <div className="flex items-center gap-2">
+            <button
+              onClick={onClose}
+              className="w-10 h-10 bg-white/10 hover:bg-white/20 rounded-full flex items-center justify-center text-white transition-colors"
+              aria-label="Đóng"
+            >
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+          </div>
         </div>
       </div>
 
       {/* Main Image Container */}
-      <div className="flex items-center justify-center h-full p-2 sm:p-4 pt-16 sm:pt-20 pb-16 sm:pb-20">
+      <div className="flex items-center justify-center h-full p-2 sm:p-4 pt-16 sm:pt-20 pb-20 sm:pb-24">
         <div className="relative w-full h-full flex items-center justify-center">
           <img
             src={images[activeIndex].image}
             alt={images[activeIndex].title}
-            className="max-w-full max-h-full object-contain rounded-lg shadow-2xl transition-all duration-300"
+            className="max-w-full max-h-full object-contain rounded-lg shadow-2xl cursor-default"
             style={{
               maxWidth: '95vw',
-              maxHeight: '85vh',
+              // Reserve space for the bottom thumbnail strip so the image never gets covered
+              maxHeight: 'calc(85vh - 56px)',
               width: 'auto',
               height: 'auto'
             }}
@@ -153,7 +157,7 @@ export default function FullscreenImageModal({
               <button
                 key={image.id}
                 onClick={() => goToSlide(index)}
-                className={`flex-shrink-0 w-8 h-8 sm:w-10 sm:h-10 rounded-lg overflow-hidden border-2 transition-all ${
+                className={`flex-shrink-0 w-10 h-10 sm:w-12 sm:h-12 rounded-lg overflow-hidden border-2 transition-all ${
                   index === activeIndex
                     ? 'border-brand-cyan/50 ring-2 ring-brand-cyan/20'
                     : 'border-white/30 hover:border-white/50'
@@ -172,6 +176,8 @@ export default function FullscreenImageModal({
           </div>
         </div>
       )}
+
+      
 
       {/* Click to close hint - Hidden on mobile */}
       <div className="absolute bottom-4 right-4 text-white/50 text-sm hidden sm:block">
