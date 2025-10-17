@@ -27,13 +27,13 @@ export default function Timeline2022() {
         >
           {/* Back button */}
           <Link 
-            to="/" 
+            to="/about" 
             className="inline-flex items-center gap-2 text-white/70 hover:text-white transition-colors mb-8"
           >
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M19 12H5M12 19L5 12L12 5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
             </svg>
-            {t('common.backToHome')}
+            {t('common.backToAbout', { defaultValue: 'Back to About' })}
           </Link>
 
           {/* Header */}
