@@ -29,6 +29,7 @@ import mobileReviewAfterSubmit from '../assets/mobile/review-after-submit.png'
 import mobileExamHistory from '../assets/mobile/exam-history.png'
 import mobileProfileFeatures from '../assets/mobile/profile-features.png'
 import mobileSettingsFeatures from '../assets/mobile/settings-features.png'
+import quizLoginStudent from '../assets/tracnghiem/login-student.jpg'
 
 export const projects: Project[] = [
   {
@@ -74,6 +75,9 @@ export const projects: Project[] = [
     tech: ['C#', '.NET', 'Blazor', 'Redis', 'RabbitMQ'],
     categories: ['Web', 'Api'],
     status: 'Planned',
+    sections: [
+      { id: 'quiz-login', title: 'Đăng nhập sinh viên', image: quizLoginStudent }
+    ]
   },
   {
     id: 'flutter-quiz-app',
