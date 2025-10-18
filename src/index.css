@@ -77,23 +77,49 @@ body {
   to { transform: rotate(360deg); }
 }
 
-/* Global code block styling - no frames */
+/* Global code block styling with clean borders */
 pre {
+  background: rgba(0, 0, 0, 0.3) !important;
+  border: 1px solid rgba(0, 201, 167, 0.3) !important;
+  box-shadow: 0 0 20px rgba(0, 201, 167, 0.1) !important;
+  padding: 1rem !important;
+  margin: 1rem 0 !important;
+  border-radius: 8px !important;
+  overflow-x: auto !important;
+}
+
+/* Remove line dividers and line numbers */
+pre code {
   background: transparent !important;
   border: none !important;
-  box-shadow: none !important;
   padding: 0 !important;
   margin: 0 !important;
-  border-radius: 0 !important;
+  display: block !important;
+  line-height: 1.6 !important;
+}
+
+/* Remove any line highlighting or dividers */
+pre code .hljs-line,
+pre code .hljs-ln,
+pre code .hljs-ln-numbers,
+pre code .hljs-ln-code {
+  background: transparent !important;
+  border: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  display: inline !important;
 }
 
 code {
-  background: transparent !important;
-  border: none !important;
+  background: rgba(0, 201, 167, 0.1) !important;
+  border: 1px solid rgba(0, 201, 167, 0.2) !important;
   box-shadow: none !important;
+  padding: 0.2rem 0.4rem !important;
+  border-radius: 4px !important;
+  font-size: 0.9em !important;
 }
 
-/* Syntax highlighting for code blocks */
+/* Disable syntax highlighting for code blocks */
 .hljs {
   background: transparent !important;
   color: #ffffff !important;
@@ -104,6 +130,43 @@ code {
   line-height: 1.6;
   border: none;
   box-shadow: none;
+  font-family: 'Fira Code', 'Monaco', 'Consolas', monospace !important;
+}
+
+/* Remove all line dividers, borders, and separators */
+.hljs *,
+.hljs > *,
+.hljs span,
+.hljs div,
+.hljs pre,
+.hljs code {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  outline: none !important;
+  border-radius: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* Remove any table-like structures that might create line dividers */
+.hljs table,
+.hljs tr,
+.hljs td,
+.hljs th {
+  border: none !important;
+  background: transparent !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  display: inline !important;
+}
+
+/* Ensure all text is white and no backgrounds */
+.hljs * {
+  color: #ffffff !important;
+  background: transparent !important;
+  font-weight: normal !important;
+  font-style: normal !important;
 }
 
 /* Mobile responsive code blocks */
@@ -133,19 +196,28 @@ code {
   pre {
     font-size: 0.8rem !important;
     line-height: 1.5 !important;
-    padding: 0 !important;
-    margin: 0 !important;
+    padding: 0.75rem !important;
+    margin: 0.75rem 0 !important;
     max-width: 100% !important;
     overflow-x: auto !important;
     -webkit-overflow-scrolling: touch !important;
+    background: rgba(0, 0, 0, 0.3) !important;
+    border: 1px solid rgba(0, 201, 167, 0.3) !important;
+    box-shadow: 0 0 15px rgba(0, 201, 167, 0.1) !important;
+    border-radius: 6px !important;
+  }
+  
+  pre code {
     background: transparent !important;
     border: none !important;
-    box-shadow: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
   }
   
   code {
     font-size: 0.8rem !important;
     word-break: break-word !important;
+    padding: 0.15rem 0.3rem !important;
   }
 }
 
@@ -153,16 +225,25 @@ code {
   pre {
     font-size: 0.75rem !important;
     line-height: 1.4 !important;
-    padding: 0 !important;
-    margin: 0 !important;
+    padding: 0.5rem !important;
+    margin: 0.5rem 0 !important;
     max-width: 100% !important;
+    background: rgba(0, 0, 0, 0.3) !important;
+    border: 1px solid rgba(0, 201, 167, 0.3) !important;
+    box-shadow: 0 0 10px rgba(0, 201, 167, 0.1) !important;
+    border-radius: 4px !important;
+  }
+  
+  pre code {
     background: transparent !important;
     border: none !important;
-    box-shadow: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
   }
   
   code {
     font-size: 0.75rem !important;
+    padding: 0.1rem 0.25rem !important;
   }
 }
 
