@@ -130,11 +130,25 @@ export default function About() {
                       <div className="text-xs text-white/70 break-words">{h.label}</div>
                     </div>
                   )
-                  return h.label === t('about.highlights.projects') ? (
-                    <Link to="/projects" key={h.label} aria-label={t('about.gotoProjects', { defaultValue: 'Go to Projects' })} className="h-full w-full">{card}</Link>
-                  ) : (
-                    <div key={h.label} className="h-full w-full">{card}</div>
-                  )
+                  if (h.label === t('about.highlights.projects')) {
+                    return (
+                      <Link to="/projects" key={h.label} aria-label={t('about.gotoProjects', { defaultValue: 'Go to Projects' })} className="h-full w-full">
+                        {card}
+                      </Link>
+                    )
+                  } else if (h.label === t('about.highlights.posts')) {
+                    return (
+                      <Link to="/blog" key={h.label} aria-label={t('about.gotoBlog', { defaultValue: 'Go to Blog' })} className="h-full w-full">
+                        {card}
+                      </Link>
+                    )
+                  } else {
+                    return (
+                      <div key={h.label} className="h-full w-full">
+                        {card}
+                      </div>
+                    )
+                  }
                 })}
               </div>
               
