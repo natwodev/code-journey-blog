@@ -53,7 +53,7 @@ export default function Navbar() {
       {/* Mobile nav panel */}
       {isOpen && (
         <div className="md:hidden border-t border-white/10 bg-black/70 backdrop-blur supports-[backdrop-filter]:bg-black/40">
-          <div className="max-w-6xl mx-auto px-6 py-4 flex flex-col gap-1">
+          <div className="max-w-6xl mx-auto px-6 py-4 flex flex-col gap-1 items-center">
             <NavLink onClick={() => setIsOpen(false)} to="/" className={navClass} end>{t('Trang chủ', 'Home')}</NavLink>
             <NavLink onClick={() => setIsOpen(false)} to="/blog" className={navClass}>{t('Blog', 'Blog')}</NavLink>
             <NavLink onClick={() => setIsOpen(false)} to="/projects" className={navClass}>{t('Dự án', 'Projects')}</NavLink>
