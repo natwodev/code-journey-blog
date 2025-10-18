@@ -77,15 +77,14 @@ body {
   to { transform: rotate(360deg); }
 }
 
-/* Global code block styling - clean frames */
+/* Global code block styling - no frames */
 pre {
-  background: rgba(0, 0, 0, 0.2) !important;
+  background: transparent !important;
   border: none !important;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1) !important;
-  padding: 1rem !important;
-  margin: 1rem 0 !important;
-  border-radius: 0.5rem !important;
-  overflow-x: auto !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  border-radius: 0 !important;
 }
 
 code {
@@ -109,13 +108,6 @@ code {
 
 /* Mobile responsive code blocks */
 @media (max-width: 768px) {
-  pre {
-    padding: 0.75rem !important;
-    margin: 0.75rem 0 !important;
-    font-size: 0.8rem !important;
-    line-height: 1.5 !important;
-  }
-  
   .hljs {
     padding: 0;
     font-size: 0.8rem;
@@ -127,13 +119,6 @@ code {
 }
 
 @media (max-width: 480px) {
-  pre {
-    padding: 0.5rem !important;
-    margin: 0.5rem 0 !important;
-    font-size: 0.75rem !important;
-    line-height: 1.4 !important;
-  }
-  
   .hljs {
     padding: 0;
     font-size: 0.75rem;
@@ -146,9 +131,16 @@ code {
 /* Additional mobile optimizations for code blocks */
 @media (max-width: 768px) {
   pre {
+    font-size: 0.8rem !important;
+    line-height: 1.5 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    max-width: 100% !important;
     overflow-x: auto !important;
     -webkit-overflow-scrolling: touch !important;
-    max-width: 100% !important;
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
   }
   
   code {
@@ -159,7 +151,14 @@ code {
 
 @media (max-width: 480px) {
   pre {
+    font-size: 0.75rem !important;
+    line-height: 1.4 !important;
+    padding: 0 !important;
+    margin: 0 !important;
     max-width: 100% !important;
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
   }
   
   code {
