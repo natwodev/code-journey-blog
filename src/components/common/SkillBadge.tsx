@@ -41,11 +41,11 @@ function getIconForSkill(name: string): React.ReactElement {
 
 export default function SkillBadge({ name }: { readonly name: string }) {
   return (
-    <span className="inline-flex items-center gap-2 whitespace-nowrap leading-none px-3 py-1.5 rounded-full bg-white/5 border border-white/10 text-sm">
-      <span className="text-brand-cyan/90 text-base">
+    <span className="inline-flex items-center gap-2 leading-none px-3 py-1.5 rounded-full bg-white/5 border border-white/10 text-sm max-w-full">
+      <span className="text-brand-cyan/90 text-base flex-shrink-0">
         {getIconForSkill(name)}
       </span>
-      <span>{name}</span>
+      <span className="truncate">{name}</span>
     </span>
   )
 }

@@ -33,7 +33,7 @@ export default function CertificateModal({ isOpen, onClose, imageSrc, title, iss
             {/* Close button */}
             <button
               onClick={onClose}
-              className="absolute -top-12 right-0 z-10 p-2 rounded-full bg-white/10 hover:bg-white/20 transition-colors"
+              className="absolute top-4 right-4 z-10 p-2 rounded-full bg-white/10 hover:bg-white/20 transition-colors"
               aria-label="Đóng"
             >
               <IoClose className="w-6 h-6 text-white" />

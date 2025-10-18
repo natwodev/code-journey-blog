@@ -43,7 +43,7 @@ export default function About() {
     {
       id: 'hutech',
       imageSrc: certificateImg,
-      title: 'Chứng chỉ HUTECH',
+      title: 'HUTECH - ITCoder',
       issuer: 'HUTECH University',
       dateIssued: '2024',
       certificateId: 'HUTECH-2024'
@@ -96,10 +96,10 @@ export default function About() {
       {/* removed per request: folded into promo card */}
 
       {/* Personal promo card */}
-      <section className="max-w-6xl mx-auto px-6">
+      <section className="max-w-6xl mx-auto px-4 sm:px-6">
         <motion.div initial={{ opacity: 0, y: 14 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="relative overflow-hidden rounded-3xl border border-white/10 bg-white/5">
           <div className="absolute inset-x-0 -top-20 h-40 blur-2xl bg-gradient-to-r from-brand-cyan/20 to-brand-purple/20" />
-          <div className="relative p-6 md:p-8 grid grid-cols-1 md:grid-cols-[auto,1fr] md:grid-rows-[auto,1fr] gap-4 md:gap-4 items-start">
+          <div className="relative p-4 sm:p-6 md:p-8 grid grid-cols-1 md:grid-cols-[auto,1fr] md:grid-rows-[auto,1fr] gap-4 md:gap-4 items-start">
             {/* Row 1, Col 1: Avatar */}
             <div className="flex justify-center md:justify-start">
               <img src={avatarImg} alt="Avatar" className="w-[180px] h-[180px] md:w-[338px] md:h-[338px] rounded-2xl object-cover border border-white/10" />
@@ -122,12 +122,12 @@ export default function About() {
 
             {/* Row 2 (spans both columns): Rest of info */}
             <div className="md:col-span-2">
-              <div className="mt-5 grid grid-cols-3 gap-3 max-w-md mx-auto justify-items-center items-stretch">
+              <div className="mt-5 grid grid-cols-3 gap-2 sm:gap-3 max-w-md mx-auto justify-items-center items-stretch">
                 {highlights.map(h => {
                   const card = (
-                    <div className="rounded-2xl bg-white/5 border border-white/10 p-4 text-center transition hover:bg-white/10 hover:border-brand-cyan/40 h-full">
-                      <div className="text-2xl font-semibold text-brand-cyan">{h.value}</div>
-                      <div className="text-xs text-white/70">{h.label}</div>
+                    <div className="rounded-2xl bg-white/5 border border-white/10 p-3 sm:p-4 text-center transition hover:bg-white/10 hover:border-brand-cyan/40 h-full">
+                      <div className="text-xl sm:text-2xl font-semibold text-brand-cyan">{h.value}</div>
+                      <div className="text-xs text-white/70 break-words">{h.label}</div>
                     </div>
                   )
                   return h.label === t('about.highlights.projects') ? (
@@ -141,23 +141,23 @@ export default function About() {
               {/* Inline skills & certifications */}
               <div className="mt-6">
                 <div className="text-white/80 font-semibold">{t('about.skills')}</div>
-                <div className="mt-2 flex flex-wrap gap-2">
+                <div className="mt-2 flex flex-wrap gap-2 max-w-full overflow-hidden">
                   {Array.from(new Set(projects.flatMap(p => p.tech))).map(tech => (
                     <SkillBadge key={tech} name={tech} />
                   ))}
                 </div>
                 <div className="mt-4 text-white/80 font-semibold">{t('about.certifications')}</div>
-                <div className="mt-2 grid sm:grid-cols-2 gap-2">
+                <div className="mt-2 grid grid-cols-1 sm:grid-cols-2 gap-2">
                   {certificateData.map(cert => (
-                    <div key={cert.id} className="rounded-xl bg-white/5 border border-white/10 px-4 py-3 flex items-center justify-between group hover:bg-white/10 hover:border-brand-cyan/40 transition-all duration-300">
-                      <div className="flex-1 min-w-0">
-                        <div className="text-sm font-medium text-white truncate">{cert.title}</div>
-                        <div className="text-xs text-brand-cyan/90 truncate">{cert.issuer}</div>
-                        <div className="text-xs text-white/60 truncate">{cert.dateIssued}</div>
+                    <div key={cert.id} className="rounded-xl bg-white/5 border border-white/10 px-3 py-3 flex items-center justify-between group hover:bg-white/10 hover:border-brand-cyan/40 transition-all duration-300 min-w-0">
+                      <div className="flex-1 min-w-0 pr-2">
+                        <div className="text-sm font-medium text-white break-words">{cert.title}</div>
+                        <div className="text-xs text-brand-cyan/90 break-words">{cert.issuer}</div>
+                        <div className="text-xs text-white/60 break-words">{cert.dateIssued}</div>
                       </div>
                       <button
                         onClick={() => handleCertificateClick(cert)}
-                        className="ml-3 p-2 rounded-lg bg-brand-cyan/20 hover:bg-brand-cyan/30 border border-brand-cyan/30 hover:border-brand-cyan/50 transition-all duration-300 group-hover:scale-110"
+                        className="flex-shrink-0 p-2 rounded-lg bg-brand-cyan/20 hover:bg-brand-cyan/30 border border-brand-cyan/30 hover:border-brand-cyan/50 transition-all duration-300 group-hover:scale-110"
                         aria-label={`Xem ${cert.title}`}
                       >
                         <IoEye className="w-4 h-4 text-brand-cyan" />
