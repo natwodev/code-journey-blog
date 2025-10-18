@@ -27,12 +27,15 @@ export default function Navbar() {
         </nav>
 
         <div className="flex items-center gap-2">
-          <LanguageToggle />
-          <AudioToggle
-            src={new URL('../../audio/hachimi.mp3', import.meta.url).href}
-            size="sm"
-            showLabel={false}
-          />
+          {/* Desktop controls */}
+          <div className="hidden md:flex items-center gap-2">
+            <LanguageToggle />
+            <AudioToggle
+              src={new URL('../../audio/hachimi.mp3', import.meta.url).href}
+              size="sm"
+              showLabel={false}
+            />
+          </div>
           {/* Mobile menu button */}
           <button
             className="md:hidden p-2 rounded-lg hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-brand-cyan/60"
@@ -56,6 +59,16 @@ export default function Navbar() {
             <NavLink onClick={() => setIsOpen(false)} to="/projects" className={navClass}>{t('Dự án', 'Projects')}</NavLink>
             <NavLink onClick={() => setIsOpen(false)} to="/about" className={navClass}>{t('Giới thiệu', 'About')}</NavLink>
             <NavLink onClick={() => setIsOpen(false)} to="/contact" className={navClass}>{t('Liên hệ', 'Contact')}</NavLink>
+            
+            {/* Mobile controls */}
+            <div className="mt-4 pt-4 border-t border-white/10 flex items-center justify-center gap-3">
+              <LanguageToggle />
+              <AudioToggle
+                src={new URL('../../audio/hachimi.mp3', import.meta.url).href}
+                size="sm"
+                showLabel={false}
+              />
+            </div>
           </div>
         </div>
       )}
