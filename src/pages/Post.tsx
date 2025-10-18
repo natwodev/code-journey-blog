@@ -101,7 +101,7 @@ export default function Post() {
                 const match = /language-(\w+)/.exec(className || '')
                 const inline = !match
                 return !inline && match ? (
-                  <pre className="bg-black/20 border border-white/10 rounded-lg p-4 overflow-x-auto my-4">
+                  <pre className="bg-black/30 border border-white/10 rounded-lg p-4 md:p-6 overflow-x-auto my-4 text-sm md:text-base leading-relaxed shadow-lg">
                     <code className={className} {...props}>
                       {children}
                     </code>
