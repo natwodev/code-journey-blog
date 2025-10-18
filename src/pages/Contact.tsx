@@ -20,6 +20,7 @@ export default function Contact() {
   })
   const [isLoading, setIsLoading] = useState(false)
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle')
+  const [validationErrors, setValidationErrors] = useState<{[key: string]: string}>({})
 
   // Handle form input changes
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -28,11 +29,47 @@ export default function Contact() {
       ...prev,
       [name]: value
     }))
+    
+    // Clear validation error when user starts typing
+    if (validationErrors[name]) {
+      setValidationErrors(prev => ({
+        ...prev,
+        [name]: ''
+      }))
+    }
+  }
+
+  // Custom validation
+  const validateForm = () => {
+    const errors: {[key: string]: string} = {}
+    
+    if (!formData.name.trim()) {
+      errors.name = 'Vui lòng nhập họ tên'
+    }
+    
+    if (!formData.email.trim()) {
+      errors.email = 'Vui lòng nhập email'
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
+      errors.email = 'Email không hợp lệ'
+    }
+    
+    if (!formData.message.trim()) {
+      errors.message = 'Vui lòng nhập nội dung tin nhắn'
+    }
+    
+    setValidationErrors(errors)
+    return Object.keys(errors).length === 0
   }
 
   // Handle form submission
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
+    
+    // Validate form before submission
+    if (!validateForm()) {
+      return
+    }
+    
     setIsLoading(true)
     setSubmitStatus('idle')
 
@@ -106,40 +143,69 @@ export default function Contact() {
           </div>
 
           {/* Right: Form */}
-          <form className="rounded-2xl border border-white/10 bg-white/5 p-6 space-y-4" onSubmit={handleSubmit}>
-            <input 
-              name="name"
-              value={formData.name}
-              onChange={handleInputChange}
-              className="w-full rounded-lg bg-black/30 border border-white/15 px-4 py-3 focus:outline-none focus:border-brand-cyan/60" 
-              placeholder={t('contact.yourNamePlaceholder')} 
-              required 
-            />
-            <input 
-              type="email" 
-              name="email"
-              value={formData.email}
-              onChange={handleInputChange}
-              className="w-full rounded-lg bg-black/30 border border-white/15 px-4 py-3 focus:outline-none focus:border-brand-cyan/60" 
-              placeholder={t('contact.yourEmailPlaceholder')} 
-              required 
-            />
-            <input 
-              name="subject"
-              value={formData.subject}
-              onChange={handleInputChange}
-              className="w-full rounded-lg bg-black/30 border border-white/15 px-4 py-3 focus:outline-none focus:border-brand-cyan/60" 
-              placeholder={t('contact.yourSubjectPlaceholder')} 
-            />
-            <textarea 
-              rows={6} 
-              name="message"
-              value={formData.message}
-              onChange={handleInputChange}
-              className="w-full rounded-lg bg-black/30 border border-white/15 px-4 py-3 focus:outline-none focus:border-brand-cyan/60" 
-              placeholder={t('contact.yourMessagePlaceholder')} 
-              required
-            />
+          <form className="rounded-2xl border border-white/10 bg-white/5 p-6 space-y-4" onSubmit={handleSubmit} noValidate>
+            <div>
+              <input 
+                name="name"
+                value={formData.name}
+                onChange={handleInputChange}
+                className={`w-full rounded-lg bg-black/30 border px-4 py-3 focus:outline-none ${
+                  validationErrors.name 
+                    ? 'border-red-500/60 focus:border-red-500/60' 
+                    : 'border-white/15 focus:border-brand-cyan/60'
+                }`}
+                placeholder={t('contact.yourNamePlaceholder')} 
+              />
+              {validationErrors.name && (
+                <p className="text-red-400 text-sm mt-1">{validationErrors.name}</p>
+              )}
+            </div>
+            
+            <div>
+              <input 
+                type="email" 
+                name="email"
+                value={formData.email}
+                onChange={handleInputChange}
+                className={`w-full rounded-lg bg-black/30 border px-4 py-3 focus:outline-none ${
+                  validationErrors.email 
+                    ? 'border-red-500/60 focus:border-red-500/60' 
+                    : 'border-white/15 focus:border-brand-cyan/60'
+                }`}
+                placeholder={t('contact.yourEmailPlaceholder')} 
+              />
+              {validationErrors.email && (
+                <p className="text-red-400 text-sm mt-1">{validationErrors.email}</p>
+              )}
+            </div>
+            
+            <div>
+              <input 
+                name="subject"
+                value={formData.subject}
+                onChange={handleInputChange}
+                className="w-full rounded-lg bg-black/30 border border-white/15 px-4 py-3 focus:outline-none focus:border-brand-cyan/60" 
+                placeholder={t('contact.yourSubjectPlaceholder')} 
+              />
+            </div>
+            
+            <div>
+              <textarea 
+                rows={6} 
+                name="message"
+                value={formData.message}
+                onChange={handleInputChange}
+                className={`w-full rounded-lg bg-black/30 border px-4 py-3 focus:outline-none ${
+                  validationErrors.message 
+                    ? 'border-red-500/60 focus:border-red-500/60' 
+                    : 'border-white/15 focus:border-brand-cyan/60'
+                }`}
+                placeholder={t('contact.yourMessagePlaceholder')} 
+              />
+              {validationErrors.message && (
+                <p className="text-red-400 text-sm mt-1">{validationErrors.message}</p>
+              )}
+            </div>
             
             {/* Status Messages */}
             {submitStatus === 'success' && (
