@@ -13,7 +13,7 @@ export default function ProjectCard({ project }: { readonly project: Project }) 
         </div>
       )}
       <div className="p-5 flex-1 flex flex-col">
-        <h3 className="text-xl font-semibold inline-block bg-gradient-to-r from-white to-white/85 bg-clip-text text-transparent">
+        <h3 className="text-2xl font-bold mb-3 text-white group-hover:text-brand-cyan transition-colors duration-300">
           <span className="relative">
             {project.name}
             <span className="absolute left-0 -bottom-1 h-[2px] w-0 bg-brand-cyan transition-all duration-300 group-hover:w-full"></span>
