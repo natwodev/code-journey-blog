@@ -22,6 +22,15 @@ export default function CertificateModal({ isOpen, onClose, imageSrc, title, iss
           className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm"
           onClick={onClose}
         >
+          {/* Close button - positioned at the very top right of the entire modal */}
+          <button
+            onClick={onClose}
+            className="absolute top-4 right-4 z-20 p-3 rounded-full bg-white/10 hover:bg-white/20 transition-colors border border-white/20"
+            aria-label="Đóng"
+          >
+            <IoClose className="w-6 h-6 text-white" />
+          </button>
+          
           <motion.div
             initial={{ scale: 0.8, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
@@ -30,15 +39,6 @@ export default function CertificateModal({ isOpen, onClose, imageSrc, title, iss
             className="relative max-w-4xl max-h-[90vh] w-full"
             onClick={(e) => e.stopPropagation()}
           >
-            {/* Close button */}
-            <button
-              onClick={onClose}
-              className="absolute top-4 right-4 z-10 p-2 rounded-full bg-white/10 hover:bg-white/20 transition-colors"
-              aria-label="Đóng"
-            >
-              <IoClose className="w-6 h-6 text-white" />
-            </button>
-            
             {/* Image container */}
             <div className="relative rounded-2xl overflow-hidden bg-white/5 border border-white/10">
               <img
