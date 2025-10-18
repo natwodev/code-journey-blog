@@ -1,6 +1,9 @@
 import { useParams, Link, Navigate } from 'react-router-dom'
 import { useState } from 'react'
 import { FiShare2 } from 'react-icons/fi'
+import ReactMarkdown from 'react-markdown'
+import remarkGfm from 'remark-gfm'
+import rehypeHighlight from 'rehype-highlight'
 import { posts } from '../data/posts'
 import type { Post as PostType } from '../data/posts'
 
@@ -82,10 +85,72 @@ export default function Post() {
       </div>
 
       <div className="prose prose-invert mt-8 max-w-none">
-        {/* Fallback to excerpt if content missing for now */}
-        {(post.content || post.excerpt).split('\n\n').map((para) => (
-          <p key={para}>{para}</p>
-        ))}
+        {post.content ? (
+          <ReactMarkdown
+            remarkPlugins={[remarkGfm]}
+            rehypePlugins={[rehypeHighlight]}
+            components={{
+              img: ({ src, alt }) => (
+                <img 
+                  src={src} 
+                  alt={alt} 
+                  className="rounded-lg border border-white/10 my-6 w-full object-cover max-h-[400px]"
+                />
+              ),
+              code: ({ className, children, ...props }) => {
+                const match = /language-(\w+)/.exec(className || '')
+                const inline = !match
+                return !inline && match ? (
+                  <pre className="bg-black/20 border border-white/10 rounded-lg p-4 overflow-x-auto my-4">
+                    <code className={className} {...props}>
+                      {children}
+                    </code>
+                  </pre>
+                ) : (
+                  <code className="bg-white/10 px-1 py-0.5 rounded text-sm" {...props}>
+                    {children}
+                  </code>
+                )
+              },
+              h1: ({ children }) => (
+                <h1 className="text-2xl font-bold text-white mt-8 mb-4">{children}</h1>
+              ),
+              h2: ({ children }) => (
+                <h2 className="text-xl font-semibold text-white mt-6 mb-3">{children}</h2>
+              ),
+              h3: ({ children }) => (
+                <h3 className="text-lg font-medium text-white mt-4 mb-2">{children}</h3>
+              ),
+              p: ({ children }) => (
+                <p className="text-white/90 leading-relaxed mb-4">{children}</p>
+              ),
+              ul: ({ children }) => (
+                <ul className="text-white/90 mb-4 ml-4 space-y-1">{children}</ul>
+              ),
+              ol: ({ children }) => (
+                <ol className="text-white/90 mb-4 ml-4 space-y-1">{children}</ol>
+              ),
+              li: ({ children }) => (
+                <li className="list-disc">{children}</li>
+              ),
+              blockquote: ({ children }) => (
+                <blockquote className="border-l-4 border-brand-cyan/50 pl-4 italic text-white/80 my-4">
+                  {children}
+                </blockquote>
+              ),
+              strong: ({ children }) => (
+                <strong className="text-white font-semibold">{children}</strong>
+              ),
+              em: ({ children }) => (
+                <em className="text-white/90 italic">{children}</em>
+              )
+            }}
+          >
+            {post.content}
+          </ReactMarkdown>
+        ) : (
+          <p className="text-white/90 leading-relaxed">{post.excerpt}</p>
+        )}
       </div>
 
       {/* Toast */}
