@@ -7,7 +7,7 @@ export type Project = {
   details?: string
   sections?: { id: string; title: string; content?: string; image?: string }[]
   categories: Array<'Web' | 'Desktop' | 'Mobile' | 'Api'>
-  status: 'Completed' | 'In Progress' | 'Planned'
+  status: 'Completed'
 }
 
 import hackingImg1 from '../assets/hacking/hacking1.jpg'
@@ -70,7 +70,7 @@ export const projects: Project[] = [
     summary: 'Nền tảng phúc khảo bài thi: portal web .NET cho quản trị, ứng dụng Flutter cho sinh viên đăng ký và theo dõi.',
     tech: ['C#', '.NET', 'Flutter', 'Dart'],
     categories: ['Web', 'Mobile', 'Api'],
-    status: 'In Progress',
+    status: 'Completed',
     details: `Mục tiêu: số hóa quy trình phúc khảo để nhanh, minh bạch, dễ theo dõi.\n\nChức năng chính:\n- Sinh viên: đăng nhập, nộp đơn phúc khảo, theo dõi trạng thái, nhận thông báo.\n- Nhân viên: duyệt đơn, phân công giảng viên, thống kê, xác nhận điểm sau phúc khảo.\n- Giảng viên: xem đơn được phân công, chấm lại, gửi nhận xét/điểm.\n- Admin: quản lý người dùng, phân quyền, đợt phúc khảo, nhật ký hệ thống.\n\nPhạm vi: phúc khảo bài thi lý thuyết; triển khai web; chưa tích hợp LMS.\n\nLợi ích: giảm thủ tục giấy tờ, tăng minh bạch, quản trị tập trung, dễ báo cáo.\n\nĐịnh hướng mở rộng: tích hợp LMS, chữ ký số, đa kênh thông báo, tăng cường bảo mật.`,
     sections: [
       { id: 'phuckhao-home', title: 'Trang chủ', content: 'Giao diện trang chủ hệ thống phúc khảo.', image: phuckhao1 },
@@ -83,7 +83,7 @@ export const projects: Project[] = [
     summary: 'Nền tảng thi trực tuyến hiệu năng cao: Blazor cho UI, Redis cache cho session và tốc độ, RabbitMQ cho xử lý hàng đợi.',
     tech: ['C#', '.NET', 'Blazor', 'Redis', 'RabbitMQ'],
     categories: ['Web', 'Api'],
-    status: 'Planned',
+    status: 'Completed',
     details: `Mục tiêu: xây dựng hệ thống thi trắc nghiệm cho phép tạo kỳ thi, quản lý ca thi, thí sinh đăng nhập, làm bài theo thời gian, tự động chấm điểm và trả kết quả tức thì.\n\nKiến trúc: front-end Blazor Server; API .NET tách lớp; Redis dùng làm cache phiên/đề thi để giảm truy vấn DB; RabbitMQ xử lý hàng đợi sự kiện như nộp bài, chấm điểm nền, ghi log.\n\nRealtime: trang Monitor cho giám thị theo dõi trạng thái thí sinh theo thời gian thực (đang làm, mất kết nối, nộp bài), thời lượng còn lại, số lần rời tab, sự kiện bất thường.\n\nBảo mật & ổn định: chống refresh mất tiến độ, chống gian lận cơ bản (random đề, trộn câu hỏi), autosave theo chu kỳ, theo dõi hoạt động.`,
     sections: [
       { id: 'quiz-login', title: 'Đăng nhập sinh viên', image: quizLoginStudent, content: 'Giao diện đăng nhập dành cho sinh viên với thiết kế thân thiện và bảo mật cao. Sinh viên đăng nhập bằng tài khoản trường (MSSV + mật khẩu). Hệ thống xác thực tích hợp với LDAP/Active Directory của trường. Phiên đăng nhập được lưu trong Redis để đảm bảo ổn định và tốc độ truy cập nhanh. Có tính năng "Ghi nhớ đăng nhập" và xử lý các trường hợp quên mật khẩu.' },

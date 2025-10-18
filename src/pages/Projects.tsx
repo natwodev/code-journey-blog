@@ -15,13 +15,11 @@ export default function Projects() {
   const stats = useMemo(() => {
     const total = projects.length
     const completed = projects.filter(p => p.status === 'Completed').length
-    const inProgress = projects.filter(p => p.status === 'In Progress').length
-    const planned = projects.filter(p => p.status === 'Planned').length
-    return { total, completed, inProgress, planned }
+    return { total, completed }
   }, [])
 
   const categories: Array<'All' | Category> = ['All', 'Web', 'Desktop', 'Mobile', 'Api']
-  const statuses: Array<'All' | Status> = ['All', 'Completed', 'In Progress', 'Planned']
+  const statuses: Array<'All' | Status> = ['All', 'Completed']
 
   const filtered = useMemo(() => {
     return projects.filter(p => {
@@ -45,14 +43,6 @@ export default function Projects() {
         <div className="rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-center">
           <div className="text-3xl font-semibold text-brand-cyan">{stats.completed}</div>
           <div className="text-xs text-white/70 mt-1">Completed</div>
-        </div>
-        <div className="rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-center">
-          <div className="text-3xl font-semibold text-yellow-400">{stats.inProgress}</div>
-          <div className="text-xs text-white/70 mt-1">In Progress</div>
-        </div>
-        <div className="rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-center">
-          <div className="text-3xl font-semibold text-blue-400">{stats.planned}</div>
-          <div className="text-xs text-white/70 mt-1">Planned</div>
         </div>
       </div>
 
