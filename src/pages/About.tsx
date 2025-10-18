@@ -1,15 +1,29 @@
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
+import { useState } from 'react'
+import { IoEye } from 'react-icons/io5'
 import avatarImg from '../assets/avata.jpg'
+import certificateImg from '../assets/chungchi/chungchihutech.png'
+import ccnaIntroImg from '../assets/chungchi/ccna-intro.png'
+import ccnaSwitchingImg from '../assets/chungchi/ccna-switching.png'
+import ccnaEnterpriseImg from '../assets/chungchi/ccna-enterprise.png'
 import { projects } from '../data/projects'
-import { certifications } from '../data/skills'
 import { useTypingEffect } from '../hooks/useTypingEffect'
 import SkillBadge from '../components/common/SkillBadge'
+import CertificateModal from '../components/common/CertificateModal'
 import HomeTimeline from '../components/home/HomeTimeline'
 
 export default function About() {
   const { t } = useTranslation()
+  const [isCertificateModalOpen, setIsCertificateModalOpen] = useState(false)
+  const [selectedCertificate, setSelectedCertificate] = useState<{
+    imageSrc: string
+    title: string
+    issuer: string
+    dateIssued: string
+    certificateId: string
+  } | null>(null)
   
   const info = {
     name: 'Huynh Nam Nguyen ',
@@ -24,6 +38,46 @@ export default function About() {
   ]
 
   const typedTitle = useTypingEffect(t('about.title'), 40)
+
+  const certificateData = [
+    {
+      id: 'hutech',
+      imageSrc: certificateImg,
+      title: 'Chứng chỉ HUTECH',
+      issuer: 'HUTECH University',
+      dateIssued: '2024',
+      certificateId: 'HUTECH-2024'
+    },
+    {
+      id: 'ccna-intro',
+      imageSrc: ccnaIntroImg,
+      title: 'CCNA: Introduction to Networks',
+      issuer: 'Cisco Systems, Inc.',
+      dateIssued: 'March 15, 2024',
+      certificateId: 'CCNA-INT-1234567'
+    },
+    {
+      id: 'ccna-switching',
+      imageSrc: ccnaSwitchingImg,
+      title: 'CCNA: Switching, Routing, and Wireless Essentials',
+      issuer: 'Cisco Systems, Inc.',
+      dateIssued: 'June 10, 2024',
+      certificateId: 'CCNA-SRW-1234567'
+    },
+    {
+      id: 'ccna-enterprise',
+      imageSrc: ccnaEnterpriseImg,
+      title: 'CCNA: Enterprise Networking, Security, and Automation',
+      issuer: 'Cisco Systems, Inc.',
+      dateIssued: 'September 20, 2024',
+      certificateId: 'CCNA-ENSA-1234567'
+    }
+  ]
+
+  const handleCertificateClick = (cert: typeof certificateData[0]) => {
+    setSelectedCertificate(cert)
+    setIsCertificateModalOpen(true)
+  }
 
   return (
     <div className="min-h-screen">
@@ -94,10 +148,20 @@ export default function About() {
                 </div>
                 <div className="mt-4 text-white/80 font-semibold">{t('about.certifications')}</div>
                 <div className="mt-2 grid sm:grid-cols-2 gap-2">
-                  {certifications.map(c => (
-                    <div key={c.name} className="rounded-xl bg-white/5 border border-white/10 px-4 py-3 flex items-center justify-between">
-                      <span>{c.name}</span>
-                      <span className="text-brand-cyan/90 text-sm">{c.issuer}</span>
+                  {certificateData.map(cert => (
+                    <div key={cert.id} className="rounded-xl bg-white/5 border border-white/10 px-4 py-3 flex items-center justify-between group hover:bg-white/10 hover:border-brand-cyan/40 transition-all duration-300">
+                      <div className="flex-1 min-w-0">
+                        <div className="text-sm font-medium text-white truncate">{cert.title}</div>
+                        <div className="text-xs text-brand-cyan/90 truncate">{cert.issuer}</div>
+                        <div className="text-xs text-white/60 truncate">{cert.dateIssued}</div>
+                      </div>
+                      <button
+                        onClick={() => handleCertificateClick(cert)}
+                        className="ml-3 p-2 rounded-lg bg-brand-cyan/20 hover:bg-brand-cyan/30 border border-brand-cyan/30 hover:border-brand-cyan/50 transition-all duration-300 group-hover:scale-110"
+                        aria-label={`Xem ${cert.title}`}
+                      >
+                        <IoEye className="w-4 h-4 text-brand-cyan" />
+                      </button>
                     </div>
                   ))}
                 </div>
@@ -112,6 +176,22 @@ export default function About() {
 
       {/* Media timeline (zig-zag with center dots) */}
       {/* removed per request */}
+      
+      {/* Certificate Modal */}
+      {selectedCertificate && (
+        <CertificateModal
+          isOpen={isCertificateModalOpen}
+          onClose={() => {
+            setIsCertificateModalOpen(false)
+            setSelectedCertificate(null)
+          }}
+          imageSrc={selectedCertificate.imageSrc}
+          title={selectedCertificate.title}
+          issuer={selectedCertificate.issuer}
+          dateIssued={selectedCertificate.dateIssued}
+          certificateId={selectedCertificate.certificateId}
+        />
+      )}
     </div>
   )
 }
