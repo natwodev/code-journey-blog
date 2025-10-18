@@ -123,7 +123,7 @@ Bây giờ, hãy bắt đầu!`
     excerpt: 'Khám phá cách sử dụng biến trong JavaScript: khai báo, khởi tạo, thay đổi giá trị và hiểu về scope của biến.',
     date: '2025-01-16',
     tags: ['JavaScript', 'Variables', 'Programming'],
-    image: 'https://images.unsplash.com/photo-1515879218367-8466d910aaa4?q=80&w=1600&auto=format&fit=crop',
+    image: 'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?q=80&w=1600&auto=format&fit=crop',
     content: `# JavaScript Biến và Khai Báo: Từ Cơ Bản Đến Nâng Cao
 
 Khả năng viết các thông tin khác nhau trên màn hình, chẳng hạn như "Hello, World!" có thể thú vị trong một thời gian, nhưng đó không phải là cách phổ quát để viết chương trình. Đã đến lúc bắt đầu tìm hiểu thêm về các yếu tố puzzle sẽ cuối cùng cho phép bạn tạo ra các chương trình giải quyết các vấn đề thực tế.
@@ -133,8 +133,6 @@ Có khá nhiều yếu tố như vậy, và chúng ta sẽ giới thiệu chúng
 Ban đầu có thể có vẻ hơi choáng ngợp, nhưng theo thời gian mọi thứ sẽ bắt đầu hợp nhất thành một bức tranh mạch lạc.
 
 ## Biến - Yếu Tố Đầu Tiên Của Lập Trình
-
-![Variables in JavaScript](https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=1200&auto=format&fit=crop)
 
 Yếu tố lập trình đầu tiên mà chúng ta sẽ nói đến là **biến**. Bạn có thể biết tên của biến từ toán học, nơi nó có nghĩa là một ký hiệu được sử dụng như một placeholder cho các giá trị khác nhau có thể thay đổi. Chúng có vai trò tương tự trong lập trình.
 
@@ -157,8 +155,6 @@ Trong JavaScript, tên biến có thể bao gồm bất kỳ chuỗi chữ cái 
 Điều quan trọng cũng là trình thông dịch JavaScript phân biệt giữa chữ thường và chữ hoa, cũng trong tên biến, vì vậy các tên như test, Test, hoặc TEST sẽ được coi là khác nhau.
 
 ## Khai Báo Biến
-
-![Variable Declaration](https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=1200&auto=format&fit=crop)
 
 Như chúng ta đã đề cập trước đó, chúng ta khai báo biến để đặt chỗ tên cho nó. Đây là một sự đơn giản hóa, bởi vì trên thực tế, không gian bộ nhớ cũng được dành cho biến, nhưng khi lập trình trong JavaScript, chúng ta thực tế không bao giờ phải nghĩ về những gì xảy ra trong bộ nhớ.
 
@@ -239,8 +235,6 @@ console.log(height);
 
 ## Thay Đổi Giá Trị Biến
 
-![Changing Variable Values](https://images.unsplash.com/photo-1461749280684-dccba630e2f6?q=80&w=1200&auto=format&fit=crop)
-
 Biến, như tên gọi của chúng cho thấy, có thể lưu trữ dữ liệu sẽ thay đổi. Các thay đổi được thực hiện bằng cách gán một giá trị mới cho biến, điều này ghi đè lên giá trị trước đó.
 
 \`\`\`javascript
@@ -288,8 +282,6 @@ greeting = "Hi!"; // -> Uncaught TypeError: Assignment to constant variable.
 Mục đích chính của hằng số là loại bỏ khả năng thay đổi ngẫu nhiên một giá trị được lưu trữ trong đó. Điều này quan trọng khi chúng ta có một số giá trị thực sự không bao giờ nên thay đổi. Các ví dụ điển hình của hằng số là đường dẫn đến tài nguyên, token và dữ liệu khác không bao giờ thay đổi trong suốt vòng đời của script.
 
 ## Scope (Phạm Vi) Của Biến
-
-![Variable Scope](https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1200&auto=format&fit=crop)
 
 Cho đến bây giờ, chúng ta đã giả định rằng sau khi khai báo biến, tên của nó có thể được sử dụng trong toàn bộ mã của chương trình (tức là phạm vi của biến là toàn cục). Điều này không hoàn toàn đúng – phạm vi của biến phụ thuộc vào nơi nó được khai báo.
 
@@ -343,8 +335,6 @@ console.log(weight); // -> 70
 Vấn đề là var bỏ qua các khối chương trình thông thường, coi chúng như thể chúng không tồn tại. Vậy trong tình huống nào chúng ta có thể khai báo một biến cục bộ bằng cách sử dụng var? Chỉ bên trong một hàm.
 
 ## Hoisting
-
-![JavaScript Hoisting](https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=1200&auto=format&fit=crop)
 
 Hoisting là một cơ chế khá phức tạp và thành thật mà nói khá không mạch lạc. Hiểu nó tốt đòi hỏi khả năng sử dụng tự do nhiều yếu tố JavaScript, mà chúng ta thậm chí chưa đề cập.
 
@@ -1576,5 +1566,158 @@ Xử lý lỗi là một phần quan trọng của lập trình JavaScript. Bằ
 - **Sử dụng finally**: Cho cleanup code
 
 Bạn sẽ viết ra những ứng dụng JavaScript robust và đáng tin cậy hơn. Hãy nhớ rằng lỗi sẽ xảy ra, nhưng cách chúng ta xử lý chúng sẽ quyết định chất lượng của ứng dụng.`
+  },
+  {
+    id: 'javascript-data-types-primitive-complex',
+    title: 'JavaScript Data Types: Từ Primitive đến Complex Types',
+    excerpt: 'Khám phá các kiểu dữ liệu trong JavaScript: primitive types (number, boolean, string) và complex types (array, object). Hiểu cách sử dụng typeof và làm việc với dữ liệu.',
+    date: '2025-01-16',
+    tags: ['JavaScript', 'Data Types', 'Programming', 'Fundamentals'],
+    image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=1600&auto=format&fit=crop',
+    content: `# JavaScript Data Types: Từ Primitive đến Complex Types
+
+Trong JavaScript, việc hiểu rõ các kiểu dữ liệu là nền tảng quan trọng để viết code hiệu quả. Bài viết này sẽ giúp bạn nắm vững primitive types và complex types, cùng với cách sử dụng chúng trong thực tế.
+
+## 1.1.1 Primitive Data Types
+
+Trong thực tế, chỉ có ba kiểu primitive thực sự được sử dụng: **number**, **boolean** và **string**. Chúng ta có thể kiểm tra kiểu dữ liệu của một giá trị bằng lệnh \`typeof\`.
+
+### Sử dụng typeof
+
+Lệnh \`typeof\` không chỉ kiểm tra một giá trị cụ thể, mà còn có thể kiểm tra biến (hay chính xác hơn là những gì được đặt bên trong nó).
+
+\`\`\`javascript
+console.log(typeof 2.5); // -> number
+console.log(typeof "one two three"); // -> string
+console.log(typeof false); // -> boolean
+\`\`\`
+
+### Lưu trữ giá trị trong biến
+
+Giá trị có thể được đặt trong biến - chúng ta có thể lưu trữ chúng ở đó hoặc thực hiện các hành động trên chúng (ví dụ: chia số hoặc nối chuỗi).
+
+\`\`\`javascript
+let nr = 2.5; 
+nr = nr / 2;
+console.log(typeof nr); // -> number
+\`\`\`
+
+### Giá trị undefined
+
+Nếu chúng ta chưa gán giá trị rõ ràng cho một biến đã khai báo, nó chứa giá trị \`undefined\` theo mặc định. Giá trị \`undefined\` cũng được coi là một trong các kiểu primitive.
+
+\`\`\`javascript
+let undeclaredVar;
+console.log(typeof undeclaredVar); // -> undefined
+\`\`\`
+
+**Lưu ý:** \`typeof\` trả về tên của kiểu dữ liệu dưới dạng string.
+
+### Tại sao gọi là "primitive"?
+
+Tính "primitive" của chúng nằm ở chỗ chúng không phức tạp. Luôn có một giá trị đơn giản, cụ thể trong một biến. Một biến chứa hoặc là một số, hoặc là một giá trị logic, hoặc là một chuỗi ký tự. Hoặc có thể không có gì ở đó, có nghĩa là giá trị \`undefined\` thực sự ở đó.
+
+## 1.1.2 Array - Kiểu Complex Type
+
+### Mảng là gì?
+
+Complex types, như arrays hoặc objects, là các bộ sưu tập dữ liệu - một tập hợp có thứ tự của các giá trị khác nhau có thể được đặt trong một biến. Trong trường hợp của array, các giá trị riêng lẻ được đặt trong một biến được gọi là **elements**, và được tham chiếu bằng một số chỉ định vị trí của chúng trong tập hợp (tức là **index**).
+
+### Index trong JavaScript
+
+Trong JavaScript, các index bắt đầu từ 0, vì vậy phần tử đầu tiên sẽ có index là 0, phần tử thứ hai có index là 1, và cứ thế tiếp tục.
+
+\`\`\`javascript
+let a = [10, 20, "en to tre", true, 50];
+a[4] = a[4] * 2;
+console.log(a[0]);    // -> 10
+console.log(a[2]);    // -> en to tre
+console.log(a[4]);    // -> 100
+\`\`\`
+
+Trong ví dụ trên, chúng ta đã tạo một mảng năm phần tử, sửa đổi phần tử cuối cùng và tham chiếu đến một vài phần tử (hiển thị giá trị của chúng).
+
+## 1.1.3 Object - Kiểu Array Đặc Biệt
+
+### Object như một loại array đặc biệt
+
+Từ quan điểm hình thức, một object có thể được coi như một loại array đặc biệt. Trong khoa học máy tính, các array loại này được gọi là **association arrays** (hoặc, trong lý thuyết cấu trúc dữ liệu, chúng được gọi là **maps**).
+
+### Sự khác biệt với array thông thường
+
+Chúng khác với array thông thường ở chỗ chúng ta không tham chiếu đến các phần tử riêng lẻ của object bằng index, mà bằng **keys** (tức là chúng ta "liên kết" một phần tử với một key).
+
+### Key và Properties
+
+Một key đơn giản là một nhãn (tên), duy nhất trong một object và xác định rõ ràng phần tử được chọn. Trong objects, chúng ta gọi các phần tử thành phần của chúng là **properties**. Mỗi property sẽ bao gồm một key (hoặc label) và một value.
+
+### Tạo Object
+
+Ý tưởng về objects xuất phát từ việc quan sát thực tế xung quanh. Hầu như mọi thứ trong môi trường của chúng ta, dù là vật chất (ví dụ: một chiếc xe hơi) hay trừu tượng (ví dụ: một liên lạc trong sổ địa chỉ) đều là một tập hợp của các thành phần nhất định.
+
+\`\`\`javascript
+let sampleObject = {
+    id: 10, 
+    delay: 20,
+    name: "en to tre",
+    isPresent: true,
+    delay: 50  // Lưu ý: key 'delay' bị trùng lặp
+};
+sampleObject.delay = sampleObject.delay * 2;
+console.log(sampleObject.id);    // -> 10
+console.log(sampleObject.name);  // -> en to tre
+console.log(sampleObject.delay); // -> 100
+\`\`\`
+
+## Kết Luận
+
+### Tóm tắt các kiểu dữ liệu
+
+1. **Primitive Types:**
+   - \`number\` - Số (cả nguyên và thập phân)
+   - \`boolean\` - Giá trị logic (true/false)
+   - \`string\` - Chuỗi ký tự
+   - \`undefined\` - Giá trị chưa được gán
+
+2. **Complex Types:**
+   - \`array\` - Mảng các phần tử có index
+   - \`object\` - Tập hợp các properties với key-value pairs
+
+### Lưu ý quan trọng
+
+- Sử dụng \`typeof\` để kiểm tra kiểu dữ liệu
+- Arrays và objects cho phép lưu trữ nhiều giá trị trong một biến
+- Objects sử dụng keys thay vì index để truy cập properties
+- Mọi thứ trong JavaScript, ngoại trừ primitive, đều là object
+
+### Thực hành
+
+Hãy thử thực hiện các lệnh sau trong console và quan sát kết quả:
+
+\`\`\`javascript
+// Kiểm tra primitive types
+console.log(typeof 42);
+console.log(typeof "Hello World");
+console.log(typeof true);
+console.log(typeof undefined);
+
+// Làm việc với arrays
+let fruits = ["apple", "banana", "orange"];
+console.log(fruits[0]);
+fruits.push("grape");
+console.log(fruits);
+
+// Làm việc với objects
+let person = {
+    name: "John",
+    age: 30,
+    city: "New York"
+};
+console.log(person.name);
+person.age = 31;
+console.log(person);
+\`\`\`
+
+Hiểu rõ các kiểu dữ liệu này sẽ giúp bạn viết code JavaScript hiệu quả và tránh được nhiều lỗi phổ biến. Hãy tiếp tục thực hành và khám phá thêm về JavaScript!`
   }
 ]
