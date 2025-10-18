@@ -854,5 +854,405 @@ Chúng cho phép chúng ta xây dựng các ứng dụng linh hoạt và phản 
 Tuy nhiên, đừng quên rằng trong một số tình huống sẽ thuận tiện hơn khi sử dụng toán tử conditional hoặc câu lệnh \`switch\`.
 
 Việc hiểu và sử dụng thành thạo các conditional statements sẽ giúp bạn viết ra những ứng dụng JavaScript mạnh mẽ và linh hoạt.`
+  },
+  {
+    id: 'functions-javascript',
+    title: 'Functions trong JavaScript: Tạo và Sử Dụng Hàm Hiệu Quả',
+    excerpt: 'Khám phá cách tạo và sử dụng functions trong JavaScript - từ khai báo cơ bản đến parameters, return values và local variables. Học cách tổ chức code thành các module logic độc lập.',
+    date: '2025-01-18',
+    tags: ['JavaScript', 'Functions', 'Programming', 'Code Organization'],
+    image: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=1600&auto=format&fit=crop',
+    content: `# Functions trong JavaScript: Tạo và Sử Dụng Hàm Hiệu Quả
+
+Chúng ta đã đề cập đến functions trong chương về variables, khi thảo luận về phạm vi hiển thị của các biến local được khai báo bằng từ khóa \`var\`. Chúng ta đã học được functions là gì trong dịp đó, nhưng trong chương này, chúng ta sẽ xem xét chúng một cách chi tiết hơn nhiều, mở rộng kiến thức về chủ đề này.
+
+## Functions là gì?
+
+Function là một đoạn mã được tách riêng, tạo thành một tổng thể logic khép kín nhất định, nhằm thực hiện một nhiệm vụ cụ thể. Chúng ta thường gán tên cho đoạn mã được tách riêng như vậy. Với tên này, chúng ta có thể gọi nó (thực thi nó) nhiều lần ở các nơi khác nhau trong chương trình.
+
+Đây là một sự đơn giản hóa, vì có những functions không có tên, ví dụ như anonymous functions (chúng ta sẽ nói về chúng sau). Hiện tại, hãy giả định rằng một function có tên, mà chúng ta đặt khi khai báo nó. Tên này được sử dụng khi gọi function, nói cách khác, khi chạy mã chứa trong nó.
+
+## Tại Sao Sử Dụng Functions?
+
+Có nhiều lý do, một trong những lý do quan trọng nhất là để chia mã thành các phần logic độc lập. Tính modularity như vậy làm tăng khả năng đọc của mã – dễ dàng viết và phân tích một chương trình dài không phải là một chuỗi các lệnh đơn lẻ. Nó cũng cho phép dễ dàng kiểm tra các đoạn mã được đóng trong functions một cách độc lập với phần còn lại của chương trình.
+
+Một lý do rất quan trọng để sử dụng function là tái sử dụng mã – nếu bạn lặp lại cùng một chuỗi lệnh trong chương trình ở nhiều nơi, bạn có thể đóng chuỗi này trong một function, và ở những nơi đó bạn chỉ cần gọi function.
+
+Ngoài việc giảm lượng mã trong chương trình (do đó tăng khả năng đọc của nó), nó cũng có nghĩa là nếu bạn cần thực hiện một số thay đổi trong chuỗi lệnh này, bạn chỉ phải làm điều đó một lần, bên trong function.
+
+## Ví Dụ Thực Tế: Tính Nhiệt Độ Trung Bình
+
+Hãy xem một chương trình đơn giản, được viết mà không có functions nào:
+
+\`\`\`javascript
+let temperatures;
+let sum;
+let meanTemp;
+
+// Ngày 1
+temperatures = [12, 12, 11, 11, 10, 9, 9, 10, 12, 13, 15, 18, 21, 24, 24, 23, 25, 25, 23, 21, 20, 19, 17, 16];
+sum = 0;
+for (let i = 0; i < temperatures.length; i++) {
+    sum += temperatures[i];
+}
+meanTemp = sum / temperatures.length;
+console.log(\`mean: \${meanTemp}\`); // -> mean: 16.666666666666668
+
+// Ngày 2
+temperatures = [17, 16, 14, 12, 10, 10, 10, 11, 13, 14, 15, 17, 22, 27, 29, 29, 27, 26, 24, 21, 19, 18, 17, 16];
+sum = 0;
+for (let i = 0; i < temperatures.length; i++) {
+    sum += temperatures[i];
+}
+meanTemp = sum / temperatures.length;
+console.log(\`mean: \${meanTemp}\`); // -> mean: 18.083333333333332
+\`\`\`
+
+Chương trình sẽ tính toán và hiển thị nhiệt độ trung bình hàng ngày dựa trên dữ liệu được cung cấp (24 phép đo nhiệt độ, theo khoảng thời gian hàng giờ, bắt đầu từ nửa đêm).
+
+Ở cái nhìn đầu tiên, bạn có thể thấy rằng đoạn mã chịu trách nhiệm tính toán được lặp lại hai lần. Ở hai nơi của chương trình, chúng ta sử dụng cùng một chuỗi lệnh, vì vậy sẽ đáng để nghĩ về việc tạo một function từ chúng.
+
+## 1. Khai Báo Functions
+
+Cũng như với variables, functions cần được khai báo trước khi chúng ta có thể sử dụng chúng. Cú pháp để khai báo function trông như thế này:
+
+\`\`\`javascript
+function functionName() {
+    code
+}
+\`\`\`
+
+Loại khai báo function này trong JavaScript được gọi là **function statement**. Một function statement bắt đầu bằng từ khóa \`function\` theo sau là tên function.
+
+Hãy thử khai báo một function theo các quy tắc này, sẽ chứa một đoạn mã chương trình của chúng ta tính toán nhiệt độ trung bình hàng ngày. Chúng ta sẽ gọi nó là \`getMeanTemp\`:
+
+\`\`\`javascript
+let temperatures;
+let sum;
+let meanTemp;
+
+function getMeanTemp() {
+    sum = 0;
+    for (let i = 0; i < temperatures.length; i++) {
+        sum += temperatures[i];
+    }
+    meanTemp = sum / temperatures.length;
+}
+\`\`\`
+
+Chúng ta đã khai báo function của mình bằng cách đặt tên cho nó và định nghĩa một chuỗi lệnh mà nó nên thực hiện. Tuy nhiên, nếu bạn cố gắng thực thi mã này, bạn sẽ không thấy bất kỳ hiệu ứng nào. Tại sao? Bởi vì khai báo function chỉ là một sự chuẩn bị. Để thực thi mã này, chúng ta phải gọi function.
+
+## 2. Gọi Functions
+
+Để gọi một function, chúng ta cần viết tên function và theo sau nó bằng dấu ngoặc đơn. Ví dụ hoàn chỉnh của chúng ta sẽ trông như thế này:
+
+\`\`\`javascript
+let temperatures;
+let sum;
+let meanTemp;
+
+function getMeanTemp() {
+    sum = 0;
+    for (let i = 0; i < temperatures.length; i++) {
+        sum += temperatures[i];
+    }
+    meanTemp = sum / temperatures.length;
+}
+
+// Gọi function lần 1
+temperatures = [12, 12, 11, 11, 10, 9, 9, 10, 12, 13, 15, 18, 21, 24, 24, 23, 25, 25, 23, 21, 20, 19, 17, 16];
+getMeanTemp();
+console.log(\`mean: \${meanTemp}\`); // -> mean: 16.666666666666668
+
+// Gọi function lần 2
+temperatures = [17, 16, 14, 12, 10, 10, 10, 11, 13, 14, 15, 17, 22, 27, 29, 29, 27, 26, 24, 21, 19, 18, 17, 16];
+getMeanTemp();
+console.log(\`mean: \${meanTemp}\`); // -> mean: 18.083333333333332
+\`\`\`
+
+Ở đầu chương trình, sau khai báo biến, chúng ta có khai báo function \`getMeanTemp\`.
+
+Trong phần sau của mã, chúng ta gọi nó hai lần bằng cách viết \`getMeanTemp()\`. Mỗi lần gọi khiến chương trình nhảy vào mã function, thực thi các lệnh của nó và trở về lệnh tiếp theo sau lời gọi function.
+
+### Function Hoisting
+
+Thông thường, functions được khai báo trước khi chúng được gọi, chủ yếu ở đầu mã. Tuy nhiên, đây chỉ là một thực hành tốt, làm tăng khả năng đọc của mã, không phải là yêu cầu cú pháp JavaScript. Các khai báo function được tự động di chuyển lên đầu phạm vi, vì vậy chúng ta có thể sử dụng chúng trước khi khai báo, miễn là chúng nằm trong phạm vi.
+
+Vì vậy mã này:
+
+\`\`\`javascript
+let name = "Alice";
+function showName() {
+    console.log(name);
+}
+showName(); // -> Alice
+\`\`\`
+
+sẽ hoạt động chính xác giống như:
+
+\`\`\`javascript
+let name = "Alice";
+showName(); // -> Alice
+function showName() {
+    console.log(name);
+}
+\`\`\`
+
+## 3. Local Variables trong Functions
+
+Hãy thử thực hiện một thay đổi nhỏ đối với chương trình tính nhiệt độ trung bình của chúng ta.
+
+Bạn có nhớ local variables là gì không?
+
+Đây là cách chúng ta gọi các biến được khai báo và sử dụng trong một phạm vi hạn chế nào đó và không hiển thị trong toàn bộ chương trình, có nghĩa là chúng ta chỉ có thể sử dụng chúng bên trong phạm vi cụ thể đó.
+
+Các biến được khai báo bằng từ khóa \`let\` là local bên trong khối mã (tức là bên trong phạm vi được giới hạn bởi dấu ngoặc nhọn), trong khi các biến được khai báo bằng từ khóa \`var\` là local bên trong khối function.
+
+\`\`\`javascript
+let temperatures;
+let meanTemp;
+
+function getMeanTemp() {
+    let sum = 0; // Local variable
+    for (let i = 0; i < temperatures.length; i++) {
+        sum += temperatures[i];
+    }
+    meanTemp = sum / temperatures.length;
+}
+
+temperatures = [12, 12, 11, 11, 10, 9, 9, 10, 12, 13, 15, 18, 21, 24, 24, 23, 25, 25, 23, 21, 20, 19, 17, 16];
+getMeanTemp();
+console.log(\`mean: \${meanTemp}\`); // -> mean: 16.666666666666668
+\`\`\`
+
+Trong mã của chúng ta, một ví dụ về biến như vậy là \`sum\`. Mặc dù chúng ta đã khai báo nó bên ngoài function \`getMeanTemp\` (nó là một biến global), chúng ta chỉ tham chiếu đến nó bên trong function. Do đó, khai báo global là không cần thiết.
+
+## 4. Câu Lệnh return
+
+Functions đã được gọi thực thi một chuỗi lệnh chứa trong thân của chúng. Kết quả của việc thực thi này có thể là một giá trị nhất định mà chúng ta có thể muốn lưu trữ trong một biến nào đó. Từ khóa \`return\` đến để giúp chúng ta trong trường hợp này.
+
+\`return\` có hai chức năng chính:
+
+1. **Kết thúc function**: Nó khiến function kết thúc chính xác nơi từ này xuất hiện, ngay cả khi có các lệnh tiếp theo.
+2. **Trả về giá trị**: Nó cho phép chúng ta trả về một giá trị đã cho từ bên trong function đến nơi nó được gọi.
+
+### Ví dụ về return:
+
+\`\`\`javascript
+function showMsg() {
+    console.log("message 1");
+    return;
+    console.log("message 2"); // Sẽ không bao giờ được thực thi
+}
+showMsg(); // -> message 1
+\`\`\`
+
+Như mong đợi, lời gọi chỉ hiển thị thông báo đầu tiên "message 1", sau đó return ngắt function.
+
+### Trả về giá trị:
+
+\`\`\`javascript
+function getTrue() {
+    return true;
+}
+let test = getTrue();
+console.log(test); // -> true
+\`\`\`
+
+### Cải thiện function getMeanTemp:
+
+\`\`\`javascript
+let temperatures;
+
+function getMeanTemp() {
+    let sum = 0;
+    let result;
+    for (let i = 0; i < temperatures.length; i++) {
+        sum += temperatures[i];
+    }
+    result = sum / temperatures.length;
+    return result;
+}
+
+temperatures = [12, 12, 11, 11, 10, 9, 9, 10, 12, 13, 15, 18, 21, 24, 24, 23, 25, 25, 23, 21, 20, 19, 17, 16];
+let meanTemp = getMeanTemp();
+console.log(\`mean: \${meanTemp}\`); // -> mean: 16.666666666666668
+\`\`\`
+
+Chúng ta có thể đơn giản hóa hơn nữa bằng cách đặt phép toán trực tiếp sau return:
+
+\`\`\`javascript
+function getMeanTemp() {
+    let sum = 0;
+    for (let i = 0; i < temperatures.length; i++) {
+        sum += temperatures[i];
+    }
+    return sum / temperatures.length;
+}
+\`\`\`
+
+Và có thể đơn giản hóa hơn nữa bằng cách gọi function trực tiếp trong console.log:
+
+\`\`\`javascript
+let temperatures;
+
+function getMeanTemp() {
+    let sum = 0;
+    for (let i = 0; i < temperatures.length; i++) {
+        sum += temperatures[i];
+    }
+    return sum / temperatures.length;
+}
+
+temperatures = [12, 12, 11, 11, 10, 9, 9, 10, 12, 13, 15, 18, 21, 24, 24, 23, 25, 25, 23, 21, 20, 19, 17, 16];
+console.log(\`mean: \${getMeanTemp()}\`); // -> mean: 16.666666666666668
+\`\`\`
+
+## 5. Parameters (Tham Số)
+
+Việc sử dụng parameters trong functions là tùy chọn. Có thể có functions không có parameters, như chúng ta đã thấy trong các ví dụ trước của chúng ta, cũng như có thể có functions không trả về giá trị. Tuy nhiên, thông thường chúng ta tạo functions có parameters được định nghĩa và trả về giá trị.
+
+### Cú pháp Parameters:
+
+\`\`\`javascript
+function functionName(param1, param2, param3) {
+    // code sử dụng param1, param2, param3
+}
+\`\`\`
+
+### Ví dụ đơn giản:
+
+\`\`\`javascript
+function add(first, second) {
+    return first + second;
+}
+
+let result = add(5, 7);
+console.log(result); // -> 12
+\`\`\`
+
+Trong khai báo function, trong dấu ngoặc đơn, chúng ta đặt hai parameters: \`first\` và \`second\`. Bên trong function \`add\`, các parameters này được coi như các biến local, có giá trị sẽ được đưa ra khi function được gọi.
+
+### Ví dụ với Array:
+
+\`\`\`javascript
+function getElement(elements, index) {
+    return elements[index];
+}
+
+let names = ["Alice", "Bob", "Eve", "John"];
+let name = getElement(names, 2);
+console.log(name); // -> Eve
+\`\`\`
+
+### Cải thiện getMeanTemp với Parameters:
+
+\`\`\`javascript
+function getMeanTemp(temperatures) {
+    let sum = 0;
+    for (let i = 0; i < temperatures.length; i++) {
+        sum += temperatures[i];
+    }
+    return sum / temperatures.length;
+}
+
+let day1 = [12, 12, 11, 11, 10, 9, 9, 10, 12, 13, 15, 18, 21, 24, 24, 23, 25, 25, 23, 21, 20, 19, 17, 16];
+console.log(\`mean: \${getMeanTemp(day1)}\`); // -> mean: 16.666666666666668
+
+let day2 = [17, 16, 14, 12, 10, 10, 10, 11, 13, 14, 15, 17, 22, 27, 29, 29, 27, 26, 24, 21, 19, 18, 17, 16];
+console.log(\`mean: \${getMeanTemp(day2)}\`); // -> mean: 18.083333333333332
+\`\`\`
+
+## 6. Shadowing (Che Giấu Biến)
+
+Như chúng ta đã đề cập trước đó, các parameters được coi như các biến local bên trong function. Và giống như các biến local được khai báo rõ ràng bên trong function, chúng che giấu các biến global có cùng tên (hoặc nói chung hơn, các biến từ phạm vi bên ngoài).
+
+\`\`\`javascript
+function add(first, second) {
+    return first + second;
+}
+
+let first = 10, second = 20, third = 40, fourth = 80;
+
+console.log(add(first, second)); // -> 30
+console.log(add(second, third)); // -> 60
+console.log(add(third, fourth)); // -> 120
+\`\`\`
+
+### Ví dụ Shadowing phức tạp:
+
+\`\`\`javascript
+let a = 100, b = 200, c = 300;
+
+function test(a) {
+    let b = 10;
+    console.log(a); // parameter a (shadowing global a)
+    console.log(b); // local variable b (shadowing global b)
+    console.log(c); // global variable c
+}
+
+test(1);   // -> 1
+           // -> 10
+           // -> 300
+
+console.log(a); // -> 100 (global a)
+console.log(b); // -> 200 (global b)
+console.log(c); // -> 300 (global c)
+\`\`\`
+
+## Bài Tập Thực Hành
+
+### Bài tập 1: Function tính diện tích hình chữ nhật
+Viết function tính diện tích hình chữ nhật với chiều dài và chiều rộng là parameters.
+
+\`\`\`javascript
+function calculateRectangleArea(length, width) {
+    return length * width;
+}
+
+let area = calculateRectangleArea(5, 3);
+console.log(\`Diện tích: \${area}\`); // -> Diện tích: 15
+\`\`\`
+
+### Bài tập 2: Function kiểm tra số chẵn/lẻ
+Viết function kiểm tra một số là chẵn hay lẻ.
+
+\`\`\`javascript
+function isEven(number) {
+    return number % 2 === 0;
+}
+
+console.log(isEven(4)); // -> true
+console.log(isEven(7)); // -> false
+\`\`\`
+
+### Bài tập 3: Function tìm số lớn nhất trong mảng
+Viết function tìm số lớn nhất trong một mảng số.
+
+\`\`\`javascript
+function findMax(numbers) {
+    let max = numbers[0];
+    for (let i = 1; i < numbers.length; i++) {
+        if (numbers[i] > max) {
+            max = numbers[i];
+        }
+    }
+    return max;
+}
+
+let numbers = [3, 7, 2, 9, 1, 5];
+console.log(\`Số lớn nhất: \${findMax(numbers)}\`); // -> Số lớn nhất: 9
+\`\`\`
+
+## Kết Luận
+
+Functions là một phần cơ bản và quan trọng của JavaScript. Chúng giúp chúng ta:
+
+- **Tổ chức mã**: Chia mã thành các phần logic độc lập
+- **Tái sử dụng**: Tránh lặp lại mã
+- **Dễ bảo trì**: Thay đổi logic ở một nơi thay vì nhiều nơi
+- **Dễ kiểm tra**: Kiểm tra từng function độc lập
+
+Việc hiểu và sử dụng thành thạo functions sẽ giúp bạn viết ra những ứng dụng JavaScript có cấu trúc tốt và dễ bảo trì.`
   }
 ]
