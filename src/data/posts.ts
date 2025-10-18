@@ -373,5 +373,486 @@ Cố gắng sử dụng các từ khóa let và const, không phải từ var.
 Hãy nhớ không sử dụng cùng tên cho các biến khác nhau, ngay cả khi bạn khai báo chúng trong các phạm vi khác nhau.
 
 Và, tất nhiên, đặt cho biến những tên sẽ liên quan đến những gì bạn muốn lưu trữ trong chúng – mã nên đọc được không chỉ cho trình thông dịch, mà còn cho con người.`
+  },
+  {
+    id: 'built-in-objects-javascript',
+    title: 'Built-in Objects trong JavaScript: Khám Phá Các Đối Tượng Có Sẵn',
+    excerpt: 'Tìm hiểu về các built-in objects trong JavaScript - những đối tượng có sẵn giúp bạn làm việc hiệu quả hơn với dữ liệu và thực hiện các tác vụ phổ biến.',
+    date: '2025-01-16',
+    tags: ['JavaScript', 'Built-in Objects', 'Programming', 'Web Development'],
+    image: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=1600&auto=format&fit=crop',
+    content: `# Built-in Objects trong JavaScript: Khám Phá Các Đối Tượng Có Sẵn
+
+Bạn đã học cách định nghĩa và tạo các đối tượng của riêng mình bằng các kỹ thuật như literals, constructors, hoặc classes. Cấu trúc của những đối tượng này, tức là các thuộc tính và phương thức mà chúng chứa, sẽ phụ thuộc vào những gì bạn cần tại thời điểm đó.
+
+Tuy nhiên, chúng ta không cần phải làm mọi thứ từ đầu. Trong JavaScript, nhiều chức năng của ngôn ngữ được cung cấp dưới dạng các đối tượng có sẵn, được định nghĩa trước.
+
+## Built-in Objects là gì?
+
+Nếu bạn muốn thực hiện các phép toán, bạn sẽ sử dụng **Math**, và nếu muốn chuyển đổi một đối tượng thành định dạng có thể gửi qua mạng, bạn sẽ sử dụng **JSON**.
+
+Đây là một số trong số các đối tượng built-in tiêu chuẩn.
+
+Thuật ngữ "built-in object" là một thuật ngữ được chấp nhận rộng rãi, được sử dụng trong tiêu chuẩn ECMAScript hoặc trong tài liệu MDN (Mozilla Developer Network) Web Docs, có lẽ là nguồn trợ giúp hoàn chỉnh nhất cho các nhà phát triển web.
+
+Nhiều đối tượng trong số này, như Math và JSON, thực sự là các đối tượng thông thường. Chúng ta sử dụng chúng bằng cách đưa ra tên của đối tượng và phương thức hoặc thuộc tính cụ thể của nó, ví dụ: \`JSON.stringify\`.
+
+Tuy nhiên, không phải tất cả các đối tượng "built-in" đều là đối tượng thông thường.
+
+Đây chỉ là một thuật ngữ tổng thể mà trong nhiều trường hợp, các lớp hoặc hàm built-in như Object hoặc Date cũng được ẩn giấu.
+
+### Tại sao không gọi chúng là "built-in classes"?
+
+Không nhất thiết – như chúng ta đã nói trước đó, trong JavaScript mọi thứ ngoại trừ primitives đều là đối tượng, bao gồm cả classes và functions.
+
+Do đó, một quy ước đặt tên thống nhất đã được áp dụng cho tất cả các phần tử (objects, classes, functions, constructors) được tích hợp sẵn trong ngôn ngữ.
+
+Tuy nhiên, trước khi sử dụng một trong các built-in objects, hãy nhớ kiểm tra xem nó có thực sự là một đối tượng hay không, hoặc có thể là một lớp mà từ đó bạn sẽ tạo ra một đối tượng của một loại cụ thể.
+
+## Static vs Prototype Methods
+
+Sự khác biệt giữa static và prototype fields rất quan trọng đối với chúng ta vì hầu hết các built-in objects mà chúng ta thảo luận sẽ sử dụng cả hai.
+
+Nếu không hiểu sự khác biệt này, bạn sẽ gặp vấn đề với cả tài liệu mô tả các đối tượng được chọn và cách sử dụng chúng một cách chính xác.
+
+Hãy xem ví dụ với Number constructor:
+
+\`\`\`javascript
+let n = new Number(100.123);
+let fixed = n.toFixed(2);
+let test1 = Number.isInteger(100);
+let test2 = n.isInteger(100); // -> n.isInteger is not a function
+\`\`\`
+
+Trong ví dụ này, chúng ta tạo đối tượng \`n\`, sử dụng Number constructor.
+
+Trong tài liệu Number, chúng ta sẽ tìm thấy thông tin nói rằng nó chứa phương thức \`toFixed\`, trả về một chuỗi với số của chúng ta sử dụng ký hiệu điểm cố định.
+
+Đây là một **prototype method** (hoặc instance method).
+
+Vì vậy chúng ta sử dụng nó bằng cách sử dụng đối tượng được tạo bởi Number constructor.
+
+Do đó, trong dòng thứ hai của ví dụ, xuất hiện \`n.toFixed(2)\`.
+
+Phương thức hoạt động trên một đối tượng cụ thể và thao tác trên các thuộc tính của nó, trong trường hợp của chúng ta là giá trị 100.123.
+
+Trong cùng tài liệu đó, chúng ta có thể tìm thấy thông tin về một phương thức khác, lần này là **static**: \`isInteger\`.
+
+Phương thức này cho phép chúng ta kiểm tra xem số có phải là số nguyên hay không.
+
+Đây là một phương thức static, vì vậy nó được kết nối không phải với đối tượng được tạo (instance) mà với constructor (hoặc trong các trường hợp khác, với class).
+
+Vì vậy phương thức không hoạt động trên đối tượng.
+
+Nó chỉ sử dụng giá trị được truyền làm đối số của lời gọi.
+
+## Phân Loại Built-in Objects
+
+Hãy chia các đối tượng được thảo luận trong chương này thành ba nhóm. Sự phân chia của chúng ta là tùy ý và không xuất phát trực tiếp từ tài liệu hoặc cách chúng được triển khai. Chúng ta được hướng dẫn ở đây bởi tính khả dụng của các đối tượng, vì vậy đừng ngạc nhiên nếu bạn xem các tài liệu khác về built-in objects và tìm thấy một phân loại khác.
+
+### Nhóm 1: Đối tượng đại diện cho các kiểu dữ liệu đơn giản
+
+- **Boolean**
+- **Number** 
+- **String**
+- **Date**
+
+### Nhóm 2: Đối tượng đại diện cho các kiểu dữ liệu phức hợp
+
+- **Array**
+- **Set**
+- **Map**
+- **Object**
+
+### Nhóm 3: Đối tượng không liên quan đến kiểu dữ liệu, nhưng đơn giản hóa công việc hàng ngày với JavaScript
+
+- **JSON**
+- **Math**
+- **RegExp**
+
+## Ví Dụ Thực Tế
+
+### Math Object
+
+\`\`\`javascript
+// Làm tròn số
+Math.round(4.7); // 5
+Math.floor(4.7); // 4
+Math.ceil(4.3); // 5
+
+// Tìm giá trị lớn nhất và nhỏ nhất
+Math.max(1, 3, 2); // 3
+Math.min(1, 3, 2); // 1
+
+// Số ngẫu nhiên
+Math.random(); // Số ngẫu nhiên từ 0 đến 1
+\`\`\`
+
+### JSON Object
+
+\`\`\`javascript
+// Chuyển đổi object thành JSON string
+const obj = { name: "John", age: 30 };
+const jsonString = JSON.stringify(obj);
+console.log(jsonString); // '{"name":"John","age":30}'
+
+// Chuyển đổi JSON string thành object
+const parsedObj = JSON.parse(jsonString);
+console.log(parsedObj); // { name: "John", age: 30 }
+\`\`\`
+
+### Date Object
+
+\`\`\`javascript
+// Tạo đối tượng Date
+const now = new Date();
+console.log(now); // Hiển thị ngày giờ hiện tại
+
+// Các phương thức hữu ích
+console.log(now.getFullYear()); // Năm
+console.log(now.getMonth()); // Tháng (0-11)
+console.log(now.getDate()); // Ngày trong tháng
+console.log(now.getDay()); // Ngày trong tuần (0-6)
+\`\`\`
+
+## Kết Luận
+
+Như chúng ta đã chỉ ra, đây không phải là tổng quan hoàn chỉnh về các built-in objects tiêu chuẩn.
+
+Chúng ta chỉ làm quen với một bộ cơ bản.
+
+Mỗi đối tượng sẽ được thảo luận từ quan điểm chức năng nghiêm ngặt, và đây sẽ không phải là phân tích toàn diện về tất cả các phương thức và thuộc tính có sẵn.
+
+Chúng ta sẽ tập trung chỉ vào những phương thức và thuộc tính mà hoặc là hữu ích nhất trong lập trình thực tế, hoặc cần thiết để hiểu các cơ chế khác.
+
+Nếu bạn quan tâm đến việc mở rộng kiến thức trong lĩnh vực này, hãy xem các trang MDN.
+
+Việc sử dụng các built-in objects sẽ giúp bạn viết code JavaScript hiệu quả hơn và tận dụng được sức mạnh của ngôn ngữ này một cách tối đa.`
+  },
+  {
+    id: 'conditional-statements-javascript',
+    title: 'Conditional Statements trong JavaScript: Điều Khiển Luồng Thực Thi',
+    excerpt: 'Tìm hiểu về các câu lệnh điều kiện trong JavaScript - từ if/else cơ bản đến switch/case và toán tử ternary, giúp tạo ra các ứng dụng linh hoạt và phản ứng.',
+    date: '2025-01-17',
+    tags: ['JavaScript', 'Conditional Statements', 'Control Flow', 'Programming'],
+    image: 'https://images.unsplash.com/photo-1516116216624-53e697fedbea?q=80&w=1600&auto=format&fit=crop',
+    content: `# Conditional Statements trong JavaScript: Điều Khiển Luồng Thực Thi
+
+Conditional execution, hay các câu lệnh điều khiển luồng, đã được đề cập một vài lần trước đó, và bây giờ là lúc để xem xét chúng một cách chi tiết. Đây là một chủ đề rất quan trọng, vì các câu lệnh điều khiển luồng không chỉ cần thiết cho JavaScript, mà còn cho lập trình nói chung.
+
+Không có khả năng phản ứng và thay đổi hành vi, bất kỳ mã nào cũng sẽ luôn làm cùng một việc. Tất nhiên, đôi khi đây chính xác là những gì chúng ta cần, nhưng hầu hết thời gian chúng ta cần tính phản ứng và khả năng xử lý các tình huống khác nhau trong mã.
+
+## Tại Sao Cần Conditional Statements?
+
+Chúng ta có thể tưởng tượng chương trình của mình như một cái cây bắt đầu từ thân cây và dần dần phân nhánh thành các nhánh tiếp theo. Thân cây là điểm bắt đầu của chương trình, và mỗi lệnh điều kiện là sự phản ánh của một nhánh mới.
+
+Các lệnh điều kiện được thực thi dựa trên quyết định của người dùng, kết quả của các phép tính trước đó, hoặc thông tin khác mà chương trình sẽ xem xét.
+
+## 1. Câu Lệnh if
+
+Câu lệnh \`if\` là lệnh điều khiển luồng đầu tiên và đơn giản nhất có sẵn trong JavaScript. Nó có một vài dạng, nhưng ở dạng cơ bản, nó kiểm tra một điều kiện đã cho, và tùy thuộc vào giá trị Boolean của nó, hoặc thực thi một khối mã, hoặc bỏ qua nó.
+
+### Cú pháp cơ bản:
+
+\`\`\`javascript
+if (condition) {
+    block of code
+}
+\`\`\`
+
+### Ví dụ thực tế:
+
+\`\`\`javascript
+let isUserReady = confirm("Are you ready?");
+console.log(isUserReady);
+if (isUserReady) {
+    alert("User ready!");
+}
+\`\`\`
+
+Trong ví dụ này, một alert với thông báo "User ready!" sẽ chỉ hiển thị khi người dùng đóng hộp thoại confirm bằng cách nhấp vào nút OK.
+
+### Lưu ý quan trọng về Code Blocks
+
+Luôn sử dụng dấu ngoặc nhọn \`{}\` ngay cả khi chỉ có một dòng lệnh. Điều này giúp mã sạch hơn và dễ đọc hơn, đồng thời tránh lỗi phổ biến khi thêm lệnh mới vào khối if.
+
+\`\`\`javascript
+// ĐÚNG - Sử dụng dấu ngoặc nhọn
+if (isUserReady) {
+    console.log("User ready!");
+    alert("User ready!");
+}
+
+// SAI - Thiếu dấu ngoặc nhọn có thể gây lỗi
+if (isUserReady)
+    console.log("User ready!");
+    alert("User ready!"); // Dòng này sẽ luôn chạy!
+\`\`\`
+
+### Scope của Variables trong Blocks
+
+Các biến và hằng số được khai báo bằng \`let\` và \`const\` bên trong một khối là local, tức là phạm vi của chúng bị giới hạn trong khối đó.
+
+\`\`\`javascript
+let unitPrice = 10;
+let pieces = prompt("How many pieces do you order?", 0);
+if (pieces > 0) {
+    let total = unitPrice * pieces;
+    console.log(total);
+}
+console.log(total); // -> Uncaught ReferenceError: total is not defined
+\`\`\`
+
+## 2. Câu Lệnh if ... else
+
+Câu lệnh \`if\` rất hữu ích, nhưng nếu chúng ta cũng muốn thực thi một số mã khi điều kiện đã cho không được đáp ứng thì sao?
+
+### Cú pháp:
+
+\`\`\`javascript
+if (condition) {
+    condition - true code
+} else {
+    condition - false code
+}
+\`\`\`
+
+### Ví dụ:
+
+\`\`\`javascript
+let isUserReady = confirm("Are you ready?");
+if (isUserReady) {
+    console.log("User ready!");
+} else {
+    console.log("User not ready!");
+}
+\`\`\`
+
+Bây giờ chúng ta chỉ có một điều kiện, và chúng ta chắc chắn rằng một trong hai khối mã sẽ được thực thi.
+
+## 3. Câu Lệnh if ... else if ... else
+
+Đôi khi việc phân nhánh luồng thực thi mã chỉ thành hai nhánh là không đủ. JavaScript cung cấp một giải pháp đơn giản - chúng ta có thể lồng các câu lệnh \`if ... else\`.
+
+### Cú pháp:
+
+\`\`\`javascript
+if (condition_1) {
+    code
+} else if (condition_2) {
+    code
+} else if (condition_3) {
+    code
+} else {
+    code
+}
+\`\`\`
+
+### Ví dụ thực tế:
+
+\`\`\`javascript
+let number = prompt("Enter a number", 0);
+if (number < 10) {
+    alert("<10");
+} else if (number < 30) {
+    alert("<30");
+} else if (number < 60) {
+    alert("<60");
+} else if (number < 90) {
+    alert("<90");
+} else if (number < 100) {
+    alert("<100");
+} else if (number == 100) {
+    alert("100");
+} else {
+    alert(">100");
+}
+\`\`\`
+
+Trong mã này, chỉ một alert sẽ được hiển thị, và JavaScript sẽ dừng việc kiểm tra các điều kiện sau điều kiện đầu tiên được đáp ứng.
+
+### Ví dụ phức tạp với Logical Operators:
+
+\`\`\`javascript
+let userAge = 25;
+let hasParentsApproval = true;
+let cartValue = 350;
+let points = 600;
+let shippingCost = 9.99;
+let addInsurance = true;
+let orderIsValid = true;
+let hasPromoCode = false;
+
+if (userAge < 21 && !hasParentsApproval) {
+    orderIsValid = false;
+} else if (userAge < 21 && hasParentsApproval) {
+    shippingCost -= 5;
+} else if (userAge >= 65) {
+    shippingCost = 0;
+} else if (userAge >= 21 && (hasParentsApproval || cartValue > 300 || points > 500)) {
+    shippingCost = 0;
+}
+
+if (addInsurance && orderIsValid && !hasPromoCode) {
+    shippingCost += 5; // INSURANCE_COST
+}
+
+if (orderIsValid) {
+    console.log(\`Shipping cost: \${shippingCost}\`);
+} else {
+    console.log("Order is not valid");
+}
+\`\`\`
+
+## 4. Toán Tử Conditional (Ternary Operator)
+
+Toán tử conditional (ternary) cho phép chúng ta thực hiện một trong hai hành động dựa trên giá trị của toán hạng đầu tiên. Nó thường được sử dụng như một thay thế cho lệnh \`if ... else\` khi bạn muốn gán một trong hai giá trị cho một biến, tùy thuộc vào một điều kiện nhất định.
+
+### Cú pháp:
+
+\`\`\`javascript
+condition ? valueIfTrue : valueIfFalse
+\`\`\`
+
+### Ví dụ:
+
+\`\`\`javascript
+// Sử dụng if...else
+let price = 100;
+let shippingCost;
+if (price > 50) {
+    shippingCost = 0;
+} else {
+    shippingCost = 5;
+}
+
+// Sử dụng ternary operator
+let price = 100;
+let shippingCost = price > 50 ? 0 : 5;
+console.log(\`price = \${price}, shipping = \${shippingCost}\`); // -> price = 100, shipping = 0
+\`\`\`
+
+### Sử dụng với Functions:
+
+\`\`\`javascript
+let start = confirm("Start?");
+let message = start ? "Here we go!" : "Aborted";
+alert(message);
+\`\`\`
+
+## 5. Câu Lệnh switch ... case
+
+Câu lệnh \`switch\` là loại câu lệnh cuối cùng được sử dụng để thực thi mã có điều kiện. Nó hơi giống với các câu lệnh \`if ... else\` lồng nhau, nhưng thay vì đánh giá các biểu thức khác nhau, \`switch\` đánh giá một biểu thức điều kiện và sau đó cố gắng khớp giá trị của nó với một trong các case đã cho.
+
+### Cú pháp:
+
+\`\`\`javascript
+switch (expression) {
+    case first_match:
+        code
+        break;
+    case second_match:
+        code
+        break;
+    default:
+        code
+}
+\`\`\`
+
+### Ví dụ thực tế:
+
+\`\`\`javascript
+let gate = prompt("Choose gate: a, b, or c");
+let win = false;
+switch (gate) {
+    case "a":
+        alert("Gate A: empty");
+        break;
+    case "b":
+        alert("Gate B: main prize");
+        win = true;
+        break;
+    case "c":
+        alert("Gate C: empty");
+        break;
+    default:
+        alert("No gate " + String(gate));
+}
+if (win) {
+    alert("Winner!");
+}
+\`\`\`
+
+### Lưu ý quan trọng:
+
+- Việc đánh giá được thực hiện với toán tử so sánh nghiêm ngặt (\`===\`)
+- Phải có từ khóa \`break\` để tránh "fall-through"
+- Case \`default\` là tùy chọn và được thực thi khi không có case nào khớp
+
+## Bài Tập Thực Hành
+
+### Bài tập 1: Kiểm tra số
+Viết script yêu cầu người dùng nhập một số. Hiển thị thông báo "Bingo!" khi số lớn hơn 90 nhưng nhỏ hơn 110, nếu không thì hiển thị "Miss".
+
+\`\`\`javascript
+let number = prompt("Enter a number:", 0);
+if (number > 90 && number < 110) {
+    alert("Bingo!");
+} else {
+    alert("Miss");
+}
+\`\`\`
+
+### Bài tập 2: Calculator đơn giản
+Viết ứng dụng calculator đơn giản. Yêu cầu người dùng nhập hai số và một ký tự đại diện cho phép toán ("+", "-", "*", "/").
+
+\`\`\`javascript
+let num1 = prompt("Enter first number:", 0);
+let num2 = prompt("Enter second number:", 0);
+let operation = prompt("Enter operation (+, -, *, /):", "+");
+
+num1 = Number(num1);
+num2 = Number(num2);
+
+if (Number.isNaN(num1) || Number.isNaN(num2)) {
+    alert("Invalid numbers!");
+} else {
+    let result;
+    switch (operation) {
+        case "+":
+            result = num1 + num2;
+            break;
+        case "-":
+            result = num1 - num2;
+            break;
+        case "*":
+            result = num1 * num2;
+            break;
+        case "/":
+            if (num2 === 0) {
+                alert("Cannot divide by zero!");
+                break;
+            }
+            result = num1 / num2;
+            break;
+        default:
+            alert("Invalid operation!");
+            break;
+    }
+    if (result !== undefined) {
+        alert(\`Result: \${result}\`);
+    }
+}
+\`\`\`
+
+## Kết Luận
+
+Các câu lệnh điều khiển luồng là một phần thiết yếu của hầu hết mọi ứng dụng. Chúng ta sử dụng chúng để kiểm tra và xử lý đầu vào của người dùng, các giá trị được tải từ web, hoặc kết quả của hầu hết mọi hoạt động.
+
+Chúng cho phép chúng ta xây dựng các ứng dụng linh hoạt và phản ứng. Cấu trúc phổ biến nhất là câu lệnh \`if ... else\`.
+
+Tuy nhiên, đừng quên rằng trong một số tình huống sẽ thuận tiện hơn khi sử dụng toán tử conditional hoặc câu lệnh \`switch\`.
+
+Việc hiểu và sử dụng thành thạo các conditional statements sẽ giúp bạn viết ra những ứng dụng JavaScript mạnh mẽ và linh hoạt.`
   }
 ]
