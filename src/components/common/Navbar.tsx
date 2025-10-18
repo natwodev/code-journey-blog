@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { Link, NavLink } from 'react-router-dom'
 import LanguageToggle from './LanguageToggle'
+import AudioToggle from './AudioToggle'
 import { useLanguage } from '../../hooks/useLanguage'
 
 export default function Navbar() {
@@ -27,6 +28,11 @@ export default function Navbar() {
 
         <div className="flex items-center gap-2">
           <LanguageToggle />
+          <AudioToggle
+            src={new URL('../../audio/hachimi.mp3', import.meta.url).href}
+            size="sm"
+            showLabel={false}
+          />
           {/* Mobile menu button */}
           <button
             className="md:hidden p-2 rounded-lg hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-brand-cyan/60"

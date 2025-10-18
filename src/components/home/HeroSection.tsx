@@ -3,7 +3,6 @@ import { useRef } from 'react'
 import { Link } from 'react-router-dom'
 import HeroBackground from '../../three/HeroBackground'
 import { useLanguage } from '../../hooks/useLanguage'
-import AudioToggle from '../common/AudioToggle'
 import { useTypingEffect } from '../../hooks/useTypingEffect'
 
 export default function HeroSection() {
@@ -36,16 +35,6 @@ export default function HeroSection() {
       className="relative flex flex-col items-center justify-center min-h-screen text-center px-6 -mt-10 [transform:translate3d(calc(var(--parx,0)*6px),calc(var(--pary,0)*6px),0)] transition-transform"
     >
       <HeroBackground />
-
-{/* Nút âm thanh */}
-<div className="absolute top-12 right-4 z-10">
-  <AudioToggle
-    src={new URL('../../audio/hachimi.mp3', import.meta.url).href}
-    size="sm"
-    showLabel={false}
-  />
-</div>
-
 
       {/* Tiêu đề chính */}
       <motion.h1
