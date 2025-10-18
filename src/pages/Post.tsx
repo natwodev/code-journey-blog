@@ -15,9 +15,6 @@ export default function Post() {
   if (!post) return <Navigate to="/blog" replace />
   // Always render internal detail; external posts will also show excerpt/content here
 
-  const textForReading = `${post.title}\n${post.excerpt}\n${post.content ?? ''}`
-  const words = textForReading.trim().split(/\s+/).filter(Boolean)
-  const readingTimeMinutes = Math.max(1, Math.ceil(words.length / 220))
 
   const handleShare = async () => {
     const url = window.location.href
@@ -66,7 +63,6 @@ export default function Post() {
 
       {/* Meta row */}
       <div className="mt-4 flex flex-wrap items-center gap-3 text-sm text-white/75">
-        <span className="px-2 py-0.5 rounded bg-white/8 border border-white/10">{readingTimeMinutes} phút đọc</span>
         <button onClick={handleShare} aria-label="Chia sẻ bài viết" className="ml-auto inline-flex items-center justify-center w-9 h-9 rounded-lg border border-white/15 bg-white/8 text-brand-cyan/90 hover:bg-white/10">
           <FiShare2 />
         </button>
