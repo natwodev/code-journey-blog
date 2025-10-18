@@ -5,9 +5,9 @@ import { useState } from 'react'
 import { IoEye } from 'react-icons/io5'
 import avatarImg from '../assets/avata.jpg'
 import certificateImg from '../assets/chungchi/chungchihutech.png'
-import ccnaIntroImg from '../assets/chungchi/ccna-intro.png'
-import ccnaSwitchingImg from '../assets/chungchi/ccna-switching.png'
-import ccnaEnterpriseImg from '../assets/chungchi/ccna-enterprise.png'
+import jsEssentials1Img from '../assets/chungchi/JavaScript_Essentials_1_certificate_nhuynhnamht2023-gmail-com_8862c400-1589-460b-a817-2bfa8e009f8d.jpg'
+import jsEssentials2Img from '../assets/chungchi/JavaScript_Essentials_2_certificate_nhuynhnamht2023-gmail-com_aac329b9-352b-4923-b4b8-44d3659e416b.jpg'
+import networkingBasicsImg from '../assets/chungchi/Networking_Basics_certificate_nhuynhnamht2023-gmail-com_1d0dffa0-7ffa-4e3a-9f46-749cb9f2afc9.jpg'
 import { projects } from '../data/projects'
 import { useTypingEffect } from '../hooks/useTypingEffect'
 import SkillBadge from '../components/common/SkillBadge'
@@ -49,28 +49,28 @@ export default function About() {
       certificateId: 'HUTECH-2024'
     },
     {
-      id: 'ccna-intro',
-      imageSrc: ccnaIntroImg,
-      title: 'CCNA: Introduction to Networks',
-      issuer: 'Cisco Systems, Inc.',
-      dateIssued: 'March 15, 2024',
-      certificateId: 'CCNA-INT-1234567'
+      id: 'js-essentials-1',
+      imageSrc: jsEssentials1Img,
+      title: 'JavaScript Essentials 1',
+      issuer: 'Cisco Networking Academy',
+      dateIssued: '2025',
+      certificateId: 'JS-ESS-1-8862c400'
     },
     {
-      id: 'ccna-switching',
-      imageSrc: ccnaSwitchingImg,
-      title: 'CCNA: Switching, Routing, and Wireless Essentials',
-      issuer: 'Cisco Systems, Inc.',
-      dateIssued: 'June 10, 2024',
-      certificateId: 'CCNA-SRW-1234567'
+      id: 'js-essentials-2',
+      imageSrc: jsEssentials2Img,
+      title: 'JavaScript Essentials 2',
+      issuer: 'Cisco Networking Academy',
+      dateIssued: '2025',
+      certificateId: 'JS-ESS-2-aac329b9'
     },
     {
-      id: 'ccna-enterprise',
-      imageSrc: ccnaEnterpriseImg,
-      title: 'CCNA: Enterprise Networking, Security, and Automation',
-      issuer: 'Cisco Systems, Inc.',
-      dateIssued: 'September 20, 2024',
-      certificateId: 'CCNA-ENSA-1234567'
+      id: 'networking-basics',
+      imageSrc: networkingBasicsImg,
+      title: 'Networking Basics',
+      issuer: 'Cisco Networking Academy',
+      dateIssued: '2025',
+      certificateId: 'NET-BAS-1d0dffa0'
     }
   ]
 
